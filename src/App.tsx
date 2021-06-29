@@ -1,33 +1,27 @@
 import React, {useMemo} from 'react';
-import {DataGrid} from "@material-ui/data-grid";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+} from "react-router-dom";
 import './App.css';
 import mock from './mock';
+import MockTable from "./table/Table";
+import MockDetails from "./details/Details";
 
 const App = () => {
-    const rows = useMemo(() => mock, []);
-    const columns = useMemo(() => ([
-            {field: 'customerName', headerName: 'CUSTOMER NAME', width: 300},
-            {field: 'parentCompany', headerName: 'PARENT COMPANY', width: 250, sortable: false},
-            {
-                field: 'billTo', headerName: 'BILL TO', width: 150, sortable: false,
-            },
-            {
-                field: 'accountBalanceFormat', headerName: 'ACCOUNT BALANCE (USD)', width: 200, sortable: false,
-                // @ts-ignore
-                valueGetter: (params) => new Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency: 'USD'
-                }).format(params.getValue(params.id, 'accountBalance')),
-            },
-            {field: 'lastInvoice', headerName: 'LAST INVOICE', width: 150, sortable: false},
-            {field: 'status', headerName: 'STATUS', width: 150, sortable: false},
-        ]), []);
-
+    const data = useMemo(() => mock, []);
     return (
         <div className="App">
-            <div className="Grid">
-                <DataGrid rows={rows} columns={columns} hideFooterPagination={true}/>
-            </div>
+            <Router>
+                <Switch>
+                    <Route exact path="/">
+                        <MockTable data={data}/>
+                    </Route>
+                    <Route path="/:recordId"
+                           children={props => <MockDetails id={props.match?.params.recordId} data={data}/>}/>
+                </Switch>
+            </Router>
         </div>
     );
 }
