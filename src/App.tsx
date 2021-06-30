@@ -19,7 +19,7 @@ const App = () => {
                         <MockTable data={data}/>
                     </Route>
                     <Route path="/:recordId"
-                           children={props => <MockDetails id={props.match?.params.recordId} data={data}/>}/>
+                           children={props => <MockDetails id={Number(props.match?.params.recordId)}/>}/>
                 </Switch>
             </Router>
         </div>

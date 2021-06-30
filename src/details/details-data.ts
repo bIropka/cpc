@@ -1,6 +1,63 @@
 import {Email, Phone} from '@material-ui/icons';
+import {OverridableComponent} from "@material-ui/core/OverridableComponent";
+import {SvgIconTypeMap} from "@material-ui/core";
 
-export const details = [{
+export interface Detail {
+    id: number,
+    accountNumber: string,
+    crmAccountId: string,
+    crmAccountURL: string,
+    createdBy: string,
+    createdByURL: string,
+    keyContact: string,
+    keyContactURL: string,
+    totalInvoiceBalance: number,
+    unappliedPaymentAmount: number,
+    contractedMrr: number,
+    totalDebitMemoBalance: number,
+    unappliedCreditMemoBalance: number,
+    todaysMrr: number,
+    creditBalance: number,
+    lastInvoiced: string,
+    contact_1: Contact,
+    contact_2: Contact
+    address_1: Address,
+    address_2: Address,
+    soldTo: string,
+    sector: string,
+    salesChannel: string,
+    salesFranchise: string,
+    vertical: null,
+    businessDivisions: null,
+    territory: null,
+    seUseCase: null,
+    accountProfile: string,
+    accountStructure: null,
+    inCollections: null,
+    segment: null,
+    corporateRegion: null,
+    customerName: string,
+    parentCompany: string,
+    billTo: string,
+    accountBalance: number,
+    lastInvoice: string,
+    status: string,
+}
+
+interface Contact {
+    name: string;
+    list: Array<ContactListItem>
+}
+
+export interface ContactListItem {
+    icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>,
+    text: string,
+    url?: string
+}
+
+type Address = Array<string>;
+
+export const details: Detail[] = [{
     id: 1,
     accountNumber: 'A00013279',
     crmAccountId: '001I00008gcEYQAY',
@@ -32,7 +89,7 @@ export const details = [{
         ],
     },
     address_1: [
-        '404 Wild Coyote Dr.',
+        '404304 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
@@ -52,7 +109,7 @@ export const details = [{
         ],
     },
     address_2: [
-        '404 Wild Coyote Dr.',
+        '404233 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
@@ -106,7 +163,7 @@ export const details = [{
         ],
     },
     address_1: [
-        '404 Wild Coyote Dr.',
+        '404333xZc Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
