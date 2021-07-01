@@ -1,11 +1,41 @@
-.Grid-wrapper {
+.grid-wrapper {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
-.Grid {
+.grid-header {
+  width: 85%;
+  display: flex;
+  padding: 25px 10px;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.header-functional-block,
+.header-info-block {
+  display: flex;
+}
+
+.header-info-block__header-title {
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
+.header-functional-block__button-spacing {
+  margin-right: 10px !important;
+  box-sizing: border-box;
+}
+
+.grid {
   width: 85%;
   height: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
