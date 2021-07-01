@@ -5,7 +5,7 @@
 `docker-compose down`
 
 ### Rebuild after changes ###
-`docker-compose up --build -d'
+`docker-compose up --build -d`
 
 ### GraphQL playground (Web UI GraphQL client) ###
 [http://localhost:8090/playground](http://localhost:8080/playground)
