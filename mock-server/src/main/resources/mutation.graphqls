@@ -1,0 +1,4 @@
+# Root
+type Mutation {
+    createWidget(type: String!, fetchDataQuery: String): Widget!
+}

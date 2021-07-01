@@ -1,0 +1,8 @@
+# Root
+type Query {
+    findAllWidgets: [Widget]!
+    countWidgets: Int!
+    accounts(pageSize: Int!, cursor: String): AccountConnection @connection (for: "Account")
+    getAccount(id: String): Account
+}
+
