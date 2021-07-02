@@ -1,0 +1,36 @@
+.details-wrapper {
+    height: fit-content;
+    margin: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    border: solid gray 1px;
+    background-color: snow;
+}
+.details {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+.details-cell {
+    padding: 20px;
+}
+.details-cell-title{
+    font-size: 20px;
+    color: lightslategray;
+}
+
+.details-contacts {
+    margin-top: 5px;
+    display: flex;
+}
+
+.details-contacts-text {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.details-contacts-link {
+    margin-left: 10px;
+    color: dodgerblue;
+}
