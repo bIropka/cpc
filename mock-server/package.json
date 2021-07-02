@@ -1,0 +1,12 @@
+{
+  "name": "mock-server",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "docker-compose up -d",
+    "stop": "docker-compose down",
+    "rebuild": "docker-compose up --build -d",
+    "import-collection": "docker cp data_json/MOCK_DATA.json mongo_db:/MOCK_DATA.json && docker-compose exec -T mongo sh -c \"mongoimport --db demo --collection account --file MOCK_DATA.json --jsonArray --password root --username root --authenticationDatabase admin\"",
+    "drop-collection": "docker-compose exec -T mongo sh -c \"mongo demo --password root --username root --authenticationDatabase admin --eval 'db.account.drop()'\""
+  }
+}
