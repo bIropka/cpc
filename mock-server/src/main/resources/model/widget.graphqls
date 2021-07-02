@@ -1,0 +1,5 @@
+type Widget {
+    id: ID!
+    type: String!
+    fetchDataQuery: String
+}

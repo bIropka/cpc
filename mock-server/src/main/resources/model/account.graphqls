@@ -1,0 +1,22 @@
+type Account {
+    Id: String!
+    Name: String
+    Balance: Float
+    Currency: String
+    Mrr: Float
+    LastInvoiceDate: String
+    Status: String
+    Parent: Parent
+    BillTo: BillTo
+    PaymentTerm: String
+}
+
+type Parent {
+    Name: String
+    Id: String
+}
+
+type BillTo{
+    FirstName: String
+    LastName: String
+}
