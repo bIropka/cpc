@@ -21,6 +21,6 @@
 `docker-compose exec -T mongo sh -c 'mongodump --archive -p root -u root' > dump/db.dump`
 
 ### Import from json file
-`docker cp MOCK_DATA.json mongo_db:/MOCK_DATA.json`
+`docker cp data_json/MOCK_DATA.json mongo_db:/MOCK_DATA.json`
 
-`docker-compose exec -T mongo sh -c 'mongoimport --db demo --collection account --file MOCK_DATA.json --jsonArray --password root --username root --authenticationDatabase admin'`
+`docker-compose exec -T mongo sh -c "mongoimport --db demo --collection account --file MOCK_DATA.json --jsonArray --password root --username root --authenticationDatabase admin"`
