@@ -1,4 +1,5 @@
 import React, {useMemo} from 'react';
+import { useQuery } from '@apollo/client';
 import {DataGrid, GridCellParams} from "@material-ui/data-grid";
 import {Link} from "react-router-dom";
 import Chip from '@material-ui/core/Chip';
@@ -9,6 +10,8 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import './Table.css';
+import {getAccountsQuery} from './quries';
+
 // @ts-ignore
 const Table = (props) => {
     const {data: rows} = props;
@@ -95,6 +98,22 @@ const Table = (props) => {
             ),
         },
     ]), []);
+    const { loading, error, data } = useQuery(getAccountsQuery(5));
+
+    if (loading) {
+        console.log('GET_ACCOUNTS is loading...');
+    } else if (error) {
+        console.log('GET_ACCOUNTS loading is failed!');
+        console.error(error);
+    } else if (!loading && data) {
+        console.log('GET_ACCOUNTS is loaded successfully!');
+        console.log(data);
+    } else {
+        console.log('Shit happened -_-');
+        console.log('loading -> ', loading);
+        console.log('error -> ', error);
+        console.log('data -> ', data);
+    }
 
     return (
         <div className="grid-wrapper">

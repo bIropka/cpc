@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 const Details = (props: { id: number }) => {
     const classes = useStyles();
 
-    const data: Detail = useMemo(() => details[props.id - 1], []);
+    const data: Detail = useMemo(() => details[props.id - 1], [props.id]);
     return (
         <div className="details-wrapper">
             <div className="details">
