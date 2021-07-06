@@ -1,0 +1,6727 @@
+schema {
+  query: query
+}
+
+"""
+Exposes a URL that specifies the behaviour of this scalar.
+"""
+directive @specifiedBy(
+  """
+  The URL that specifies the behaviour of this scalar.
+  """
+  url: String!
+) on SCALAR
+
+type _account implements singleObject {
+  AccountNumber: String
+  AdditionalEmailAddresses: String
+  AllowInvoiceEdit: Boolean
+  AutoPay: Boolean
+  Balance: Float
+  Batch: String
+  BcdSettingOption: String
+  BillCycleDay: BigInteger
+  BillToId: String
+  CommunicationProfileId: String
+  CreatedById: String
+  CreatedDate: String
+  CreditBalance: Float
+  CrmId: String
+  Currency: String
+  CustomerServiceRepName: String
+  DebitMemoTotalBalance: Float
+  DefaultPaymentMethodId: String
+  Id: String
+  InvoiceDeliveryPrefsEmail: Boolean
+  InvoiceDeliveryPrefsPrint: Boolean
+  InvoiceTemplateId: String
+  LastInvoiceDate: String
+  Mrr: Float
+  Name: String
+  Notes: String
+  ParentId: String
+  PaymentGateway: String
+  PaymentTerm: String
+  PurchaseOrderNumber: String
+  SalesRepName: String
+  SoldToId: String
+  Status: String
+  TaxCompanyCode: String
+  TaxExemptCertificateID: String
+  TaxExemptCertificateType: String
+  TaxExemptDescription: String
+  TaxExemptEffectiveDate: String
+  TaxExemptExpirationDate: String
+  TaxExemptIssuingJurisdiction: String
+  TaxExemptStatus: String
+  TotalInvoiceBalance: Float
+  UnappliedBalance: Float
+  UnappliedCreditMemoAmount: Float
+  UpdatedById: String
+  UpdatedDate: String
+  VATId: String
+}
+
+type _accountConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [_accountEdge]
+}
+
+type _accountEdge {
+  node: _account
+}
+
+input _accountFilterInput {
+  field: _accountFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [_accountFilterInput]
+}
+
+enum _accountFilterKey
+
+input _accountSortInput {
+  field: _accountSortKey
+  order: Order
+}
+
+enum _accountSortKey
+
+type _invoice implements singleObject {
+  AdjustmentAmount: Float
+  Amount: Float
+  AmountWithoutTax: Float
+  Balance: Float
+  Comments: String
+  CreatedById: String
+  CreatedDate: String
+  CreditBalanceAdjustmentAmount: Float
+  DueDate: String
+  Id: String
+  IncludesOneTime: Boolean
+  IncludesRecurring: Boolean
+  IncludesUsage: Boolean
+  InvoiceDate: String
+  InvoiceNumber: String
+  LastEmailSentDate: String
+  PaymentAmount: Float
+  PostedBy: String
+  PostedDate: String
+  RefundAmount: Float
+  Source: String
+  SourceId: String
+  Status: String
+  TargetDate: String
+  TaxAmount: Float
+  TaxExemptAmount: Float
+  TransferredToAccounting: String
+  UpdatedById: String
+  UpdatedDate: String
+}
+
+type _invoiceConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [_invoiceEdge]
+}
+
+type _invoiceEdge {
+  node: _invoice
+}
+
+input _invoiceFilterInput {
+  field: _invoiceFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [_invoiceFilterInput]
+}
+
+enum _invoiceFilterKey
+
+type _invoiceitem implements singleObject {
+  AccountingCode: String
+  AppliedToInvoiceItemId: String
+  ChargeAmount: Float
+  ChargeDate: String
+  ChargeName: String
+  CreatedById: String
+  CreatedDate: String
+  Id: String
+  InvoiceId: String
+  ProcessingType: String
+  Quantity: Float
+  RevRecStartDate: String
+  SKU: String
+  ServiceEndDate: String
+  ServiceStartDate: String
+  SubscriptionComponentId: String
+  SubscriptionId: String
+  TaxAmount: Float
+  TaxCode: String
+  TaxExemptAmount: Float
+  TaxMode: String
+  UOM: String
+  UnitPrice: Float
+  UpdatedById: String
+  UpdatedDate: String
+}
+
+type _invoiceitemConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [_invoiceitemEdge]
+}
+
+type _invoiceitemEdge {
+  node: _invoiceitem
+}
+
+input _invoiceitemFilterInput {
+  field: _invoiceitemFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [_invoiceitemFilterInput]
+}
+
+enum _invoiceitemFilterKey
+
+input _invoiceitemSortInput {
+  field: _invoiceitemSortKey
+  order: Order
+}
+
+enum _invoiceitemSortKey
+
+input _invoiceSortInput {
+  field: _invoiceSortKey
+  order: Order
+}
+
+enum _invoiceSortKey
+
+type _processedusage implements singleObject {
+  Amount: Float
+  BillingPeriodEndDate: String
+  BillingPeriodStartDate: String
+  CreatedById: String
+  CreatedDate: String
+  Id: String
+  NewUsageId: String
+  UpdatedById: String
+  UpdatedDate: String
+  UsageId: String
+}
+
+type _processedusageConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [_processedusageEdge]
+}
+
+type _processedusageEdge {
+  node: _processedusage
+}
+
+input _processedusageFilterInput {
+  field: _processedusageFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [_processedusageFilterInput]
+}
+
+enum _processedusageFilterKey
+
+input _processedusageSortInput {
+  field: _processedusageSortKey
+  order: Order
+}
+
+enum _processedusageSortKey
+
+type _product implements singleObject {
+  AllowFeatureChanges: Boolean
+  CreatedById: String
+  CreatedDate: String
+  Description: String
+  EffectiveEndDate: String
+  EffectiveStartDate: String
+  Id: String
+  Name: String
+  ProductCategoryName: String
+  SKU: String
+  UpdatedById: String
+  UpdatedDate: String
+}
+
+type _productConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [_productEdge]
+}
+
+type _productEdge {
+  node: _product
+}
+
+input _productFilterInput {
+  field: _productFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [_productFilterInput]
+}
+
+enum _productFilterKey
+
+type _productrateplan implements singleObject {
+  CreatedById: String
+  CreatedDate: String
+  Description: String
+  EffectiveEndDate: String
+  EffectiveStartDate: String
+  Id: String
+  Name: String
+  UpdatedById: String
+  UpdatedDate: String
+}
+
+type _productrateplanConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [_productrateplanEdge]
+}
+
+type _productrateplanEdge {
+  node: _productrateplan
+}
+
+input _productrateplanFilterInput {
+  field: _productrateplanFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [_productrateplanFilterInput]
+}
+
+enum _productrateplanFilterKey
+
+input _productrateplanSortInput {
+  field: _productrateplanSortKey
+  order: Order
+}
+
+enum _productrateplanSortKey
+
+input _productSortInput {
+  field: _productSortKey
+  order: Order
+}
+
+enum _productSortKey
+
+type _subscription implements singleObject {
+  AccountId: String
+  AncestorAccountId: String
+  AutoRenew: Boolean
+  CancelledDate: String
+  ContractAcceptanceDate: String
+  ContractEffectiveDate: String
+  CpqBundleJsonId__QT: String
+  CreatedById: String
+  CreatedDate: String
+  CreatorAccountId: String
+  CreatorInvoiceOwnerId: String
+  CurrentTerm: BigInteger
+  CurrentTermPeriodType: String
+  Id: String
+  InitialTerm: BigInteger
+  InitialTermPeriodType: String
+  InvoiceOwnerId: String
+  InvoiceSeparate: Boolean
+  Name: String
+  Notes: String
+  OpportunityCloseDate__QT: String
+  OpportunityName__QT: String
+  OriginalCreatedDate: String
+  OriginalId: String
+  PreviousSubscriptionId: String
+  QuoteBusinessType__QT: String
+  QuoteNumber__QT: String
+  QuoteType__QT: String
+  RenewalSetting: String
+  RenewalTerm: BigInteger
+  RenewalTermPeriodType: String
+  ServiceActivationDate: String
+  Status: String
+  SubscriptionEndDate: String
+  SubscriptionStartDate: String
+  TermEndDate: String
+  TermStartDate: String
+  TermType: String
+  UpdatedById: String
+  UpdatedDate: String
+  Version: BigInteger
+}
+
+type _subscriptionConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [_subscriptionEdge]
+}
+
+type _subscriptionEdge {
+  node: _subscription
+}
+
+input _subscriptionFilterInput {
+  field: _subscriptionFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [_subscriptionFilterInput]
+}
+
+enum _subscriptionFilterKey
+
+type _subscriptionrateplan implements singleObject {
+  AmendmentId: String
+  AmendmentType: String
+  CreatedById: String
+  CreatedDate: String
+  Id: String
+  Name: String
+  OriginalSubscriptionRatePlanId: String
+  ProductRatePlanId: String
+  RatePlanId: String
+  SubscriptionId: String
+  UpdatedById: String
+  UpdatedDate: String
+}
+
+type _subscriptionrateplanConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [_subscriptionrateplanEdge]
+}
+
+type _subscriptionrateplanEdge {
+  node: _subscriptionrateplan
+}
+
+input _subscriptionrateplanFilterInput {
+  field: _subscriptionrateplanFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [_subscriptionrateplanFilterInput]
+}
+
+enum _subscriptionrateplanFilterKey
+
+input _subscriptionrateplanSortInput {
+  field: _subscriptionrateplanSortKey
+  order: Order
+}
+
+enum _subscriptionrateplanSortKey
+
+input _subscriptionSortInput {
+  field: _subscriptionSortKey
+  order: Order
+}
+
+enum _subscriptionSortKey
+
+type _usage implements singleObject {
+  AccountId: String
+  AccountNumber: String
+  CreatedById: String
+  CreatedDate: String
+  EndDateTime: String
+  Id: String
+  Quantity: Float
+  RbeStatus: String
+  SourceType: String
+  StartDateTime: String
+  Status: String
+  SubmissionDateTime: String
+  SubscriptionId: String
+  UOM: String
+  UpdatedById: String
+  UpdatedDate: String
+}
+
+type _usageConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [_usageEdge]
+}
+
+type _usageEdge {
+  node: _usage
+}
+
+input _usageFilterInput {
+  field: _usageFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [_usageFilterInput]
+}
+
+enum _usageFilterKey
+
+input _usageSortInput {
+  field: _usageSortKey
+  order: Order
+}
+
+enum _usageSortKey
+
+type account implements singleObject {
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  deleted: Boolean
+  AccountNumber: String
+  AdditionalEmailAddresses: String
+  AllowInvoiceEdit: Boolean
+  AutoPay: Boolean
+  Balance: Float
+  Batch: String
+  BcdSettingOption: String
+  BillCycleDay: BigInteger
+  BillToId: String
+  CommunicationProfileId: String
+  CreditBalance: Float
+  CrmId: String
+  Currency: String
+  CustomerServiceRepName: String
+  DefaultPaymentMethodId: String
+  InvoiceDeliveryPrefsEmail: Boolean
+  InvoiceDeliveryPrefsPrint: Boolean
+  InvoiceTemplateId: String
+  LastInvoiceDate: String
+  Name: String
+  Notes: String
+  ParentId: String
+  PurchaseOrderNumber: String
+  SalesRepName: String
+  SequenceSetId: String
+  SoldToId: String
+  Status: String
+  TaxCompanyCode: String
+  TaxExemptCertificateID: String
+  TaxExemptCertificateType: String
+  TaxExemptDescription: String
+  TaxExemptEffectiveDate: String
+  TaxExemptEntityUseCode: String
+  TaxExemptExpirationDate: String
+  TaxExemptIssuingJurisdiction: String
+  TaxExemptStatus: String
+  TotalInvoiceBalance: Float
+  UnappliedBalance: Float
+  VATId: String
+  Mrr: Float
+  TotalDebitMemoBalance: Float
+  UnappliedCreditMemoAmount: Float
+  CreditMemoTemplateId: String
+  DebitMemoTemplateId: String
+  PaymentGateway: String
+  PaymentTerm: String
+  account_country__c: String
+  SalesFranchise__c: String
+  SalesChannel__c: String
+  Sector__c: String
+  UpdatedBy: user
+  refunds(
+    filter: refundFilterInput
+    orderBy: [refundSortInput]
+    pageSize: Int
+    cursor: String
+  ): refundConnection
+  invoices(
+    filter: invoiceFilterInput
+    orderBy: [invoiceSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceConnection
+  DefaultPaymentMethod: paymentmethod
+  subscriptions(
+    filter: subscriptionFilterInput
+    orderBy: [subscriptionSortInput]
+    pageSize: Int
+    cursor: String
+  ): subscriptionConnection
+  usages(
+    filter: usageFilterInput
+    orderBy: [usageSortInput]
+    pageSize: Int
+    cursor: String
+  ): usageConnection
+  paymentmethods(
+    filter: paymentmethodFilterInput
+    orderBy: [paymentmethodSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentmethodConnection
+  Parent: account
+  paymentmethodtransactionlogs(
+    filter: paymentmethodtransactionlogFilterInput
+    orderBy: [paymentmethodtransactionlogSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentmethodtransactionlogConnection
+  SoldTo: contact
+  invoiceadjustments(
+    filter: invoiceadjustmentFilterInput
+    orderBy: [invoiceadjustmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceadjustmentConnection
+  CreatedBy: user
+  accounts(
+    filter: accountFilterInput
+    orderBy: [accountSortInput]
+    pageSize: Int
+    cursor: String
+  ): accountConnection
+  BillTo: contact
+  paymenttransactionlogs(
+    filter: paymenttransactionlogFilterInput
+    orderBy: [paymenttransactionlogSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymenttransactionlogConnection
+  payments(
+    filter: paymentFilterInput
+    orderBy: [paymentSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentConnection
+  attachments(
+    filter: attachmentFilterInput
+    orderBy: [attachmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): attachmentConnection
+}
+
+type accountConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [accountEdge]
+}
+
+type accountEdge {
+  node: account
+}
+
+input accountFilterInput {
+  field: accountFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [accountFilterInput]
+}
+
+enum accountFilterKey {
+  Id
+  UpdatedDate
+  AccountNumber
+  Batch
+  BillCycleDay
+  BillToId
+  CommunicationProfileId
+  CrmId
+  Currency
+  DefaultPaymentMethodId
+  InvoiceTemplateId
+  Name
+  ParentId
+  SoldToId
+  Status
+  account_country__c
+  SalesFranchise__c
+  SalesChannel__c
+  Sector__c
+}
+
+type accountingcode implements singleObject {
+  deleted: Boolean
+  Category: String
+  GLAccountName: String
+  GLAccountNumber: String
+  Name: String
+  Notes: String
+  Status: String
+  Type: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  productrateplancharges(
+    filter: productrateplanchargeFilterInput
+    orderBy: [productrateplanchargeSortInput]
+    pageSize: Int
+    cursor: String
+  ): productrateplanchargeConnection
+  UpdatedBy: user
+  invoiceitems(
+    filter: invoiceitemFilterInput
+    orderBy: [invoiceitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceitemConnection
+  invoiceitemadjustments(
+    filter: invoiceitemadjustmentFilterInput
+    orderBy: [invoiceitemadjustmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceitemadjustmentConnection
+  invoicepayments(
+    filter: invoicepaymentFilterInput
+    orderBy: [invoicepaymentSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoicepaymentConnection
+  rateplancharges(
+    filter: rateplanchargeFilterInput
+    orderBy: [rateplanchargeSortInput]
+    pageSize: Int
+    cursor: String
+  ): rateplanchargeConnection
+  invoiceadjustments(
+    filter: invoiceadjustmentFilterInput
+    orderBy: [invoiceadjustmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceadjustmentConnection
+  taxationitems(
+    filter: taxationitemFilterInput
+    orderBy: [taxationitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): taxationitemConnection
+  journalentryitems(
+    filter: journalentryitemFilterInput
+    orderBy: [journalentryitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): journalentryitemConnection
+  refundinvoicepayments(
+    filter: refundinvoicepaymentFilterInput
+    orderBy: [refundinvoicepaymentSortInput]
+    pageSize: Int
+    cursor: String
+  ): refundinvoicepaymentConnection
+  CreatedBy: user
+}
+
+type accountingcodeConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [accountingcodeEdge]
+}
+
+type accountingcodeEdge {
+  node: accountingcode
+}
+
+input accountingcodeFilterInput {
+  field: accountingcodeFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [accountingcodeFilterInput]
+}
+
+enum accountingcodeFilterKey {
+  Type
+  Id
+  UpdatedDate
+}
+
+input accountingcodeSortInput {
+  field: accountingcodeSortKey
+  order: Order
+}
+
+enum accountingcodeSortKey {
+  Type
+  Id
+  UpdatedDate
+}
+
+type accountingperiod implements singleObject {
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  EndDate: String
+  FiscalQuarter: Int
+  FiscalYear: Int
+  Name: String
+  Notes: String
+  StartDate: String
+  Status: String
+  UpdatedBy: user
+  CreatedBy: user
+  journalentries(
+    filter: journalentryFilterInput
+    orderBy: [journalentrySortInput]
+    pageSize: Int
+    cursor: String
+  ): journalentryConnection
+}
+
+type accountingperiodConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [accountingperiodEdge]
+}
+
+type accountingperiodEdge {
+  node: accountingperiod
+}
+
+input accountingperiodFilterInput {
+  field: accountingperiodFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [accountingperiodFilterInput]
+}
+
+enum accountingperiodFilterKey {
+  Id
+  UpdatedDate
+  EndDate
+  Name
+  StartDate
+}
+
+input accountingperiodSortInput {
+  field: accountingperiodSortKey
+  order: Order
+}
+
+enum accountingperiodSortKey {
+  Id
+  UpdatedDate
+  EndDate
+  Name
+  StartDate
+}
+
+input accountSortInput {
+  field: accountSortKey
+  order: Order
+}
+
+enum accountSortKey {
+  Id
+  UpdatedDate
+  AccountNumber
+  Batch
+  BillCycleDay
+  BillToId
+  CommunicationProfileId
+  CrmId
+  Currency
+  DefaultPaymentMethodId
+  InvoiceTemplateId
+  Name
+  ParentId
+  SoldToId
+  Status
+  account_country__c
+  SalesFranchise__c
+  SalesChannel__c
+  Sector__c
+}
+
+type amendment implements singleObject {
+  deleted: Boolean
+  Id: String
+  AutoRenew: Boolean
+  Code: String
+  ContractEffectiveDate: String
+  CurrentTerm: BigInteger
+  CurrentTermPeriodType: String
+  CustomerAcceptanceDate: String
+  Description: String
+  EffectiveDate: String
+  Name: String
+  RenewalSetting: String
+  RenewalTerm: BigInteger
+  RenewalTermPeriodType: String
+  ResumeDate: String
+  ServiceActivationDate: String
+  SpecificUpdateDate: String
+  Status: String
+  SubscriptionId: String
+  SuspendDate: String
+  TermStartDate: String
+  TermType: String
+  Type: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  UpdatedBy: user
+  CreatedBy: user
+  subscriptions(
+    filter: subscriptionFilterInput
+    orderBy: [subscriptionSortInput]
+    pageSize: Int
+    cursor: String
+  ): subscriptionConnection
+  rateplans(
+    filter: rateplanFilterInput
+    orderBy: [rateplanSortInput]
+    pageSize: Int
+    cursor: String
+  ): rateplanConnection
+}
+
+type amendmentConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [amendmentEdge]
+}
+
+type amendmentEdge {
+  node: amendment
+}
+
+input amendmentFilterInput {
+  field: amendmentFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [amendmentFilterInput]
+}
+
+enum amendmentFilterKey {
+  Id
+  Name
+  Status
+  SubscriptionId
+  Type
+  UpdatedDate
+}
+
+input amendmentSortInput {
+  field: amendmentSortKey
+  order: Order
+}
+
+enum amendmentSortKey {
+  Id
+  Name
+  Status
+  SubscriptionId
+  Type
+  UpdatedDate
+}
+
+type aquatasklog implements singleObject {
+  deleted: Boolean
+  JobId: String
+  Name: String
+  Query: String
+  ProcessingTime: BigInteger
+  RecordsProcessed: BigInteger
+  FileId: String
+  QueryType: String
+  Status: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  UpdatedBy: user
+  CreatedBy: user
+}
+
+type aquatasklogConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [aquatasklogEdge]
+}
+
+type aquatasklogEdge {
+  node: aquatasklog
+}
+
+input aquatasklogFilterInput {
+  field: aquatasklogFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [aquatasklogFilterInput]
+}
+
+enum aquatasklogFilterKey {
+  JobId
+  Id
+  UpdatedDate
+}
+
+input aquatasklogSortInput {
+  field: aquatasklogSortKey
+  order: Order
+}
+
+enum aquatasklogSortKey {
+  JobId
+  Id
+  UpdatedDate
+}
+
+type attachment implements singleObject {
+  deleted: Boolean
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  FileId: String
+  Description: String
+  AssociatedObjectType: String
+  AssociatedObjectId: String
+  FileName: String
+  Size: BigInteger
+  FileContentType: String
+}
+
+type attachmentConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [attachmentEdge]
+}
+
+type attachmentEdge {
+  node: attachment
+}
+
+input attachmentFilterInput {
+  field: attachmentFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [attachmentFilterInput]
+}
+
+enum attachmentFilterKey {
+  Id
+  UpdatedDate
+  AssociatedObjectType
+  AssociatedObjectId
+}
+
+input attachmentSortInput {
+  field: attachmentSortKey
+  order: Order
+}
+
+enum attachmentSortKey {
+  Id
+  UpdatedDate
+  AssociatedObjectType
+  AssociatedObjectId
+}
+
+type auditloginevent implements singleObject {
+  Id: String
+  CreatedById: String
+  UpdatedById: String
+  CreatedDate: String
+  UpdatedDate: String
+  deleted: Boolean
+  Status: String
+  UserName: String
+  Timestamp: String
+  BrowserType: String
+  Version: String
+  UserId: String
+  SequenceNumber: BigInteger
+  EventId: String
+  IpAddress: String
+  LoginType: String
+  TokenId: String
+  BrowserVersion: String
+  HostName: String
+}
+
+type auditlogineventConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [auditlogineventEdge]
+}
+
+type auditlogineventEdge {
+  node: auditloginevent
+}
+
+input auditlogineventFilterInput {
+  field: auditlogineventFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [auditlogineventFilterInput]
+}
+
+enum auditlogineventFilterKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  Status
+  UserName
+  Timestamp
+  BrowserType
+  LoginType
+}
+
+input auditlogineventSortInput {
+  field: auditlogineventSortKey
+  order: Order
+}
+
+enum auditlogineventSortKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  Status
+  UserName
+  Timestamp
+  BrowserType
+  LoginType
+}
+
+type auditobjectchangeevent implements singleObject {
+  Id: String
+  CreatedById: String
+  UpdatedById: String
+  CreatedDate: String
+  UpdatedDate: String
+  deleted: Boolean
+  Action: String
+  UserName: String
+  ObjectId: String
+  OldValue: String
+  AttributeId: String
+  Timestamp: String
+  Namespace: String
+  TransactionId: String
+  ObjectName: String
+  ObjectType: String
+  UserId: String
+  SequenceNumber: BigInteger
+  EventId: String
+  NewValue: String
+  TokenId: String
+}
+
+type auditobjectchangeeventConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [auditobjectchangeeventEdge]
+}
+
+type auditobjectchangeeventEdge {
+  node: auditobjectchangeevent
+}
+
+input auditobjectchangeeventFilterInput {
+  field: auditobjectchangeeventFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [auditobjectchangeeventFilterInput]
+}
+
+enum auditobjectchangeeventFilterKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  Action
+  UserName
+  AttributeId
+  ObjectName
+  ObjectType
+}
+
+input auditobjectchangeeventSortInput {
+  field: auditobjectchangeeventSortKey
+  order: Order
+}
+
+enum auditobjectchangeeventSortKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  Action
+  UserName
+  AttributeId
+  ObjectName
+  ObjectType
+}
+
+type auditsettingchangeevent implements singleObject {
+  Id: String
+  CreatedById: String
+  UpdatedById: String
+  CreatedDate: String
+  UpdatedDate: String
+  deleted: Boolean
+  Action: String
+  UserName: String
+  AttributeId: String
+  OldValue: String
+  SettingType: String
+  Timestamp: String
+  Namespace: String
+  TransactionId: String
+  UserId: String
+  SequenceNumber: BigInteger
+  EventId: String
+  AttributeName: String
+  NewValue: String
+  TokenId: String
+  SettingObjectName: String
+}
+
+type auditsettingchangeeventConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [auditsettingchangeeventEdge]
+}
+
+type auditsettingchangeeventEdge {
+  node: auditsettingchangeevent
+}
+
+input auditsettingchangeeventFilterInput {
+  field: auditsettingchangeeventFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [auditsettingchangeeventFilterInput]
+}
+
+enum auditsettingchangeeventFilterKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  UserName
+  SettingType
+  Timestamp
+  Namespace
+  TransactionId
+}
+
+input auditsettingchangeeventSortInput {
+  field: auditsettingchangeeventSortKey
+  order: Order
+}
+
+enum auditsettingchangeeventSortKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  UserName
+  SettingType
+  Timestamp
+  Namespace
+  TransactionId
+}
+
+"""
+Built-in java.math.BigInteger
+"""
+scalar BigInteger
+
+type billingrun implements singleObject {
+  deleted: Boolean
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  BillingRunNumber: String
+  BillingRunType: String
+  EndDate: String
+  ErrorMessage: String
+  ExecutedDate: String
+  InvoiceDate: String
+  NumberOfAccounts: BigInteger
+  NumberOfInvoices: BigInteger
+  NumberOfCreditMemos: BigInteger
+  PostedDate: String
+  StartDate: String
+  Status: String
+  TargetDate: String
+  TargetType: String
+  TotalTime: BigInteger
+  AccountId: String
+  BillCycleDay: String
+  Batches: String
+  NoEmailForZeroAmountInvoice: Boolean
+  AutoPost: Boolean
+  AutoEmail: Boolean
+  AutoRenewal: Boolean
+  InvoicesEmailed: Boolean
+  LastEmailSentTime: String
+  TargetDateOffSet: Int
+  InvoiceDateOffSet: Int
+  ChargeTypeToExclude: String
+  RepeatType: String
+  RepeatFrom: String
+  RepeatTo: String
+  RunTime: Int
+  TimeZone: String
+  MonthlyOnDay: String
+  WeeklyOnDay: String
+  UpdatedBy: user
+  CreatedBy: user
+}
+
+type billingrunConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [billingrunEdge]
+}
+
+type billingrunEdge {
+  node: billingrun
+}
+
+input billingrunFilterInput {
+  field: billingrunFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [billingrunFilterInput]
+}
+
+enum billingrunFilterKey {
+  Id
+  UpdatedDate
+  BillingRunNumber
+}
+
+input billingrunSortInput {
+  field: billingrunSortKey
+  order: Order
+}
+
+enum billingrunSortKey {
+  Id
+  UpdatedDate
+  BillingRunNumber
+}
+
+type chargemetrics implements singleObject {
+  Id: String
+  SubscriptionOwnerAccountNumber: String
+  InvoiceOwnerAccountNumber: String
+  SubscriptionName: String
+  ChargeNumber: String
+  RatePlanChargeId: String
+  ProductId: String
+  ProductRatePlanId: String
+  ProductRatePlanChargeId: String
+  AmendmentId: String
+  AmendmentType: String
+  StartDate: String
+  EndDate: String
+  MrrGrossAmount: Float
+  MrrNetAmount: Float
+  MrrDiscountAmount: Float
+  TcvGrossAmount: Float
+  TcvNetAmount: Float
+  TcvDiscountAmount: Float
+  Currency: String
+  CreatedDate: String
+  UpdatedDate: String
+  deleted: Boolean
+}
+
+type chargemetricsConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [chargemetricsEdge]
+}
+
+type chargemetricsdiscountallocationdetail implements singleObject {
+  Id: String
+  ChargeMetricsId: String
+  DiscountChargeNumber: String
+  DiscountMrr: Float
+  DiscountTcv: Float
+  CreatedDate: String
+  UpdatedDate: String
+  deleted: Boolean
+  SubscriptionOwnerAccountNumber: String
+  InvoiceOwnerAccountNumber: String
+  SubscriptionName: String
+  ChargeNumber: String
+  RatePlanChargeId: String
+  ProductId: String
+  ProductRatePlanId: String
+  ProductRatePlanChargeId: String
+  AmendmentId: String
+  AmendmentType: String
+  StartDate: String
+  EndDate: String
+  Currency: String
+}
+
+type chargemetricsdiscountallocationdetailConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [chargemetricsdiscountallocationdetailEdge]
+}
+
+type chargemetricsdiscountallocationdetailEdge {
+  node: chargemetricsdiscountallocationdetail
+}
+
+input chargemetricsdiscountallocationdetailFilterInput {
+  field: chargemetricsdiscountallocationdetailFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [chargemetricsdiscountallocationdetailFilterInput]
+}
+
+enum chargemetricsdiscountallocationdetailFilterKey {
+  Id
+  ChargeMetricsId
+  DiscountChargeNumber
+  DiscountMrr
+  DiscountTcv
+  CreatedDate
+  UpdatedDate
+  deleted
+  SubscriptionOwnerAccountNumber
+  InvoiceOwnerAccountNumber
+  SubscriptionName
+  ChargeNumber
+  RatePlanChargeId
+  ProductId
+  ProductRatePlanId
+  ProductRatePlanChargeId
+  AmendmentId
+  AmendmentType
+  StartDate
+  EndDate
+  Currency
+}
+
+input chargemetricsdiscountallocationdetailSortInput {
+  field: chargemetricsdiscountallocationdetailSortKey
+  order: Order
+}
+
+enum chargemetricsdiscountallocationdetailSortKey {
+  Id
+  ChargeMetricsId
+  DiscountChargeNumber
+  DiscountMrr
+  DiscountTcv
+  CreatedDate
+  UpdatedDate
+  deleted
+  SubscriptionOwnerAccountNumber
+  InvoiceOwnerAccountNumber
+  SubscriptionName
+  ChargeNumber
+  RatePlanChargeId
+  ProductId
+  ProductRatePlanId
+  ProductRatePlanChargeId
+  AmendmentId
+  AmendmentType
+  StartDate
+  EndDate
+  Currency
+}
+
+type chargemetricsEdge {
+  node: chargemetrics
+}
+
+input chargemetricsFilterInput {
+  field: chargemetricsFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [chargemetricsFilterInput]
+}
+
+enum chargemetricsFilterKey {
+  Id
+  SubscriptionOwnerAccountNumber
+  InvoiceOwnerAccountNumber
+  SubscriptionName
+  ChargeNumber
+  RatePlanChargeId
+  ProductId
+  ProductRatePlanId
+  ProductRatePlanChargeId
+  AmendmentId
+  AmendmentType
+  StartDate
+  EndDate
+  MrrGrossAmount
+  MrrNetAmount
+  MrrDiscountAmount
+  TcvGrossAmount
+  TcvNetAmount
+  TcvDiscountAmount
+  Currency
+  CreatedDate
+  UpdatedDate
+  deleted
+}
+
+input chargemetricsSortInput {
+  field: chargemetricsSortKey
+  order: Order
+}
+
+enum chargemetricsSortKey {
+  Id
+  SubscriptionOwnerAccountNumber
+  InvoiceOwnerAccountNumber
+  SubscriptionName
+  ChargeNumber
+  RatePlanChargeId
+  ProductId
+  ProductRatePlanId
+  ProductRatePlanChargeId
+  AmendmentId
+  AmendmentType
+  StartDate
+  EndDate
+  MrrGrossAmount
+  MrrNetAmount
+  MrrDiscountAmount
+  TcvGrossAmount
+  TcvNetAmount
+  TcvDiscountAmount
+  Currency
+  CreatedDate
+  UpdatedDate
+  deleted
+}
+
+type chargeratingdetail implements singleObject {
+  Id: String
+  CreatedById: String
+  UpdatedById: String
+  CreatedDate: String
+  UpdatedDate: String
+  deleted: Boolean
+  SuccessRecordCount: BigInteger
+  ServiceEndDate: String
+  Reference: String
+  ServiceStartDate: String
+  ErrorDetails: String
+  ChargeNumber: String
+  ErrorRecordCount: BigInteger
+}
+
+type chargeratingdetailConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [chargeratingdetailEdge]
+}
+
+type chargeratingdetailEdge {
+  node: chargeratingdetail
+}
+
+input chargeratingdetailFilterInput {
+  field: chargeratingdetailFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [chargeratingdetailFilterInput]
+}
+
+enum chargeratingdetailFilterKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  ServiceEndDate
+  Reference
+  ServiceStartDate
+  ChargeNumber
+  ErrorRecordCount
+}
+
+input chargeratingdetailSortInput {
+  field: chargeratingdetailSortKey
+  order: Order
+}
+
+enum chargeratingdetailSortKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  ServiceEndDate
+  Reference
+  ServiceStartDate
+  ChargeNumber
+  ErrorRecordCount
+}
+
+type configurableui implements singleObject {
+  Id: String
+  CreatedById: String
+  UpdatedById: String
+  CreatedDate: String
+  UpdatedDate: String
+  deleted: Boolean
+  Active: Boolean
+  ListTable: String
+  Object: String
+  Namespace: String
+}
+
+type configurableuiConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [configurableuiEdge]
+}
+
+type configurableuiEdge {
+  node: configurableui
+}
+
+input configurableuiFilterInput {
+  field: configurableuiFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [configurableuiFilterInput]
+}
+
+enum configurableuiFilterKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+}
+
+input configurableuiSortInput {
+  field: configurableuiSortKey
+  order: Order
+}
+
+enum configurableuiSortKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+}
+
+type configurableview implements singleObject {
+  Id: String
+  CreatedById: String
+  UpdatedById: String
+  CreatedDate: String
+  UpdatedDate: String
+  deleted: Boolean
+  Active: Boolean
+  RoleType: String
+  UniqueName: String
+  Nodes: String
+  Template: String
+}
+
+type configurableviewConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [configurableviewEdge]
+}
+
+type configurableviewEdge {
+  node: configurableview
+}
+
+input configurableviewFilterInput {
+  field: configurableviewFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [configurableviewFilterInput]
+}
+
+enum configurableviewFilterKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  Active
+  RoleType
+  UniqueName
+}
+
+input configurableviewSortInput {
+  field: configurableviewSortKey
+  order: Order
+}
+
+enum configurableviewSortKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  Active
+  RoleType
+  UniqueName
+}
+
+type contact implements singleObject {
+  deleted: Boolean
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  AccountId: String
+  Address1: String
+  Address2: String
+  City: String
+  Country: String
+  County: String
+  Description: String
+  Fax: String
+  FirstName: String
+  HomePhone: String
+  LastName: String
+  MobilePhone: String
+  NickName: String
+  OtherPhone: String
+  OtherPhoneType: String
+  PersonalEmail: String
+  PostalCode: String
+  State: String
+  TaxRegion: String
+  WorkEmail: String
+  WorkPhone: String
+  UpdatedBy: user
+  CreatedBy: user
+  accounts(
+    filter: accountFilterInput
+    orderBy: [accountSortInput]
+    pageSize: Int
+    cursor: String
+  ): accountConnection
+}
+
+type contactConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [contactEdge]
+}
+
+type contactEdge {
+  node: contact
+}
+
+input contactFilterInput {
+  field: contactFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [contactFilterInput]
+}
+
+enum contactFilterKey {
+  Id
+  UpdatedDate
+  AccountId
+  Country
+  FirstName
+  PersonalEmail
+}
+
+type contactsnapshot implements singleObject {
+  deleted: Boolean
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  AccountId: String
+  Address1: String
+  Address2: String
+  City: String
+  ContactId: String
+  Country: String
+  County: String
+  Description: String
+  Fax: String
+  FirstName: String
+  HomePhone: String
+  LastName: String
+  MobilePhone: String
+  NickName: String
+  OtherPhone: String
+  OtherPhoneType: String
+  PersonalEmail: String
+  PostalCode: String
+  State: String
+  TaxRegion: String
+  WorkEmail: String
+  WorkPhone: String
+  UpdatedBy: user
+  CreatedBy: user
+}
+
+type contactsnapshotConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [contactsnapshotEdge]
+}
+
+type contactsnapshotEdge {
+  node: contactsnapshot
+}
+
+input contactsnapshotFilterInput {
+  field: contactsnapshotFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [contactsnapshotFilterInput]
+}
+
+enum contactsnapshotFilterKey {
+  Id
+  UpdatedDate
+  ContactId
+}
+
+input contactsnapshotSortInput {
+  field: contactsnapshotSortKey
+  order: Order
+}
+
+enum contactsnapshotSortKey {
+  Id
+  UpdatedDate
+  ContactId
+}
+
+input contactSortInput {
+  field: contactSortKey
+  order: Order
+}
+
+enum contactSortKey {
+  Id
+  UpdatedDate
+  AccountId
+  Country
+  FirstName
+  PersonalEmail
+}
+
+type default__test implements singleObject {
+  Id: String
+  CreatedById: String
+  UpdatedById: String
+  CreatedDate: String
+  UpdatedDate: String
+  deleted: Boolean
+  Test__c: String
+}
+
+type default__testConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [default__testEdge]
+}
+
+type default__testEdge {
+  node: default__test
+}
+
+input default__testFilterInput {
+  field: default__testFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [default__testFilterInput]
+}
+
+enum default__testFilterKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+}
+
+type default__testobject implements singleObject {
+  Id: String
+  CreatedById: String
+  UpdatedById: String
+  CreatedDate: String
+  UpdatedDate: String
+  deleted: Boolean
+  TestDescription__c: String
+  TestName__c: String
+  TestId__c: String
+}
+
+type default__testobjectConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [default__testobjectEdge]
+}
+
+type default__testobjectEdge {
+  node: default__testobject
+}
+
+input default__testobjectFilterInput {
+  field: default__testobjectFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [default__testobjectFilterInput]
+}
+
+enum default__testobjectFilterKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+}
+
+input default__testobjectSortInput {
+  field: default__testobjectSortKey
+  order: Order
+}
+
+enum default__testobjectSortKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+}
+
+input default__testSortInput {
+  field: default__testSortKey
+  order: Order
+}
+
+enum default__testSortKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+}
+
+type demo implements singleObject {
+  Id: String
+  CreatedById: String
+  UpdatedById: String
+  CreatedDate: String
+  UpdatedDate: String
+  deleted: Boolean
+  Name: String
+}
+
+type demoConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [demoEdge]
+}
+
+type demoEdge {
+  node: demo
+}
+
+input demoFilterInput {
+  field: demoFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [demoFilterInput]
+}
+
+enum demoFilterKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+}
+
+input demoSortInput {
+  field: demoSortKey
+  order: Order
+}
+
+enum demoSortKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+}
+
+type discountapplydetail implements singleObject {
+  deleted: Boolean
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  RatePlanChargeId: String
+  AppliedProductRatePlanId: String
+  AppliedProductRatePlanChargeId: String
+  UpdatedBy: user
+  CreatedBy: user
+}
+
+type discountapplydetailConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [discountapplydetailEdge]
+}
+
+type discountapplydetailEdge {
+  node: discountapplydetail
+}
+
+input discountapplydetailFilterInput {
+  field: discountapplydetailFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [discountapplydetailFilterInput]
+}
+
+enum discountapplydetailFilterKey {
+  Id
+  UpdatedDate
+  RatePlanChargeId
+}
+
+input discountapplydetailSortInput {
+  field: discountapplydetailSortKey
+  order: Order
+}
+
+enum discountapplydetailSortKey {
+  Id
+  UpdatedDate
+  RatePlanChargeId
+}
+
+type invoice implements singleObject {
+  deleted: Boolean
+  AccountId: String
+  AdjustmentAmount: Float
+  Amount: Float
+  AmountWithoutTax: Float
+  AutoPay: Boolean
+  Balance: Float
+  BillToContactSnapshotId: String
+  Comments: String
+  CreditBalanceAdjustmentAmount: Float
+  DueDate: String
+  IncludesOneTime: Boolean
+  IncludesRecurring: Boolean
+  IncludesUsage: Boolean
+  InvoiceDate: String
+  InvoiceNumber: String
+  LastEmailSentDate: String
+  PaymentAmount: Float
+  PostedBy: String
+  PostedDate: String
+  RefundAmount: Float
+  Reversed: Boolean
+  SoldToContactSnapshotId: String
+  Source: String
+  SourceId: String
+  Status: String
+  TargetDate: String
+  TaxAmount: Float
+  TaxExemptAmount: Float
+  TaxStatus: String
+  TaxMessage: String
+  TransferredToAccounting: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  UpdatedBy: user
+  invoicepayments(
+    filter: invoicepaymentFilterInput
+    orderBy: [invoicepaymentSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoicepaymentConnection
+  invoiceadjustments(
+    filter: invoiceadjustmentFilterInput
+    orderBy: [invoiceadjustmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceadjustmentConnection
+  CreatedBy: user
+  Account: account
+  attachments(
+    filter: attachmentFilterInput
+    orderBy: [attachmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): attachmentConnection
+  invoiceitems(
+    filter: invoiceitemFilterInput
+    orderBy: [invoiceitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceitemConnection
+}
+
+type invoiceadjustment implements singleObject {
+  deleted: Boolean
+  AccountId: String
+  InvoiceId: String
+  AccountingCode: String
+  AdjustmentDate: String
+  AdjustmentNumber: String
+  Amount: Float
+  CancelledById: String
+  CancelledOn: String
+  Comments: String
+  ImpactAmount: Float
+  InvoiceNumber: String
+  ReasonCode: String
+  ReferenceId: String
+  Status: String
+  TransferredToAccounting: String
+  Type: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  AccountReceivableAccountingCodeId: String
+  DeferredRevenueAccountingCodeId: String
+  JournalEntryId: String
+  JournalEntry: journalentry
+  UpdatedBy: user
+  DeferredRevenueAccountingCode: accountingcode
+  CreatedBy: user
+  AccountReceivableAccountingCode: accountingcode
+  Account: account
+  Invoice: invoice
+}
+
+type invoiceadjustmentConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [invoiceadjustmentEdge]
+}
+
+type invoiceadjustmentEdge {
+  node: invoiceadjustment
+}
+
+input invoiceadjustmentFilterInput {
+  field: invoiceadjustmentFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [invoiceadjustmentFilterInput]
+}
+
+enum invoiceadjustmentFilterKey {
+  AccountId
+  InvoiceId
+  AccountingCode
+  AdjustmentNumber
+  ReasonCode
+  Status
+  Id
+  UpdatedDate
+}
+
+input invoiceadjustmentSortInput {
+  field: invoiceadjustmentSortKey
+  order: Order
+}
+
+enum invoiceadjustmentSortKey {
+  AccountId
+  InvoiceId
+  AccountingCode
+  AdjustmentNumber
+  ReasonCode
+  Status
+  Id
+  UpdatedDate
+}
+
+type invoiceConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [invoiceEdge]
+}
+
+type invoiceEdge {
+  node: invoice
+}
+
+input invoiceFilterInput {
+  field: invoiceFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [invoiceFilterInput]
+}
+
+enum invoiceFilterKey {
+  AccountId
+  InvoiceDate
+  InvoiceNumber
+  SourceId
+  Status
+  Id
+  UpdatedDate
+}
+
+type invoicehistory implements singleObject {
+  Source: String
+  Type: String
+  TransactionTime: String
+  Result: String
+  InvoiceId: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  CreatedBy: user
+}
+
+type invoicehistoryConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [invoicehistoryEdge]
+}
+
+type invoicehistoryEdge {
+  node: invoicehistory
+}
+
+input invoicehistoryFilterInput {
+  field: invoicehistoryFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [invoicehistoryFilterInput]
+}
+
+enum invoicehistoryFilterKey {
+  InvoiceId
+  Id
+}
+
+input invoicehistorySortInput {
+  field: invoicehistorySortKey
+  order: Order
+}
+
+enum invoicehistorySortKey {
+  InvoiceId
+  Id
+}
+
+type invoiceitem implements singleObject {
+  deleted: Boolean
+  InvoiceId: String
+  RatePlanChargeId: String
+  AccountingCode: String
+  AppliedToInvoiceItemId: String
+  ChargeAmount: Float
+  ChargeDate: String
+  ChargeName: String
+  ProcessingType: String
+  Quantity: Float
+  RevRecStartDate: String
+  ServiceEndDate: String
+  ServiceStartDate: String
+  SKU: String
+  SubscriptionId: String
+  TaxAmount: Float
+  TaxCode: String
+  TaxExemptAmount: Float
+  TaxMode: String
+  UnitPrice: Float
+  UOM: String
+  Balance: Float
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  AccountReceivableAccountingCodeId: String
+  RecognizedRevenueAccountingCodeId: String
+  DeferredRevenueAccountingCodeId: String
+  JournalEntryId: String
+  AccountId: String
+  BillToContactSnapshotId: String
+  SoldToContactSnapshotId: String
+  ParentAccountId: String
+  BillToContactId: String
+  SoldToContactId: String
+  DefaultPaymentMethodId: String
+  ProductRatePlanChargeId: String
+  RatePlanId: String
+  ProductRatePlanId: String
+  AmendmentId: String
+  ProductId: String
+  UpdatedBy: user
+  DeferredRevenueAccountingCode: accountingcode
+  processedusages(
+    filter: processedusageFilterInput
+    orderBy: [processedusageSortInput]
+    pageSize: Int
+    cursor: String
+  ): processedusageConnection
+  RatePlanCharge: rateplancharge
+  taxationitems(
+    filter: taxationitemFilterInput
+    orderBy: [taxationitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): taxationitemConnection
+  Invoice: invoice
+  RecognizedRevenueAccountingCode: accountingcode
+  JournalEntry: journalentry
+  CreatedBy: user
+  invoiceitemadjustments(
+    filter: invoiceitemadjustmentFilterInput
+    orderBy: [invoiceitemadjustmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceitemadjustmentConnection
+  Subscription: subscription
+  AccountReceivableAccountingCode: accountingcode
+}
+
+type invoiceitemadjustment implements singleObject {
+  deleted: Boolean
+  InvoiceItemId: String
+  TaxationItemId: String
+  TaxableItemSnapshotId: String
+  AccountId: String
+  AccountingCode: String
+  AdjustmentDate: String
+  AdjustmentNumber: String
+  Amount: Float
+  CancelledById: String
+  CancelledDate: String
+  Comment: String
+  InvoiceId: String
+  InvoiceItemName: String
+  InvoiceNumber: String
+  ReasonCode: String
+  ReferenceId: String
+  ServiceEndDate: String
+  ServiceStartDate: String
+  SourceId: String
+  SourceType: String
+  Status: String
+  TransferredToAccounting: String
+  Type: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  AccountReceivableAccountingCodeId: String
+  DeferredRevenueAccountingCodeId: String
+  JournalEntryId: String
+  RecognizedRevenueAccountingCodeId: String
+  SalesTaxPayableAccountingCodeId: String
+  JournalEntry: journalentry
+  UpdatedBy: user
+  DeferredRevenueAccountingCode: accountingcode
+  CreatedBy: user
+  TaxationItem: taxationitem
+  SalesTaxPayableAccountingCode: accountingcode
+  InvoiceItem: invoiceitem
+  AccountReceivableAccountingCode: accountingcode
+  RecognizedRevenueAccountingCode: accountingcode
+}
+
+type invoiceitemadjustmentConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [invoiceitemadjustmentEdge]
+}
+
+type invoiceitemadjustmentEdge {
+  node: invoiceitemadjustment
+}
+
+input invoiceitemadjustmentFilterInput {
+  field: invoiceitemadjustmentFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [invoiceitemadjustmentFilterInput]
+}
+
+enum invoiceitemadjustmentFilterKey {
+  AccountId
+  AccountingCode
+  AdjustmentNumber
+  InvoiceId
+  SourceId
+  Status
+  Id
+  UpdatedDate
+}
+
+input invoiceitemadjustmentSortInput {
+  field: invoiceitemadjustmentSortKey
+  order: Order
+}
+
+enum invoiceitemadjustmentSortKey {
+  AccountId
+  AccountingCode
+  AdjustmentNumber
+  InvoiceId
+  SourceId
+  Status
+  Id
+  UpdatedDate
+}
+
+type invoiceitemConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [invoiceitemEdge]
+}
+
+type invoiceitemEdge {
+  node: invoiceitem
+}
+
+input invoiceitemFilterInput {
+  field: invoiceitemFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [invoiceitemFilterInput]
+}
+
+enum invoiceitemFilterKey {
+  InvoiceId
+  RatePlanChargeId
+  AccountingCode
+  SubscriptionId
+  Id
+  UpdatedDate
+}
+
+input invoiceitemSortInput {
+  field: invoiceitemSortKey
+  order: Order
+}
+
+enum invoiceitemSortKey {
+  InvoiceId
+  RatePlanChargeId
+  AccountingCode
+  SubscriptionId
+  Id
+  UpdatedDate
+}
+
+type invoicepayment implements singleObject {
+  deleted: Boolean
+  InvoiceId: String
+  PaymentId: String
+  Amount: Float
+  RefundAmount: Float
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  AccountReceivableAccountingCodeId: String
+  CashAccountingCodeId: String
+  JournalEntryId: String
+  JournalEntry: journalentry
+  UpdatedBy: user
+  CreatedBy: user
+  AccountReceivableAccountingCode: accountingcode
+  CashAccountingCode: accountingcode
+  refundinvoicepayments(
+    filter: refundinvoicepaymentFilterInput
+    orderBy: [refundinvoicepaymentSortInput]
+    pageSize: Int
+    cursor: String
+  ): refundinvoicepaymentConnection
+  Payment: payment
+  Invoice: invoice
+}
+
+type invoicepaymentConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [invoicepaymentEdge]
+}
+
+type invoicepaymentEdge {
+  node: invoicepayment
+}
+
+input invoicepaymentFilterInput {
+  field: invoicepaymentFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [invoicepaymentFilterInput]
+}
+
+enum invoicepaymentFilterKey {
+  InvoiceId
+  PaymentId
+  Id
+  UpdatedDate
+}
+
+input invoicepaymentSortInput {
+  field: invoicepaymentSortKey
+  order: Order
+}
+
+enum invoicepaymentSortKey {
+  InvoiceId
+  PaymentId
+  Id
+  UpdatedDate
+}
+
+input invoiceSortInput {
+  field: invoiceSortKey
+  order: Order
+}
+
+enum invoiceSortKey {
+  AccountId
+  InvoiceDate
+  InvoiceNumber
+  SourceId
+  Status
+  Id
+  UpdatedDate
+}
+
+type journalentry implements singleObject {
+  deleted: Boolean
+  AccountingPeriodId: String
+  Currency: String
+  HomeCurrency: String
+  JournalEntryDate: String
+  Notes: String
+  Number: String
+  Status: String
+  TransactionCount: Int
+  TransactionType: String
+  TransferDate: String
+  TransferredBy: String
+  TransferredToAccounting: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  JournalRunId: String
+  UpdatedBy: user
+  invoiceitemadjustments(
+    filter: invoiceitemadjustmentFilterInput
+    orderBy: [invoiceitemadjustmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceitemadjustmentConnection
+  AccountingPeriod: accountingperiod
+  invoiceitems(
+    filter: invoiceitemFilterInput
+    orderBy: [invoiceitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceitemConnection
+  JournalRun: journalrun
+  CreatedBy: user
+  journalentryitems(
+    filter: journalentryitemFilterInput
+    orderBy: [journalentryitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): journalentryitemConnection
+  invoicepayments(
+    filter: invoicepaymentFilterInput
+    orderBy: [invoicepaymentSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoicepaymentConnection
+  invoiceadjustments(
+    filter: invoiceadjustmentFilterInput
+    orderBy: [invoiceadjustmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceadjustmentConnection
+  refundinvoicepayments(
+    filter: refundinvoicepaymentFilterInput
+    orderBy: [refundinvoicepaymentSortInput]
+    pageSize: Int
+    cursor: String
+  ): refundinvoicepaymentConnection
+  taxationitems(
+    filter: taxationitemFilterInput
+    orderBy: [taxationitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): taxationitemConnection
+}
+
+type journalentryConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [journalentryEdge]
+}
+
+type journalentryEdge {
+  node: journalentry
+}
+
+input journalentryFilterInput {
+  field: journalentryFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [journalentryFilterInput]
+}
+
+enum journalentryFilterKey {
+  AccountingPeriodId
+  Currency
+  Number
+  Status
+  Id
+  UpdatedDate
+}
+
+type journalentryitem implements singleObject {
+  deleted: Boolean
+  Amount: Float
+  AmountHomeCurrency: Float
+  Currency: String
+  HomeCurrency: String
+  Type: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  AccountingCodeId: String
+  JournalEntryId: String
+  JournalEntry: journalentry
+  AccountingCode: accountingcode
+  UpdatedBy: user
+  CreatedBy: user
+}
+
+type journalentryitemConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [journalentryitemEdge]
+}
+
+type journalentryitemEdge {
+  node: journalentryitem
+}
+
+input journalentryitemFilterInput {
+  field: journalentryitemFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [journalentryitemFilterInput]
+}
+
+enum journalentryitemFilterKey {
+  Id
+  UpdatedDate
+}
+
+input journalentryitemSortInput {
+  field: journalentryitemSortKey
+  order: Order
+}
+
+enum journalentryitemSortKey {
+  Id
+  UpdatedDate
+}
+
+input journalentrySortInput {
+  field: journalentrySortKey
+  order: Order
+}
+
+enum journalentrySortKey {
+  AccountingPeriodId
+  Currency
+  Number
+  Status
+  Id
+  UpdatedDate
+}
+
+type journalrun implements singleObject {
+  deleted: Boolean
+  Number: String
+  ProcessEndDateTime: String
+  ProcessStartDateTime: String
+  Status: String
+  TargetDateType: String
+  TargetEndDate: String
+  TargetStartDate: String
+  TotalJournalEntryCount: BigInteger
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  UpdatedBy: user
+  CreatedBy: user
+  journalentries(
+    filter: journalentryFilterInput
+    orderBy: [journalentrySortInput]
+    pageSize: Int
+    cursor: String
+  ): journalentryConnection
+}
+
+type journalrunConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [journalrunEdge]
+}
+
+type journalrunEdge {
+  node: journalrun
+}
+
+input journalrunFilterInput {
+  field: journalrunFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [journalrunFilterInput]
+}
+
+enum journalrunFilterKey {
+  Number
+  Status
+  TargetEndDate
+  TargetStartDate
+  Id
+}
+
+input journalrunSortInput {
+  field: journalrunSortKey
+  order: Order
+}
+
+enum journalrunSortKey {
+  Number
+  Status
+  TargetEndDate
+  TargetStartDate
+  Id
+}
+
+type memohistory implements singleObject {
+  Source: String
+  Type: String
+  TransactionTime: String
+  Result: String
+  MemoId: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  CreatedBy: user
+}
+
+type memohistoryConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [memohistoryEdge]
+}
+
+type memohistoryEdge {
+  node: memohistory
+}
+
+input memohistoryFilterInput {
+  field: memohistoryFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [memohistoryFilterInput]
+}
+
+enum memohistoryFilterKey {
+  MemoId
+  Id
+}
+
+input memohistorySortInput {
+  field: memohistorySortKey
+  order: Order
+}
+
+enum memohistorySortKey {
+  MemoId
+  Id
+}
+
+interface multipleObjects
+
+enum Operator {
+  LT
+  LE
+  EQ
+  GE
+  GT
+  SW
+  NE
+}
+
+enum Order {
+  ASC
+  DESC
+}
+
+type orderlineitem implements singleObject {
+  Id: String
+  CreatedById: String
+  UpdatedById: String
+  CreatedDate: String
+  UpdatedDate: String
+  deleted: Boolean
+  Description: String
+  PurchaseOrderNumber: String
+  ProductCode: String
+  AccountingCode: String
+  RevenueRecognitionRule: String
+  ListPricePerUnit: Float
+  ItemType: String
+  Quantity: Float
+  RecognizedRevenueAccountingCode: String
+  OrderId: String
+  DeferredRevenueAccountingCode: String
+  UOM: String
+  ItemNumber: String
+  ProductRatePlanChargeId: String
+  TaxCode: String
+  ChargeAmountPerUnit: Float
+  ItemState: String
+  ItemName: String
+  BillingTrigger: String
+  GrossAmount: Float
+  TransactionDate: String
+  TaxMode: String
+  UpdatedBy: user
+  CreatedBy: user
+  ProductRatePlanCharge: productrateplancharge
+}
+
+type orderlineitemConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [orderlineitemEdge]
+}
+
+type orderlineitemEdge {
+  node: orderlineitem
+}
+
+input orderlineitemFilterInput {
+  field: orderlineitemFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [orderlineitemFilterInput]
+}
+
+enum orderlineitemFilterKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  PurchaseOrderNumber
+  ProductCode
+  ItemType
+  OrderId
+  UOM
+  ItemNumber
+  ProductRatePlanChargeId
+  ItemState
+  ItemName
+  BillingTrigger
+  TransactionDate
+}
+
+input orderlineitemSortInput {
+  field: orderlineitemSortKey
+  order: Order
+}
+
+enum orderlineitemSortKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  PurchaseOrderNumber
+  ProductCode
+  ItemType
+  OrderId
+  UOM
+  ItemNumber
+  ProductRatePlanChargeId
+  ItemState
+  ItemName
+  BillingTrigger
+  TransactionDate
+}
+
+type PageInfo {
+  endCursor: String
+  hasNextPage: Boolean
+}
+
+type payment implements singleObject {
+  deleted: Boolean
+  AccountId: String
+  AccountingCode: String
+  Amount: Float
+  AppliedAmount: Float
+  AppliedCreditBalanceAmount: Float
+  AuthTransactionId: String
+  BankIdentificationNumber: String
+  CancelledOn: String
+  Comment: String
+  Currency: String
+  EffectiveDate: String
+  GatewayOrderId: String
+  GatewayReconciliationReason: String
+  GatewayReconciliationStatus: String
+  GatewayResponse: String
+  GatewayResponseCode: String
+  GatewayState: String
+  IsStandalone: Boolean
+  MarkedForSubmissionOn: String
+  PaymentMethodId: String
+  PaymentMethodSnapshotId: String
+  PaymentNumber: String
+  PayoutId: String
+  ReferencedPaymentID: String
+  ReferenceId: String
+  RefundAmount: Float
+  SecondPaymentReferenceId: String
+  SettledOn: String
+  SoftDescriptor: String
+  SoftDescriptorPhone: String
+  Source: String
+  SourceName: String
+  Status: String
+  SubmittedOn: String
+  TransferredToAccounting: String
+  Type: String
+  UnappliedAmount: Float
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  Gateway: String
+  UpdatedBy: user
+  invoicepayments(
+    filter: invoicepaymentFilterInput
+    orderBy: [invoicepaymentSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoicepaymentConnection
+  PaymentMethodSnapshot: paymentmethodsnapshot
+  paymenttransactionlogs(
+    filter: paymenttransactionlogFilterInput
+    orderBy: [paymenttransactionlogSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymenttransactionlogConnection
+  CreatedBy: user
+  PaymentMethod: paymentmethod
+  Account: account
+}
+
+type paymentConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [paymentEdge]
+}
+
+type paymentEdge {
+  node: payment
+}
+
+input paymentFilterInput {
+  field: paymentFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [paymentFilterInput]
+}
+
+enum paymentFilterKey {
+  AccountId
+  EffectiveDate
+  GatewayOrderId
+  GatewayState
+  PaymentMethodId
+  PaymentMethodSnapshotId
+  PaymentNumber
+  ReferenceId
+  Source
+  SourceName
+  Status
+  Id
+  UpdatedDate
+}
+
+type paymentgatewayreconciliationeventlog implements singleObject {
+  Id: String
+  CreatedDate: String
+  UpdatedDate: String
+  amount: Float
+  CreatedGatewayReferenceId: String
+  CreatedGatewaySecondReferenceId: String
+  EventDate: String
+  EventType: String
+  GatewayRawRecord: String
+  GatewayReasonCode: String
+  GatewayReasonMessage: String
+  GatewayReferenceId: String
+  GatewaySecondReferenceId: String
+  PaymentReconciliationJobId: String
+  PaymentReconciliationJob: paymentreconciliationjob
+  paymentreconciliationlogs(
+    filter: paymentreconciliationlogFilterInput
+    orderBy: [paymentreconciliationlogSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentreconciliationlogConnection
+}
+
+type paymentgatewayreconciliationeventlogConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [paymentgatewayreconciliationeventlogEdge]
+}
+
+type paymentgatewayreconciliationeventlogEdge {
+  node: paymentgatewayreconciliationeventlog
+}
+
+input paymentgatewayreconciliationeventlogFilterInput {
+  field: paymentgatewayreconciliationeventlogFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [paymentgatewayreconciliationeventlogFilterInput]
+}
+
+enum paymentgatewayreconciliationeventlogFilterKey {
+  Id
+  GatewayReferenceId
+  PaymentReconciliationJobId
+}
+
+input paymentgatewayreconciliationeventlogSortInput {
+  field: paymentgatewayreconciliationeventlogSortKey
+  order: Order
+}
+
+enum paymentgatewayreconciliationeventlogSortKey {
+  Id
+  GatewayReferenceId
+  PaymentReconciliationJobId
+}
+
+type paymentmethod implements singleObject {
+  deleted: Boolean
+  AccountId: String
+  AchAbaCode: String
+  AchAccountName: String
+  AchAccountNumberMask: String
+  AchAccountType: String
+  AchAddress1: String
+  AchAddress2: String
+  AchBankName: String
+  AchCity: String
+  AchCountry: String
+  AchPostalCode: String
+  AchState: String
+  Active: Boolean
+  IsSystem: Boolean
+  BankBranchCode: String
+  BankCheckDigit: String
+  BankCity: String
+  BankCode: String
+  BankIdentificationNumber: String
+  BankName: String
+  BankPostalCode: String
+  BankStreetName: String
+  BankStreetNumber: String
+  BankTransferAccountName: String
+  BankTransferAccountNumberMask: String
+  BankTransferAccountType: String
+  BankTransferType: String
+  BusinessIdentificationCode: String
+  City: String
+  Country: String
+  CreditCardAddress1: String
+  CreditCardAddress2: String
+  CreditCardCity: String
+  CreditCardCountry: String
+  CreditCardExpirationMonth: Int
+  CreditCardExpirationYear: Int
+  CreditCardHolderName: String
+  CreditCardMaskNumber: String
+  CreditCardPostalCode: String
+  CreditCardState: String
+  CreditCardType: String
+  DeviceSessionId: String
+  Email: String
+  ExistingMandate: String
+  FirstName: String
+  IBAN: String
+  IPAddress: String
+  IdentityNumber: String
+  CompanyName: String
+  IsCompany: Boolean
+  LastFailedSaleTransactionDate: String
+  LastName: String
+  LastTransactionDateTime: String
+  LastTransactionStatus: String
+  MandateCreationDate: String
+  MandateID: String
+  MandateReason: String
+  MandateReceived: String
+  MandateStatus: String
+  MandateUpdateDate: String
+  MaxConsecutivePaymentFailures: Int
+  Name: String
+  NumConsecutiveFailures: Int
+  PaymentMethodStatus: String
+  PaymentRetryWindow: Int
+  PaypalBaid: String
+  PaypalEmail: String
+  PaypalPreapprovalKey: String
+  PaypalType: String
+  Phone: String
+  PostalCode: String
+  SecondTokenId: String
+  State: String
+  StreetName: String
+  StreetNumber: String
+  TokenId: String
+  TotalNumberOfErrorPayments: Int
+  TotalNumberOfProcessedPayments: Int
+  Type: String
+  UseDefaultRetryRule: Boolean
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  UpdatedBy: user
+  CreatedBy: user
+  paymentmethodtransactionlogs(
+    filter: paymentmethodtransactionlogFilterInput
+    orderBy: [paymentmethodtransactionlogSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentmethodtransactionlogConnection
+  updaterdetails(
+    filter: updaterdetailFilterInput
+    orderBy: [updaterdetailSortInput]
+    pageSize: Int
+    cursor: String
+  ): updaterdetailConnection
+  payments(
+    filter: paymentFilterInput
+    orderBy: [paymentSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentConnection
+  accounts(
+    filter: accountFilterInput
+    orderBy: [accountSortInput]
+    pageSize: Int
+    cursor: String
+  ): accountConnection
+  Account: account
+}
+
+type paymentmethodConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [paymentmethodEdge]
+}
+
+type paymentmethodEdge {
+  node: paymentmethod
+}
+
+input paymentmethodFilterInput {
+  field: paymentmethodFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [paymentmethodFilterInput]
+}
+
+enum paymentmethodFilterKey {
+  AccountId
+  AchAccountName
+  AchBankName
+  AchCountry
+  Active
+  IsSystem
+  BusinessIdentificationCode
+  Country
+  CreditCardMaskNumber
+  PaypalBaid
+  Type
+  Id
+  UpdatedDate
+}
+
+type paymentmethodsnapshot implements singleObject {
+  AccountId: String
+  AchAbaCode: String
+  AchAccountName: String
+  AchAccountNumberMask: String
+  AchAccountType: String
+  AchBankName: String
+  BankBranchCode: String
+  BankCheckDigit: String
+  BankCity: String
+  BankCode: String
+  BankIdentificationNumber: String
+  BankName: String
+  BankPostalCode: String
+  BankStreetName: String
+  BankStreetNumber: String
+  BankTransferAccountName: String
+  BankTransferAccountNumberMask: String
+  BankTransferAccountType: String
+  BankTransferType: String
+  BusinessIdentificationCode: String
+  City: String
+  Country: String
+  CreditCardAddress1: String
+  CreditCardAddress2: String
+  CreditCardCity: String
+  CreditCardCountry: String
+  CreditCardExpirationMonth: Int
+  CreditCardExpirationYear: Int
+  CreditCardHolderName: String
+  CreditCardMaskNumber: String
+  CreditCardPostalCode: String
+  CreditCardState: String
+  CreditCardType: String
+  DeviceSessionId: String
+  Email: String
+  ExistingMandate: String
+  FirstName: String
+  IBAN: String
+  IPAddress: String
+  IdentityNumber: String
+  CompanyName: String
+  IsCompany: Boolean
+  LastFailedSaleTransactionDate: String
+  LastName: String
+  LastTransactionDateTime: String
+  LastTransactionStatus: String
+  MandateCreationDate: String
+  MandateID: String
+  MandateReason: String
+  MandateReceived: String
+  MandateStatus: String
+  MandateUpdateDate: String
+  MaxConsecutivePaymentFailures: Int
+  Name: String
+  PaymentMethodId: String
+  NumConsecutiveFailures: Int
+  PaymentMethodStatus: String
+  PaymentRetryWindow: Int
+  PaypalBaid: String
+  PaypalEmail: String
+  PaypalPreapprovalKey: String
+  PaypalType: String
+  Phone: String
+  PostalCode: String
+  SecondTokenId: String
+  State: String
+  StreetName: String
+  StreetNumber: String
+  TokenId: String
+  TotalNumberOfErrorPayments: Int
+  TotalNumberOfProcessedPayments: Int
+  Type: String
+  UseDefaultRetryRule: Boolean
+  Id: String
+  CreatedDate: String
+  UpdatedDate: String
+  refunds(
+    filter: refundFilterInput
+    orderBy: [refundSortInput]
+    pageSize: Int
+    cursor: String
+  ): refundConnection
+  payments(
+    filter: paymentFilterInput
+    orderBy: [paymentSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentConnection
+}
+
+type paymentmethodsnapshotConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [paymentmethodsnapshotEdge]
+}
+
+type paymentmethodsnapshotEdge {
+  node: paymentmethodsnapshot
+}
+
+input paymentmethodsnapshotFilterInput {
+  field: paymentmethodsnapshotFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [paymentmethodsnapshotFilterInput]
+}
+
+enum paymentmethodsnapshotFilterKey {
+  AccountId
+  Country
+  CreditCardCountry
+  PaymentMethodId
+  Id
+  UpdatedDate
+}
+
+input paymentmethodsnapshotSortInput {
+  field: paymentmethodsnapshotSortKey
+  order: Order
+}
+
+enum paymentmethodsnapshotSortKey {
+  AccountId
+  Country
+  CreditCardCountry
+  PaymentMethodId
+  Id
+  UpdatedDate
+}
+
+input paymentmethodSortInput {
+  field: paymentmethodSortKey
+  order: Order
+}
+
+enum paymentmethodSortKey {
+  AccountId
+  AchAccountName
+  AchBankName
+  AchCountry
+  Active
+  IsSystem
+  BusinessIdentificationCode
+  Country
+  CreditCardMaskNumber
+  PaypalBaid
+  Type
+  Id
+  UpdatedDate
+}
+
+type paymentmethodtransactionlog implements singleObject {
+  Id: String
+  GatewayReasonCode: String
+  GatewayReasonCodeDescription: String
+  GatewayTransactionType: String
+  PaymentMethodType: String
+  RequestString: String
+  ResponseString: String
+  TransactionDate: String
+  TransactionId: String
+  AccountId: String
+  PaymentMethodId: String
+  CreatedDate: String
+  Gateway: String
+  PaymentMethod: paymentmethod
+  Account: account
+}
+
+type paymentmethodtransactionlogConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [paymentmethodtransactionlogEdge]
+}
+
+type paymentmethodtransactionlogEdge {
+  node: paymentmethodtransactionlog
+}
+
+input paymentmethodtransactionlogFilterInput {
+  field: paymentmethodtransactionlogFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [paymentmethodtransactionlogFilterInput]
+}
+
+enum paymentmethodtransactionlogFilterKey {
+  Id
+  TransactionId
+  PaymentMethodId
+}
+
+input paymentmethodtransactionlogSortInput {
+  field: paymentmethodtransactionlogSortKey
+  order: Order
+}
+
+enum paymentmethodtransactionlogSortKey {
+  Id
+  TransactionId
+  PaymentMethodId
+}
+
+type paymentreconciliationjob implements singleObject {
+  Id: String
+  CreatedDate: String
+  JobNumber: String
+  periodStart: String
+  periodEnd: String
+  Status: String
+  GatewayInstance: String
+  paymentgatewayreconciliationeventlogs(
+    filter: paymentgatewayreconciliationeventlogFilterInput
+    orderBy: [paymentgatewayreconciliationeventlogSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentgatewayreconciliationeventlogConnection
+}
+
+type paymentreconciliationjobConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [paymentreconciliationjobEdge]
+}
+
+type paymentreconciliationjobEdge {
+  node: paymentreconciliationjob
+}
+
+input paymentreconciliationjobFilterInput {
+  field: paymentreconciliationjobFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [paymentreconciliationjobFilterInput]
+}
+
+enum paymentreconciliationjobFilterKey {
+  Id
+  JobNumber
+  Status
+}
+
+input paymentreconciliationjobSortInput {
+  field: paymentreconciliationjobSortKey
+  order: Order
+}
+
+enum paymentreconciliationjobSortKey {
+  Id
+  JobNumber
+  Status
+}
+
+type paymentreconciliationlog implements singleObject {
+  Id: String
+  CreatedDate: String
+  UpdatedDate: String
+  CreatedObjectId: String
+  CreatedObjectType: String
+  Reason: String
+  ReasonMessage: String
+  RelatedObjectId: String
+  RelatedObjectType: String
+  Status: String
+  PaymentGatewayReconciliationEventLogId: String
+  PaymentGatewayReconciliationEventLog: paymentgatewayreconciliationeventlog
+}
+
+type paymentreconciliationlogConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [paymentreconciliationlogEdge]
+}
+
+type paymentreconciliationlogEdge {
+  node: paymentreconciliationlog
+}
+
+input paymentreconciliationlogFilterInput {
+  field: paymentreconciliationlogFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [paymentreconciliationlogFilterInput]
+}
+
+enum paymentreconciliationlogFilterKey {
+  Id
+  Status
+}
+
+input paymentreconciliationlogSortInput {
+  field: paymentreconciliationlogSortKey
+  order: Order
+}
+
+enum paymentreconciliationlogSortKey {
+  Id
+  Status
+}
+
+type paymentrun implements singleObject {
+  deleted: Boolean
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  EndDate: String
+  ExecutedDate: String
+  NumberOfCreditBalanceAdjustments: Int
+  NumberOfErrors: Int
+  NumberOfInvoices: Int
+  NumberOfPayments: Int
+  NumberOfUnprocessed: Int
+  PaymentRunNumber: String
+  Status: String
+  TargetDate: String
+  ApplyCreditBalance: Boolean
+  ConsolidatedPayment: Boolean
+  ProcessPaymentWithClosedPM: Boolean
+  CollectPayment: Boolean
+  AutoApplyCreditMemo: Boolean
+  AutoApplyUnappliedPayment: Boolean
+  NumberOfCreditMemos: Int
+  NumberOfDebitMemos: Int
+  NumberOfDebitMemosUnprocessed: Int
+  NumberofUnappliedPayments: Int
+  TotalExecutionTime: BigInteger
+  ErrorMessage: String
+  RunDate: String
+  NextRunOn: String
+  RepeatType: String
+  RepeatFrom: String
+  RepeatTo: String
+  RunTime: Int
+  TimeZone: String
+  MonthlyOnDay: String
+  WeeklyOnDay: String
+  AccountId: String
+  Batch: String
+  BillingCycleDay: String
+  Currency: String
+  PaymentGatewayId: String
+  BillingRunId: String
+  UpdatedBy: user
+  CreatedBy: user
+}
+
+type paymentrunConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [paymentrunEdge]
+}
+
+type paymentrunEdge {
+  node: paymentrun
+}
+
+input paymentrunFilterInput {
+  field: paymentrunFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [paymentrunFilterInput]
+}
+
+enum paymentrunFilterKey {
+  Id
+  UpdatedDate
+  PaymentRunNumber
+}
+
+input paymentrunSortInput {
+  field: paymentrunSortKey
+  order: Order
+}
+
+enum paymentrunSortKey {
+  Id
+  UpdatedDate
+  PaymentRunNumber
+}
+
+input paymentSortInput {
+  field: paymentSortKey
+  order: Order
+}
+
+enum paymentSortKey {
+  AccountId
+  EffectiveDate
+  GatewayOrderId
+  GatewayState
+  PaymentMethodId
+  PaymentMethodSnapshotId
+  PaymentNumber
+  ReferenceId
+  Source
+  SourceName
+  Status
+  Id
+  UpdatedDate
+}
+
+type paymenttransactionlog implements singleObject {
+  Id: String
+  CreatedDate: String
+  AVSResponseCode: String
+  BatchId: String
+  CVVResponseCode: String
+  GatewayReasonCode: String
+  GatewayReasonCodeDescription: String
+  GatewayState: String
+  GatewayTransactionType: String
+  RequestString: String
+  ResponseString: String
+  TransactionDate: String
+  TransactionId: String
+  AccountId: String
+  PaymentId: String
+  Gateway: String
+  Account: account
+  Payment: payment
+}
+
+type paymenttransactionlogConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [paymenttransactionlogEdge]
+}
+
+type paymenttransactionlogEdge {
+  node: paymenttransactionlog
+}
+
+input paymenttransactionlogFilterInput {
+  field: paymenttransactionlogFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [paymenttransactionlogFilterInput]
+}
+
+enum paymenttransactionlogFilterKey {
+  Id
+  CreatedDate
+  GatewayReasonCode
+  TransactionDate
+  TransactionId
+  PaymentId
+}
+
+input paymenttransactionlogSortInput {
+  field: paymenttransactionlogSortKey
+  order: Order
+}
+
+enum paymenttransactionlogSortKey {
+  Id
+  CreatedDate
+  GatewayReasonCode
+  TransactionDate
+  TransactionId
+  PaymentId
+}
+
+type processedusage implements singleObject {
+  UsageId: String
+  Amount: Float
+  BillingPeriodEndDate: String
+  BillingPeriodStartDate: String
+  InvoiceItemId: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  UpdatedBy: user
+  Usage: usage
+  CreatedBy: user
+  InvoiceItem: invoiceitem
+}
+
+type processedusageConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [processedusageEdge]
+}
+
+type processedusageEdge {
+  node: processedusage
+}
+
+input processedusageFilterInput {
+  field: processedusageFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [processedusageFilterInput]
+}
+
+enum processedusageFilterKey {
+  UsageId
+  BillingPeriodEndDate
+  BillingPeriodStartDate
+  Id
+  UpdatedDate
+}
+
+input processedusageSortInput {
+  field: processedusageSortKey
+  order: Order
+}
+
+enum processedusageSortKey {
+  UsageId
+  BillingPeriodEndDate
+  BillingPeriodStartDate
+  Id
+  UpdatedDate
+}
+
+type product implements singleObject {
+  deleted: Boolean
+  AllowFeatureChanges: Boolean
+  Description: String
+  Name: String
+  EffectiveEndDate: String
+  EffectiveStartDate: String
+  SKU: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  Category: String
+  UpdatedBy: user
+  productrateplans(
+    filter: productrateplanFilterInput
+    orderBy: [productrateplanSortInput]
+    pageSize: Int
+    cursor: String
+  ): productrateplanConnection
+  CreatedBy: user
+}
+
+type productConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [productEdge]
+}
+
+type productdiscountapplydetail implements singleObject {
+  deleted: Boolean
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  ProductRatePlanChargeId: String
+  AppliedProductRatePlanId: String
+  AppliedProductRatePlanChargeId: String
+  UpdatedBy: user
+  CreatedBy: user
+}
+
+type productdiscountapplydetailConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [productdiscountapplydetailEdge]
+}
+
+type productdiscountapplydetailEdge {
+  node: productdiscountapplydetail
+}
+
+input productdiscountapplydetailFilterInput {
+  field: productdiscountapplydetailFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [productdiscountapplydetailFilterInput]
+}
+
+enum productdiscountapplydetailFilterKey {
+  Id
+  UpdatedDate
+  ProductRatePlanChargeId
+}
+
+input productdiscountapplydetailSortInput {
+  field: productdiscountapplydetailSortKey
+  order: Order
+}
+
+enum productdiscountapplydetailSortKey {
+  Id
+  UpdatedDate
+  ProductRatePlanChargeId
+}
+
+type productEdge {
+  node: product
+}
+
+input productFilterInput {
+  field: productFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [productFilterInput]
+}
+
+enum productFilterKey {
+  Name
+  SKU
+  Id
+  UpdatedDate
+}
+
+type productrateplan implements singleObject {
+  deleted: Boolean
+  ProductId: String
+  Name: String
+  Description: String
+  EffectiveStartDate: String
+  EffectiveEndDate: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  Product: product
+  UpdatedBy: user
+  rateplans(
+    filter: rateplanFilterInput
+    orderBy: [rateplanSortInput]
+    pageSize: Int
+    cursor: String
+  ): rateplanConnection
+  CreatedBy: user
+  productrateplancharges(
+    filter: productrateplanchargeFilterInput
+    orderBy: [productrateplanchargeSortInput]
+    pageSize: Int
+    cursor: String
+  ): productrateplanchargeConnection
+}
+
+type productrateplancharge implements singleObject {
+  deleted: Boolean
+  AccountingCode: String
+  ApplyDiscountTo: String
+  BillCycleDay: BigInteger
+  BillCycleType: String
+  BillingPeriod: String
+  BillingPeriodAlignment: String
+  BillingTiming: String
+  ChargeModel: String
+  ChargeType: String
+  DefaultQuantity: Float
+  DeferredRevenueAccount: String
+  Description: String
+  DiscountClassId: String
+  DiscountLevel: String
+  EndDateCondition: String
+  IncludedUnits: Float
+  LegacyRevenueReporting: Boolean
+  ListPriceBase: String
+  MaxQuantity: Float
+  MinQuantity: Float
+  Name: String
+  NumberOfPeriod: BigInteger
+  OverageCalculationOption: String
+  OverageUnusedUnitsCreditOption: String
+  PriceChangeOption: String
+  PriceIncreasePercentage: Float
+  RatingGroup: String
+  RecognizedRevenueAccount: String
+  RevenueRecognitionRuleName: String
+  RevRecTriggerCondition: String
+  SmoothingModel: String
+  SpecificBillingPeriod: BigInteger
+  Taxable: Boolean
+  TaxCode: String
+  TaxMode: String
+  TriggerEvent: String
+  UpToPeriods: BigInteger
+  UpToPeriodsType: String
+  UsageRecordRatingOption: String
+  UseDiscountSpecificAccountingCode: Boolean
+  UseTenantDefaultForPriceChange: Boolean
+  WeeklyBillCycleDay: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  AccountReceivableAccountingCodeId: String
+  ProductRatePlanId: String
+  RecognizedRevenueAccountingCodeId: String
+  DeferredRevenueAccountingCodeId: String
+  AdjustmentLiabilityAccountingCodeId: String
+  AdjustmentRevenueAccountingCodeId: String
+  ContractAssetAccountingCodeId: String
+  ContractLiabilityAccountingCodeId: String
+  ContractRecognizedRevenueAccountingCodeId: String
+  UnbilledReceivablesAccountingCodeId: String
+  RevRecCode: String
+  UOM: String
+  prpc__c: String
+  UpdatedBy: user
+  DeferredRevenueAccountingCode: accountingcode
+  CreatedBy: user
+  productrateplanchargetiers(
+    filter: productrateplanchargetierFilterInput
+    orderBy: [productrateplanchargetierSortInput]
+    pageSize: Int
+    cursor: String
+  ): productrateplanchargetierConnection
+  AccountReceivableAccountingCode: accountingcode
+  ProductRatePlan: productrateplan
+  orderlineitems(
+    filter: orderlineitemFilterInput
+    orderBy: [orderlineitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): orderlineitemConnection
+  rateplancharges(
+    filter: rateplanchargeFilterInput
+    orderBy: [rateplanchargeSortInput]
+    pageSize: Int
+    cursor: String
+  ): rateplanchargeConnection
+  RecognizedRevenueAccountingCode: accountingcode
+}
+
+type productrateplanchargeConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [productrateplanchargeEdge]
+}
+
+type productrateplanchargeEdge {
+  node: productrateplancharge
+}
+
+input productrateplanchargeFilterInput {
+  field: productrateplanchargeFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [productrateplanchargeFilterInput]
+}
+
+enum productrateplanchargeFilterKey {
+  deleted
+  BillCycleDay
+  ChargeModel
+  Id
+  UpdatedDate
+  ProductRatePlanId
+}
+
+input productrateplanchargeSortInput {
+  field: productrateplanchargeSortKey
+  order: Order
+}
+
+enum productrateplanchargeSortKey {
+  deleted
+  BillCycleDay
+  ChargeModel
+  Id
+  UpdatedDate
+  ProductRatePlanId
+}
+
+type productrateplanchargetier implements singleObject {
+  deleted: Boolean
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  Active: Boolean
+  Currency: String
+  DiscountAmount: Float
+  DiscountPercentage: Float
+  EndingUnit: Float
+  IncludedUnits: Float
+  OveragePrice: Float
+  Price: Float
+  PriceFormat: String
+  StartingUnit: Float
+  Tier: Int
+  ProductRatePlanChargeId: String
+  UpdatedBy: user
+  CreatedBy: user
+  ProductRatePlanCharge: productrateplancharge
+}
+
+type productrateplanchargetierConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [productrateplanchargetierEdge]
+}
+
+type productrateplanchargetierEdge {
+  node: productrateplanchargetier
+}
+
+input productrateplanchargetierFilterInput {
+  field: productrateplanchargetierFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [productrateplanchargetierFilterInput]
+}
+
+enum productrateplanchargetierFilterKey {
+  Id
+  UpdatedDate
+  ProductRatePlanChargeId
+}
+
+input productrateplanchargetierSortInput {
+  field: productrateplanchargetierSortKey
+  order: Order
+}
+
+enum productrateplanchargetierSortKey {
+  Id
+  UpdatedDate
+  ProductRatePlanChargeId
+}
+
+type productrateplanConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [productrateplanEdge]
+}
+
+type productrateplancurrency implements singleObject {
+  deleted: Boolean
+  IsActive: Boolean
+  Currency: String
+  ProductRatePlanId: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+}
+
+type productrateplancurrencyConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [productrateplancurrencyEdge]
+}
+
+type productrateplancurrencyEdge {
+  node: productrateplancurrency
+}
+
+input productrateplancurrencyFilterInput {
+  field: productrateplancurrencyFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [productrateplancurrencyFilterInput]
+}
+
+enum productrateplancurrencyFilterKey {
+  IsActive
+  Currency
+  ProductRatePlanId
+  Id
+  UpdatedDate
+}
+
+input productrateplancurrencySortInput {
+  field: productrateplancurrencySortKey
+  order: Order
+}
+
+enum productrateplancurrencySortKey {
+  IsActive
+  Currency
+  ProductRatePlanId
+  Id
+  UpdatedDate
+}
+
+type productrateplanEdge {
+  node: productrateplan
+}
+
+input productrateplanFilterInput {
+  field: productrateplanFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [productrateplanFilterInput]
+}
+
+enum productrateplanFilterKey {
+  ProductId
+  Id
+  UpdatedDate
+}
+
+input productrateplanSortInput {
+  field: productrateplanSortKey
+  order: Order
+}
+
+enum productrateplanSortKey {
+  ProductId
+  Id
+  UpdatedDate
+}
+
+input productSortInput {
+  field: productSortKey
+  order: Order
+}
+
+enum productSortKey {
+  Name
+  SKU
+  Id
+  UpdatedDate
+}
+
+type query {
+  journalentryitemById(Id: String!): journalentryitem
+  journalentryitems(
+    filter: journalentryitemFilterInput
+    orderBy: [journalentryitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): journalentryitemConnection
+  amendmentById(Id: String!): amendment
+  amendments(
+    filter: amendmentFilterInput
+    orderBy: [amendmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): amendmentConnection
+  discountapplydetailById(Id: String!): discountapplydetail
+  discountapplydetails(
+    filter: discountapplydetailFilterInput
+    orderBy: [discountapplydetailSortInput]
+    pageSize: Int
+    cursor: String
+  ): discountapplydetailConnection
+  chargemetricsById(Id: String!): chargemetrics
+  chargemetricses(
+    filter: chargemetricsFilterInput
+    orderBy: [chargemetricsSortInput]
+    pageSize: Int
+    cursor: String
+  ): chargemetricsConnection
+  _productrateplanById(Id: String!): _productrateplan
+  _productrateplans(
+    filter: _productrateplanFilterInput
+    orderBy: [_productrateplanSortInput]
+    pageSize: Int
+    cursor: String
+  ): _productrateplanConnection
+  usageById(Id: String!): usage
+  usages(
+    filter: usageFilterInput
+    orderBy: [usageSortInput]
+    pageSize: Int
+    cursor: String
+  ): usageConnection
+  testenvironmentjobById(Id: String!): testenvironmentjob
+  testenvironmentjobs(
+    filter: testenvironmentjobFilterInput
+    orderBy: [testenvironmentjobSortInput]
+    pageSize: Int
+    cursor: String
+  ): testenvironmentjobConnection
+  _subscriptionById(Id: String!): _subscription
+  _subscriptions(
+    filter: _subscriptionFilterInput
+    orderBy: [_subscriptionSortInput]
+    pageSize: Int
+    cursor: String
+  ): _subscriptionConnection
+  billingrunById(Id: String!): billingrun
+  billingruns(
+    filter: billingrunFilterInput
+    orderBy: [billingrunSortInput]
+    pageSize: Int
+    cursor: String
+  ): billingrunConnection
+  _invoiceById(Id: String!): _invoice
+  _invoices(
+    filter: _invoiceFilterInput
+    orderBy: [_invoiceSortInput]
+    pageSize: Int
+    cursor: String
+  ): _invoiceConnection
+  _accountById(Id: String!): _account
+  _accounts(
+    filter: _accountFilterInput
+    orderBy: [_accountSortInput]
+    pageSize: Int
+    cursor: String
+  ): _accountConnection
+  accountingcodeById(Id: String!): accountingcode
+  accountingcodes(
+    filter: accountingcodeFilterInput
+    orderBy: [accountingcodeSortInput]
+    pageSize: Int
+    cursor: String
+  ): accountingcodeConnection
+  paymentreconciliationlogById(Id: String!): paymentreconciliationlog
+  paymentreconciliationlogs(
+    filter: paymentreconciliationlogFilterInput
+    orderBy: [paymentreconciliationlogSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentreconciliationlogConnection
+  paymenttransactionlogById(Id: String!): paymenttransactionlog
+  paymenttransactionlogs(
+    filter: paymenttransactionlogFilterInput
+    orderBy: [paymenttransactionlogSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymenttransactionlogConnection
+  workflow_taskById(Id: String!): workflow_task
+  workflow_tasks(
+    filter: workflow_taskFilterInput
+    orderBy: [workflow_taskSortInput]
+    pageSize: Int
+    cursor: String
+  ): workflow_taskConnection
+  _invoiceitemById(Id: String!): _invoiceitem
+  _invoiceitems(
+    filter: _invoiceitemFilterInput
+    orderBy: [_invoiceitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): _invoiceitemConnection
+  productdiscountapplydetailById(Id: String!): productdiscountapplydetail
+  productdiscountapplydetails(
+    filter: productdiscountapplydetailFilterInput
+    orderBy: [productdiscountapplydetailSortInput]
+    pageSize: Int
+    cursor: String
+  ): productdiscountapplydetailConnection
+  contactById(Id: String!): contact
+  contacts(
+    filter: contactFilterInput
+    orderBy: [contactSortInput]
+    pageSize: Int
+    cursor: String
+  ): contactConnection
+  productrateplancurrencyById(Id: String!): productrateplancurrency
+  productrateplancurrencies(
+    filter: productrateplancurrencyFilterInput
+    orderBy: [productrateplancurrencySortInput]
+    pageSize: Int
+    cursor: String
+  ): productrateplancurrencyConnection
+  paymentById(Id: String!): payment
+  payments(
+    filter: paymentFilterInput
+    orderBy: [paymentSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentConnection
+  taxationitemById(Id: String!): taxationitem
+  taxationitems(
+    filter: taxationitemFilterInput
+    orderBy: [taxationitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): taxationitemConnection
+  paymentreconciliationjobById(Id: String!): paymentreconciliationjob
+  paymentreconciliationjobs(
+    filter: paymentreconciliationjobFilterInput
+    orderBy: [paymentreconciliationjobSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentreconciliationjobConnection
+  configurableviewById(Id: String!): configurableview
+  configurableviews(
+    filter: configurableviewFilterInput
+    orderBy: [configurableviewSortInput]
+    pageSize: Int
+    cursor: String
+  ): configurableviewConnection
+  default__testobjectById(Id: String!): default__testobject
+  default__testobjects(
+    filter: default__testobjectFilterInput
+    orderBy: [default__testobjectSortInput]
+    pageSize: Int
+    cursor: String
+  ): default__testobjectConnection
+  workflowById(Id: String!): workflow
+  workflows(
+    filter: workflowFilterInput
+    orderBy: [workflowSortInput]
+    pageSize: Int
+    cursor: String
+  ): workflowConnection
+  productrateplanchargeById(Id: String!): productrateplancharge
+  productrateplancharges(
+    filter: productrateplanchargeFilterInput
+    orderBy: [productrateplanchargeSortInput]
+    pageSize: Int
+    cursor: String
+  ): productrateplanchargeConnection
+  rateplanchargetierById(Id: String!): rateplanchargetier
+  rateplanchargetiers(
+    filter: rateplanchargetierFilterInput
+    orderBy: [rateplanchargetierSortInput]
+    pageSize: Int
+    cursor: String
+  ): rateplanchargetierConnection
+  _subscriptionrateplanById(Id: String!): _subscriptionrateplan
+  _subscriptionrateplans(
+    filter: _subscriptionrateplanFilterInput
+    orderBy: [_subscriptionrateplanSortInput]
+    pageSize: Int
+    cursor: String
+  ): _subscriptionrateplanConnection
+  _productById(Id: String!): _product
+  _products(
+    filter: _productFilterInput
+    orderBy: [_productSortInput]
+    pageSize: Int
+    cursor: String
+  ): _productConnection
+  default__testById(Id: String!): default__test
+  default__tests(
+    filter: default__testFilterInput
+    orderBy: [default__testSortInput]
+    pageSize: Int
+    cursor: String
+  ): default__testConnection
+  rateplanById(Id: String!): rateplan
+  rateplans(
+    filter: rateplanFilterInput
+    orderBy: [rateplanSortInput]
+    pageSize: Int
+    cursor: String
+  ): rateplanConnection
+  configurableuiById(Id: String!): configurableui
+  configurableuis(
+    filter: configurableuiFilterInput
+    orderBy: [configurableuiSortInput]
+    pageSize: Int
+    cursor: String
+  ): configurableuiConnection
+  refundtransactionlogById(Id: String!): refundtransactionlog
+  refundtransactionlogs(
+    filter: refundtransactionlogFilterInput
+    orderBy: [refundtransactionlogSortInput]
+    pageSize: Int
+    cursor: String
+  ): refundtransactionlogConnection
+  revenueeventdebitmemoitemById(Id: String!): revenueeventdebitmemoitem
+  revenueeventdebitmemoitems(
+    filter: revenueeventdebitmemoitemFilterInput
+    orderBy: [revenueeventdebitmemoitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): revenueeventdebitmemoitemConnection
+  productrateplanchargetierById(Id: String!): productrateplanchargetier
+  productrateplanchargetiers(
+    filter: productrateplanchargetierFilterInput
+    orderBy: [productrateplanchargetierSortInput]
+    pageSize: Int
+    cursor: String
+  ): productrateplanchargetierConnection
+  journalrunById(Id: String!): journalrun
+  journalruns(
+    filter: journalrunFilterInput
+    orderBy: [journalrunSortInput]
+    pageSize: Int
+    cursor: String
+  ): journalrunConnection
+  invoicehistoryById(Id: String!): invoicehistory
+  invoicehistories(
+    filter: invoicehistoryFilterInput
+    orderBy: [invoicehistorySortInput]
+    pageSize: Int
+    cursor: String
+  ): invoicehistoryConnection
+  auditlogineventById(Id: String!): auditloginevent
+  auditloginevents(
+    filter: auditlogineventFilterInput
+    orderBy: [auditlogineventSortInput]
+    pageSize: Int
+    cursor: String
+  ): auditlogineventConnection
+  paymentmethodsnapshotById(Id: String!): paymentmethodsnapshot
+  paymentmethodsnapshots(
+    filter: paymentmethodsnapshotFilterInput
+    orderBy: [paymentmethodsnapshotSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentmethodsnapshotConnection
+  savedqueryById(Id: String!): savedquery
+  savedqueries(
+    filter: savedqueryFilterInput
+    orderBy: [savedquerySortInput]
+    pageSize: Int
+    cursor: String
+  ): savedqueryConnection
+  paymentmethodById(Id: String!): paymentmethod
+  paymentmethods(
+    filter: paymentmethodFilterInput
+    orderBy: [paymentmethodSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentmethodConnection
+  refundById(Id: String!): refund
+  refunds(
+    filter: refundFilterInput
+    orderBy: [refundSortInput]
+    pageSize: Int
+    cursor: String
+  ): refundConnection
+  contactsnapshotById(Id: String!): contactsnapshot
+  contactsnapshots(
+    filter: contactsnapshotFilterInput
+    orderBy: [contactsnapshotSortInput]
+    pageSize: Int
+    cursor: String
+  ): contactsnapshotConnection
+  orderlineitemById(Id: String!): orderlineitem
+  orderlineitems(
+    filter: orderlineitemFilterInput
+    orderBy: [orderlineitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): orderlineitemConnection
+  rateplanchargeById(Id: String!): rateplancharge
+  rateplancharges(
+    filter: rateplanchargeFilterInput
+    orderBy: [rateplanchargeSortInput]
+    pageSize: Int
+    cursor: String
+  ): rateplanchargeConnection
+  workflow_linkageById(Id: String!): workflow_linkage
+  workflow_linkages(
+    filter: workflow_linkageFilterInput
+    orderBy: [workflow_linkageSortInput]
+    pageSize: Int
+    cursor: String
+  ): workflow_linkageConnection
+  memohistoryById(Id: String!): memohistory
+  memohistories(
+    filter: memohistoryFilterInput
+    orderBy: [memohistorySortInput]
+    pageSize: Int
+    cursor: String
+  ): memohistoryConnection
+  updaterbatchById(Id: String!): updaterbatch
+  updaterbatches(
+    filter: updaterbatchFilterInput
+    orderBy: [updaterbatchSortInput]
+    pageSize: Int
+    cursor: String
+  ): updaterbatchConnection
+  subscriptionById(Id: String!): subscription
+  subscriptions(
+    filter: subscriptionFilterInput
+    orderBy: [subscriptionSortInput]
+    pageSize: Int
+    cursor: String
+  ): subscriptionConnection
+  processedusageById(Id: String!): processedusage
+  processedusages(
+    filter: processedusageFilterInput
+    orderBy: [processedusageSortInput]
+    pageSize: Int
+    cursor: String
+  ): processedusageConnection
+  demoById(Id: String!): demo
+  demoes(
+    filter: demoFilterInput
+    orderBy: [demoSortInput]
+    pageSize: Int
+    cursor: String
+  ): demoConnection
+  workflow_task_usageById(Id: String!): workflow_task_usage
+  workflow_task_usages(
+    filter: workflow_task_usageFilterInput
+    orderBy: [workflow_task_usageSortInput]
+    pageSize: Int
+    cursor: String
+  ): workflow_task_usageConnection
+  auditobjectchangeeventById(Id: String!): auditobjectchangeevent
+  auditobjectchangeevents(
+    filter: auditobjectchangeeventFilterInput
+    orderBy: [auditobjectchangeeventSortInput]
+    pageSize: Int
+    cursor: String
+  ): auditobjectchangeeventConnection
+  attachmentById(Id: String!): attachment
+  attachments(
+    filter: attachmentFilterInput
+    orderBy: [attachmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): attachmentConnection
+  journalentryById(Id: String!): journalentry
+  journalentries(
+    filter: journalentryFilterInput
+    orderBy: [journalentrySortInput]
+    pageSize: Int
+    cursor: String
+  ): journalentryConnection
+  ratedusageById(Id: String!): ratedusage
+  ratedusages(
+    filter: ratedusageFilterInput
+    orderBy: [ratedusageSortInput]
+    pageSize: Int
+    cursor: String
+  ): ratedusageConnection
+  updaterdetailById(Id: String!): updaterdetail
+  updaterdetails(
+    filter: updaterdetailFilterInput
+    orderBy: [updaterdetailSortInput]
+    pageSize: Int
+    cursor: String
+  ): updaterdetailConnection
+  chargeratingdetailById(Id: String!): chargeratingdetail
+  chargeratingdetails(
+    filter: chargeratingdetailFilterInput
+    orderBy: [chargeratingdetailSortInput]
+    pageSize: Int
+    cursor: String
+  ): chargeratingdetailConnection
+  paymentmethodtransactionlogById(Id: String!): paymentmethodtransactionlog
+  paymentmethodtransactionlogs(
+    filter: paymentmethodtransactionlogFilterInput
+    orderBy: [paymentmethodtransactionlogSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentmethodtransactionlogConnection
+  accountingperiodById(Id: String!): accountingperiod
+  accountingperiods(
+    filter: accountingperiodFilterInput
+    orderBy: [accountingperiodSortInput]
+    pageSize: Int
+    cursor: String
+  ): accountingperiodConnection
+  _usageById(Id: String!): _usage
+  _usages(
+    filter: _usageFilterInput
+    orderBy: [_usageSortInput]
+    pageSize: Int
+    cursor: String
+  ): _usageConnection
+  invoicepaymentById(Id: String!): invoicepayment
+  invoicepayments(
+    filter: invoicepaymentFilterInput
+    orderBy: [invoicepaymentSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoicepaymentConnection
+  productById(Id: String!): product
+  products(
+    filter: productFilterInput
+    orderBy: [productSortInput]
+    pageSize: Int
+    cursor: String
+  ): productConnection
+  productrateplanById(Id: String!): productrateplan
+  productrateplans(
+    filter: productrateplanFilterInput
+    orderBy: [productrateplanSortInput]
+    pageSize: Int
+    cursor: String
+  ): productrateplanConnection
+  paymentrunById(Id: String!): paymentrun
+  paymentruns(
+    filter: paymentrunFilterInput
+    orderBy: [paymentrunSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentrunConnection
+  invoiceitemById(Id: String!): invoiceitem
+  invoiceitems(
+    filter: invoiceitemFilterInput
+    orderBy: [invoiceitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceitemConnection
+  aquatasklogById(Id: String!): aquatasklog
+  aquatasklogs(
+    filter: aquatasklogFilterInput
+    orderBy: [aquatasklogSortInput]
+    pageSize: Int
+    cursor: String
+  ): aquatasklogConnection
+  testenvironmentById(Id: String!): testenvironment
+  testenvironments(
+    filter: testenvironmentFilterInput
+    orderBy: [testenvironmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): testenvironmentConnection
+  paymentgatewayreconciliationeventlogById(
+    Id: String!
+  ): paymentgatewayreconciliationeventlog
+  paymentgatewayreconciliationeventlogs(
+    filter: paymentgatewayreconciliationeventlogFilterInput
+    orderBy: [paymentgatewayreconciliationeventlogSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentgatewayreconciliationeventlogConnection
+  usageratingdetailById(Id: String!): usageratingdetail
+  usageratingdetails(
+    filter: usageratingdetailFilterInput
+    orderBy: [usageratingdetailSortInput]
+    pageSize: Int
+    cursor: String
+  ): usageratingdetailConnection
+  auditsettingchangeeventById(Id: String!): auditsettingchangeevent
+  auditsettingchangeevents(
+    filter: auditsettingchangeeventFilterInput
+    orderBy: [auditsettingchangeeventSortInput]
+    pageSize: Int
+    cursor: String
+  ): auditsettingchangeeventConnection
+  invoiceadjustmentById(Id: String!): invoiceadjustment
+  invoiceadjustments(
+    filter: invoiceadjustmentFilterInput
+    orderBy: [invoiceadjustmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceadjustmentConnection
+  _processedusageById(Id: String!): _processedusage
+  _processedusages(
+    filter: _processedusageFilterInput
+    orderBy: [_processedusageSortInput]
+    pageSize: Int
+    cursor: String
+  ): _processedusageConnection
+  invoiceitemadjustmentById(Id: String!): invoiceitemadjustment
+  invoiceitemadjustments(
+    filter: invoiceitemadjustmentFilterInput
+    orderBy: [invoiceitemadjustmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceitemadjustmentConnection
+  chargemetricsdiscountallocationdetailById(
+    Id: String!
+  ): chargemetricsdiscountallocationdetail
+  chargemetricsdiscountallocationdetails(
+    filter: chargemetricsdiscountallocationdetailFilterInput
+    orderBy: [chargemetricsdiscountallocationdetailSortInput]
+    pageSize: Int
+    cursor: String
+  ): chargemetricsdiscountallocationdetailConnection
+  refundinvoicepaymentById(Id: String!): refundinvoicepayment
+  refundinvoicepayments(
+    filter: refundinvoicepaymentFilterInput
+    orderBy: [refundinvoicepaymentSortInput]
+    pageSize: Int
+    cursor: String
+  ): refundinvoicepaymentConnection
+  invoiceById(Id: String!): invoice
+  invoices(
+    filter: invoiceFilterInput
+    orderBy: [invoiceSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceConnection
+  workflow_api_callById(Id: String!): workflow_api_call
+  workflow_api_calls(
+    filter: workflow_api_callFilterInput
+    orderBy: [workflow_api_callSortInput]
+    pageSize: Int
+    cursor: String
+  ): workflow_api_callConnection
+  userById(Id: String!): user
+  users(
+    filter: userFilterInput
+    orderBy: [userSortInput]
+    pageSize: Int
+    cursor: String
+  ): userConnection
+  accountById(Id: String!): account
+  accounts(
+    filter: accountFilterInput
+    orderBy: [accountSortInput]
+    pageSize: Int
+    cursor: String
+  ): accountConnection
+}
+
+type ratedusage implements singleObject {
+  accountNumber: String
+  amount: Float
+  chargeNumber: String
+  createdDate: String
+  currency: String
+  id: String
+  quantity: Float
+  ratedResultId: String
+  startDate: String
+  subscriptionNumber: String
+  unitOfMeasure: String
+  updatedDate: String
+  usageId: String
+}
+
+type ratedusageConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [ratedusageEdge]
+}
+
+type ratedusageEdge {
+  node: ratedusage
+}
+
+input ratedusageFilterInput {
+  field: ratedusageFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [ratedusageFilterInput]
+}
+
+enum ratedusageFilterKey
+
+input ratedusageSortInput {
+  field: ratedusageSortKey
+  order: Order
+}
+
+enum ratedusageSortKey
+
+type rateplan implements singleObject {
+  deleted: Boolean
+  AmendmentId: String
+  AmendmentType: String
+  Name: String
+  ProductRatePlanId: String
+  SubscriptionId: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  Amendment: amendment
+  UpdatedBy: user
+  CreatedBy: user
+  Subscription: subscription
+  rateplancharges(
+    filter: rateplanchargeFilterInput
+    orderBy: [rateplanchargeSortInput]
+    pageSize: Int
+    cursor: String
+  ): rateplanchargeConnection
+  ProductRatePlan: productrateplan
+}
+
+type rateplancharge implements singleObject {
+  deleted: Boolean
+  RatePlanId: String
+  ProductRatePlanChargeId: String
+  AccountingCode: String
+  ApplyDiscountTo: String
+  BillCycleDay: BigInteger
+  BillCycleType: String
+  BillingPeriod: String
+  BillingPeriodAlignment: String
+  BillingTiming: String
+  ChargedThroughDate: String
+  ChargeModel: String
+  ChargeNumber: String
+  ChargeType: String
+  Description: String
+  DiscountLevel: String
+  DMRC: Float
+  DTCV: Float
+  EffectiveEndDate: String
+  EffectiveStartDate: String
+  EndDateCondition: String
+  IsLastSegment: Boolean
+  IsProcessed: Boolean
+  ListPriceBase: String
+  MRR: Float
+  Name: String
+  NumberOfPeriods: BigInteger
+  OriginalId: String
+  OverageCalculationOption: String
+  OverageUnusedUnitsCreditOption: String
+  PriceChangeOption: String
+  PriceIncreasePercentage: Float
+  ProcessedThroughDate: String
+  Quantity: Float
+  RatingGroup: String
+  RevenueRecognitionRuleName: String
+  RevRecCode: String
+  RevRecTriggerCondition: String
+  Segment: Int
+  SpecificBillingPeriod: BigInteger
+  SpecificEndDate: String
+  TCV: Float
+  TriggerDate: String
+  TriggerEvent: String
+  UOM: String
+  UpToPeriods: BigInteger
+  UpToPeriodsType: String
+  Version: BigInteger
+  WeeklyBillCycleDay: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  AccountReceivableAccountingCodeId: String
+  DeferredRevenueAccountingCodeId: String
+  RecognizedRevenueAccountingCodeId: String
+  rateplanchargetiers(
+    filter: rateplanchargetierFilterInput
+    orderBy: [rateplanchargetierSortInput]
+    pageSize: Int
+    cursor: String
+  ): rateplanchargetierConnection
+  UpdatedBy: user
+  DeferredRevenueAccountingCode: accountingcode
+  RecognizedRevenueAccountingCode: accountingcode
+  usages(
+    filter: usageFilterInput
+    orderBy: [usageSortInput]
+    pageSize: Int
+    cursor: String
+  ): usageConnection
+  invoiceitems(
+    filter: invoiceitemFilterInput
+    orderBy: [invoiceitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceitemConnection
+  CreatedBy: user
+  AccountReceivableAccountingCode: accountingcode
+  RatePlan: rateplan
+  ProductRatePlanCharge: productrateplancharge
+}
+
+type rateplanchargeConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [rateplanchargeEdge]
+}
+
+type rateplanchargeEdge {
+  node: rateplancharge
+}
+
+input rateplanchargeFilterInput {
+  field: rateplanchargeFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [rateplanchargeFilterInput]
+}
+
+enum rateplanchargeFilterKey {
+  RatePlanId
+  OriginalId
+  Id
+  UpdatedDate
+}
+
+input rateplanchargeSortInput {
+  field: rateplanchargeSortKey
+  order: Order
+}
+
+enum rateplanchargeSortKey {
+  RatePlanId
+  OriginalId
+  Id
+  UpdatedDate
+}
+
+type rateplanchargetier implements singleObject {
+  deleted: Boolean
+  Currency: String
+  DiscountAmount: Float
+  DiscountPercentage: Float
+  EndingUnit: Float
+  IncludedUnits: Float
+  OveragePrice: Float
+  Price: Float
+  PriceFormat: String
+  StartingUnit: Float
+  Tier: BigInteger
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  RatePlanChargeId: String
+  UpdatedBy: user
+  CreatedBy: user
+  RatePlanCharge: rateplancharge
+}
+
+type rateplanchargetierConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [rateplanchargetierEdge]
+}
+
+type rateplanchargetierEdge {
+  node: rateplanchargetier
+}
+
+input rateplanchargetierFilterInput {
+  field: rateplanchargetierFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [rateplanchargetierFilterInput]
+}
+
+enum rateplanchargetierFilterKey {
+  Currency
+  Id
+  UpdatedDate
+  RatePlanChargeId
+}
+
+input rateplanchargetierSortInput {
+  field: rateplanchargetierSortKey
+  order: Order
+}
+
+enum rateplanchargetierSortKey {
+  Currency
+  Id
+  UpdatedDate
+  RatePlanChargeId
+}
+
+type rateplanConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [rateplanEdge]
+}
+
+type rateplanEdge {
+  node: rateplan
+}
+
+input rateplanFilterInput {
+  field: rateplanFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [rateplanFilterInput]
+}
+
+enum rateplanFilterKey {
+  AmendmentId
+  SubscriptionId
+  Id
+  UpdatedDate
+}
+
+input rateplanSortInput {
+  field: rateplanSortKey
+  order: Order
+}
+
+enum rateplanSortKey {
+  AmendmentId
+  SubscriptionId
+  Id
+  UpdatedDate
+}
+
+type refund implements singleObject {
+  deleted: Boolean
+  AccountId: String
+  PaymentMethodSnapshotId: String
+  AccountingCode: String
+  Amount: Float
+  CancelledOn: String
+  Comment: String
+  GatewayReconciliationReason: String
+  GatewayReconciliationStatus: String
+  GatewayResponse: String
+  GatewayResponseCode: String
+  GatewayState: String
+  MarkedForSubmissionOn: String
+  MethodType: String
+  PaymentMethodId: String
+  PayoutId: String
+  ReasonCode: String
+  ReferenceID: String
+  RefundDate: String
+  RefundNumber: String
+  RefundTransactionTime: String
+  SecondRefundReferenceId: String
+  SettledOn: String
+  SoftDescriptor: String
+  SoftDescriptorPhone: String
+  SourceType: String
+  Status: String
+  SubmittedOn: String
+  TransferredToAccounting: String
+  Type: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  Gateway: String
+  UpdatedBy: user
+  CreatedBy: user
+  refundtransactionlogs(
+    filter: refundtransactionlogFilterInput
+    orderBy: [refundtransactionlogSortInput]
+    pageSize: Int
+    cursor: String
+  ): refundtransactionlogConnection
+  PaymentMethodSnapshot: paymentmethodsnapshot
+  Account: account
+  refundinvoicepayments(
+    filter: refundinvoicepaymentFilterInput
+    orderBy: [refundinvoicepaymentSortInput]
+    pageSize: Int
+    cursor: String
+  ): refundinvoicepaymentConnection
+}
+
+type refundConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [refundEdge]
+}
+
+type refundEdge {
+  node: refund
+}
+
+input refundFilterInput {
+  field: refundFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [refundFilterInput]
+}
+
+enum refundFilterKey {
+  AccountId
+  PaymentMethodSnapshotId
+  PaymentMethodId
+  ReasonCode
+  RefundNumber
+  SourceType
+  Id
+  UpdatedDate
+}
+
+type refundinvoicepayment implements singleObject {
+  deleted: Boolean
+  InvoicePaymentId: String
+  RefundAmount: Float
+  RefundId: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  AccountReceivableAccountingCodeId: String
+  CashAccountingCodeId: String
+  JournalEntryId: String
+  JournalEntry: journalentry
+  Refund: refund
+  UpdatedBy: user
+  CreatedBy: user
+  InvoicePayment: invoicepayment
+  AccountReceivableAccountingCode: accountingcode
+  CashAccountingCode: accountingcode
+}
+
+type refundinvoicepaymentConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [refundinvoicepaymentEdge]
+}
+
+type refundinvoicepaymentEdge {
+  node: refundinvoicepayment
+}
+
+input refundinvoicepaymentFilterInput {
+  field: refundinvoicepaymentFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [refundinvoicepaymentFilterInput]
+}
+
+enum refundinvoicepaymentFilterKey {
+  InvoicePaymentId
+  RefundId
+  Id
+  UpdatedDate
+}
+
+input refundinvoicepaymentSortInput {
+  field: refundinvoicepaymentSortKey
+  order: Order
+}
+
+enum refundinvoicepaymentSortKey {
+  InvoicePaymentId
+  RefundId
+  Id
+  UpdatedDate
+}
+
+input refundSortInput {
+  field: refundSortKey
+  order: Order
+}
+
+enum refundSortKey {
+  AccountId
+  PaymentMethodSnapshotId
+  PaymentMethodId
+  ReasonCode
+  RefundNumber
+  SourceType
+  Id
+  UpdatedDate
+}
+
+type refundtransactionlog implements singleObject {
+  Id: String
+  BatchId: String
+  GatewayReasonCode: String
+  GatewayReasonCodeDescription: String
+  GatewayState: String
+  GatewayTransactionType: String
+  RequestString: String
+  ResponseString: String
+  TransactionDate: String
+  TransactionId: String
+  RefundId: String
+  CreatedDate: String
+  Gateway: String
+  Refund: refund
+}
+
+type refundtransactionlogConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [refundtransactionlogEdge]
+}
+
+type refundtransactionlogEdge {
+  node: refundtransactionlog
+}
+
+input refundtransactionlogFilterInput {
+  field: refundtransactionlogFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [refundtransactionlogFilterInput]
+}
+
+enum refundtransactionlogFilterKey {
+  Id
+  TransactionDate
+  TransactionId
+  RefundId
+}
+
+input refundtransactionlogSortInput {
+  field: refundtransactionlogSortKey
+  order: Order
+}
+
+enum refundtransactionlogSortKey {
+  Id
+  TransactionDate
+  TransactionId
+  RefundId
+}
+
+enum Relation {
+  AND
+  OR
+}
+
+type revenueeventdebitmemoitem implements singleObject {
+  deleted: Boolean
+  Amount: Float
+  Currency: String
+  Description: String
+  Number: String
+  RecognitionEnd: String
+  RecognitionStart: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  RevenueEventTypeId: String
+  RevenueScheduleDebitMemoItemId: String
+  UpdatedBy: user
+  CreatedBy: user
+}
+
+type revenueeventdebitmemoitemConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [revenueeventdebitmemoitemEdge]
+}
+
+type revenueeventdebitmemoitemEdge {
+  node: revenueeventdebitmemoitem
+}
+
+input revenueeventdebitmemoitemFilterInput {
+  field: revenueeventdebitmemoitemFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [revenueeventdebitmemoitemFilterInput]
+}
+
+enum revenueeventdebitmemoitemFilterKey {
+  Number
+  Id
+  UpdatedDate
+  RevenueScheduleDebitMemoItemId
+}
+
+input revenueeventdebitmemoitemSortInput {
+  field: revenueeventdebitmemoitemSortKey
+  order: Order
+}
+
+enum revenueeventdebitmemoitemSortKey {
+  Number
+  Id
+  UpdatedDate
+  RevenueScheduleDebitMemoItemId
+}
+
+type savedquery implements singleObject {
+  Id: String
+  CreatedById: String
+  UpdatedById: String
+  CreatedDate: String
+  UpdatedDate: String
+  deleted: Boolean
+  ReadDeleted: Boolean
+  Compression: String
+  RecentJobId: String
+  Query: String
+  ColumnSeparator: String
+  UseIndexJoin: Boolean
+  OutputFormat: String
+  QueryDescription: String
+  SourceData: String
+  QueryName: String
+}
+
+type savedqueryConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [savedqueryEdge]
+}
+
+type savedqueryEdge {
+  node: savedquery
+}
+
+input savedqueryFilterInput {
+  field: savedqueryFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [savedqueryFilterInput]
+}
+
+enum savedqueryFilterKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  QueryName
+}
+
+input savedquerySortInput {
+  field: savedquerySortKey
+  order: Order
+}
+
+enum savedquerySortKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  QueryName
+}
+
+interface singleObject
+
+type subscription implements singleObject {
+  deleted: Boolean
+  Id: String
+  AccountId: String
+  AutoRenew: Boolean
+  CancelledDate: String
+  ContractAcceptanceDate: String
+  ContractEffectiveDate: String
+  CreatorAccountId: String
+  CreatorInvoiceOwnerId: String
+  CurrentTerm: BigInteger
+  CurrentTermPeriodType: String
+  InitialTerm: BigInteger
+  InitialTermPeriodType: String
+  InvoiceOwnerId: String
+  IsInvoiceSeparate: Boolean
+  Name: String
+  Notes: String
+  OriginalCreatedDate: String
+  OriginalId: String
+  PreviousSubscriptionId: String
+  RenewalSetting: String
+  RenewalTerm: BigInteger
+  RenewalTermPeriodType: String
+  Revision: String
+  ServiceActivationDate: String
+  Status: String
+  SubscriptionEndDate: String
+  SubscriptionStartDate: String
+  SubscriptionVersionAmendmentId: String
+  TermEndDate: String
+  TermStartDate: String
+  TermType: String
+  Version: BigInteger
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  CMRR: Float
+  RampId: String
+  QuoteNumber__QT: String
+  QuoteType__QT: String
+  QuoteBusinessType__QT: String
+  OpportunityName__QT: String
+  OpportunityCloseDate__QT: String
+  CpqBundleJsonId__QT: String
+  invoiceitems(
+    filter: invoiceitemFilterInput
+    orderBy: [invoiceitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceitemConnection
+  InvoiceOwner: account
+  UpdatedBy: user
+  SubscriptionVersionAmendment: amendment
+  CreatedBy: user
+  rateplans(
+    filter: rateplanFilterInput
+    orderBy: [rateplanSortInput]
+    pageSize: Int
+    cursor: String
+  ): rateplanConnection
+  Account: account
+  attachments(
+    filter: attachmentFilterInput
+    orderBy: [attachmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): attachmentConnection
+  usages(
+    filter: usageFilterInput
+    orderBy: [usageSortInput]
+    pageSize: Int
+    cursor: String
+  ): usageConnection
+}
+
+type subscriptionConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [subscriptionEdge]
+}
+
+type subscriptionEdge {
+  node: subscription
+}
+
+input subscriptionFilterInput {
+  field: subscriptionFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [subscriptionFilterInput]
+}
+
+enum subscriptionFilterKey {
+  Id
+  AccountId
+  ContractEffectiveDate
+  CreatorAccountId
+  CreatorInvoiceOwnerId
+  InvoiceOwnerId
+  Name
+  OriginalId
+  PreviousSubscriptionId
+  Status
+  SubscriptionVersionAmendmentId
+  TermStartDate
+  Version
+  UpdatedDate
+}
+
+input subscriptionSortInput {
+  field: subscriptionSortKey
+  order: Order
+}
+
+enum subscriptionSortKey {
+  Id
+  AccountId
+  ContractEffectiveDate
+  CreatorAccountId
+  CreatorInvoiceOwnerId
+  InvoiceOwnerId
+  Name
+  OriginalId
+  PreviousSubscriptionId
+  Status
+  SubscriptionVersionAmendmentId
+  TermStartDate
+  Version
+  UpdatedDate
+}
+
+type taxationitem implements singleObject {
+  deleted: Boolean
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  CreditAmount: Float
+  UpdatedById: String
+  UpdatedDate: String
+  AccountingCode: String
+  ExemptAmount: Float
+  InvoiceItemId: String
+  Jurisdiction: String
+  LocationCode: String
+  Name: String
+  PaymentAmount: Float
+  TaxAmount: Float
+  TaxCodeDescription: String
+  TaxCode: String
+  TaxMode: String
+  TaxDate: String
+  TaxRate: Float
+  TaxRateDescription: String
+  TaxRateType: String
+  Balance: Float
+  JournalEntryId: String
+  SalesTaxPayableAccountingCodeId: String
+  AccountReceivableAccountingCodeId: String
+  TaxableItemSnapshotId: String
+  UpdatedBy: user
+  invoiceitemadjustments(
+    filter: invoiceitemadjustmentFilterInput
+    orderBy: [invoiceitemadjustmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceitemadjustmentConnection
+  InvoiceItem: invoiceitem
+  JournalEntry: journalentry
+  CreatedBy: user
+  SalesTaxPayableAccountingCode: accountingcode
+  AccountReceivableAccountingCode: accountingcode
+}
+
+type taxationitemConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [taxationitemEdge]
+}
+
+type taxationitemEdge {
+  node: taxationitem
+}
+
+input taxationitemFilterInput {
+  field: taxationitemFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [taxationitemFilterInput]
+}
+
+enum taxationitemFilterKey {
+  Id
+  UpdatedDate
+  InvoiceItemId
+}
+
+input taxationitemSortInput {
+  field: taxationitemSortKey
+  order: Order
+}
+
+enum taxationitemSortKey {
+  Id
+  UpdatedDate
+  InvoiceItemId
+}
+
+type testenvironment implements singleObject {
+  Id: String
+  CreatedById: String
+  UpdatedById: String
+  CreatedDate: String
+  UpdatedDate: String
+  deleted: Boolean
+  Status: String
+  TenantId: String
+  LastRefreshTime: String
+  TenantName: String
+  ProvisionTime: String
+  testenvironmentjobs(
+    filter: testenvironmentjobFilterInput
+    orderBy: [testenvironmentjobSortInput]
+    pageSize: Int
+    cursor: String
+  ): testenvironmentjobConnection
+  UpdatedBy: user
+  CreatedBy: user
+}
+
+type testenvironmentConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [testenvironmentEdge]
+}
+
+type testenvironmentEdge {
+  node: testenvironment
+}
+
+input testenvironmentFilterInput {
+  field: testenvironmentFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [testenvironmentFilterInput]
+}
+
+enum testenvironmentFilterKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  Status
+  TenantId
+  LastRefreshTime
+  TenantName
+  ProvisionTime
+}
+
+type testenvironmentjob implements singleObject {
+  Id: String
+  CreatedById: String
+  UpdatedById: String
+  CreatedDate: String
+  UpdatedDate: String
+  deleted: Boolean
+  Status: String
+  JobType: String
+  TestEnvironmentId: String
+  JobStartTime: String
+  JobEndTime: String
+  TestEnvironment: testenvironment
+  UpdatedBy: user
+  CreatedBy: user
+}
+
+type testenvironmentjobConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [testenvironmentjobEdge]
+}
+
+type testenvironmentjobEdge {
+  node: testenvironmentjob
+}
+
+input testenvironmentjobFilterInput {
+  field: testenvironmentjobFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [testenvironmentjobFilterInput]
+}
+
+enum testenvironmentjobFilterKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  Status
+  JobType
+  TestEnvironmentId
+  JobStartTime
+  JobEndTime
+}
+
+input testenvironmentjobSortInput {
+  field: testenvironmentjobSortKey
+  order: Order
+}
+
+enum testenvironmentjobSortKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  Status
+  JobType
+  TestEnvironmentId
+  JobStartTime
+  JobEndTime
+}
+
+input testenvironmentSortInput {
+  field: testenvironmentSortKey
+  order: Order
+}
+
+enum testenvironmentSortKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  Status
+  TenantId
+  LastRefreshTime
+  TenantName
+  ProvisionTime
+}
+
+type updaterbatch implements singleObject {
+  BatchId: BigInteger
+  BatchTransactionId: String
+  CompletedTime: String
+  InternalStatus: String
+  PostDate: String
+  RequestId: String
+  RetrieveResponseCode: String
+  RetrieveResponseMessage: String
+  Status: String
+  SubmitResponseCode: String
+  SubmitResponseMessage: String
+  SubmittedTime: String
+  SubmittingTime: String
+  UpdaterAccountId: String
+  UpdaterGatewayType: String
+  UpdaterRequestId: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  UpdatedBy: user
+  CreatedBy: user
+  updaterdetails(
+    filter: updaterdetailFilterInput
+    orderBy: [updaterdetailSortInput]
+    pageSize: Int
+    cursor: String
+  ): updaterdetailConnection
+}
+
+type updaterbatchConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [updaterbatchEdge]
+}
+
+type updaterbatchEdge {
+  node: updaterbatch
+}
+
+input updaterbatchFilterInput {
+  field: updaterbatchFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [updaterbatchFilterInput]
+}
+
+enum updaterbatchFilterKey {
+  BatchId
+  InternalStatus
+  RequestId
+  Status
+  UpdaterAccountId
+  Id
+  UpdatedDate
+}
+
+input updaterbatchSortInput {
+  field: updaterbatchSortKey
+  order: Order
+}
+
+enum updaterbatchSortKey {
+  BatchId
+  InternalStatus
+  RequestId
+  Status
+  UpdaterAccountId
+  Id
+  UpdatedDate
+}
+
+type updaterdetail implements singleObject {
+  BillingAccountId: String
+  CardExpirationMonth: Int
+  CardExpirationYear: Int
+  CardNumberMasked: String
+  CardType: String
+  IsPaymentMethodUpdated: Boolean
+  NewCardExpirationMonth: Int
+  NewCardExpirationYear: Int
+  NewCardNumberMasked: String
+  NewCardType: String
+  RecordId: String
+  RetrieveRequestTransactionLog: String
+  RetrieveResponseCode: String
+  RetrieveResponseMessage: String
+  RetrieveResponseTransactionLog: String
+  Status: String
+  SubmitRequestTransactionLog: String
+  SubmitResponseCode: String
+  SubmitResponseMessage: String
+  SubmitResponseTransactionLog: String
+  SubmittedResponseTime: String
+  TransactionId: String
+  UpdateType: String
+  UpdaterBatchId: String
+  NewPaymentMethodId: String
+  PaymentMethodId: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  UpdatedBy: user
+  CreatedBy: user
+  UpdaterBatch: updaterbatch
+  NewPaymentMethod: paymentmethod
+  PaymentMethod: paymentmethod
+}
+
+type updaterdetailConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [updaterdetailEdge]
+}
+
+type updaterdetailEdge {
+  node: updaterdetail
+}
+
+input updaterdetailFilterInput {
+  field: updaterdetailFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [updaterdetailFilterInput]
+}
+
+enum updaterdetailFilterKey {
+  BillingAccountId
+  RecordId
+  Status
+  TransactionId
+  UpdaterBatchId
+  PaymentMethodId
+  Id
+  UpdatedDate
+}
+
+input updaterdetailSortInput {
+  field: updaterdetailSortKey
+  order: Order
+}
+
+enum updaterdetailSortKey {
+  BillingAccountId
+  RecordId
+  Status
+  TransactionId
+  UpdaterBatchId
+  PaymentMethodId
+  Id
+  UpdatedDate
+}
+
+type usage implements singleObject {
+  deleted: Boolean
+  AccountId: String
+  AccountNumber: String
+  RatePlanChargeId: String
+  EndDateTime: String
+  Quantity: Float
+  RbeStatus: String
+  SourceType: String
+  StartDateTime: String
+  SubscriptionId: String
+  SubmissionDateTime: String
+  UOM: String
+  Description: String
+  Id: String
+  CreatedById: String
+  CreatedDate: String
+  UpdatedById: String
+  UpdatedDate: String
+  ImportId: String
+  UpdatedBy: user
+  CreatedBy: user
+  Subscription: subscription
+  processedusages(
+    filter: processedusageFilterInput
+    orderBy: [processedusageSortInput]
+    pageSize: Int
+    cursor: String
+  ): processedusageConnection
+  RatePlanCharge: rateplancharge
+  Account: account
+}
+
+type usageConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [usageEdge]
+}
+
+type usageEdge {
+  node: usage
+}
+
+input usageFilterInput {
+  field: usageFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [usageFilterInput]
+}
+
+enum usageFilterKey {
+  AccountId
+  StartDateTime
+  UOM
+  Id
+  UpdatedDate
+}
+
+type usageratingdetail implements singleObject {
+  Id: String
+  CreatedById: String
+  UpdatedById: String
+  CreatedDate: String
+  UpdatedDate: String
+  deleted: Boolean
+  RecordSequence: BigInteger
+  Reference: String
+  CalculationDetails: String
+  ErrorSequence: BigInteger
+  UsageId: String
+  ErrorDetails: String
+  ChargeNumber: String
+  Success: Boolean
+  ChargeRatingDetailId: String
+}
+
+type usageratingdetailConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [usageratingdetailEdge]
+}
+
+type usageratingdetailEdge {
+  node: usageratingdetail
+}
+
+input usageratingdetailFilterInput {
+  field: usageratingdetailFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [usageratingdetailFilterInput]
+}
+
+enum usageratingdetailFilterKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  Reference
+  ErrorSequence
+  UsageId
+  ChargeNumber
+  Success
+}
+
+input usageratingdetailSortInput {
+  field: usageratingdetailSortKey
+  order: Order
+}
+
+enum usageratingdetailSortKey {
+  Id
+  CreatedById
+  UpdatedById
+  CreatedDate
+  UpdatedDate
+  deleted
+  Reference
+  ErrorSequence
+  UsageId
+  ChargeNumber
+  Success
+}
+
+input usageSortInput {
+  field: usageSortKey
+  order: Order
+}
+
+enum usageSortKey {
+  AccountId
+  StartDateTime
+  UOM
+  Id
+  UpdatedDate
+}
+
+type user implements singleObject {
+  Id: String
+  Email: String
+  FirstName: String
+  LastName: String
+  Username: String
+  CreatedDate: String
+  testenvironments(
+    filter: testenvironmentFilterInput
+    orderBy: [testenvironmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): testenvironmentConnection
+  invoiceitems(
+    filter: invoiceitemFilterInput
+    orderBy: [invoiceitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceitemConnection
+  contactsnapshots(
+    filter: contactsnapshotFilterInput
+    orderBy: [contactsnapshotSortInput]
+    pageSize: Int
+    cursor: String
+  ): contactsnapshotConnection
+  invoices(
+    filter: invoiceFilterInput
+    orderBy: [invoiceSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceConnection
+  testenvironmentjobs(
+    filter: testenvironmentjobFilterInput
+    orderBy: [testenvironmentjobSortInput]
+    pageSize: Int
+    cursor: String
+  ): testenvironmentjobConnection
+  revenueeventdebitmemoitems(
+    filter: revenueeventdebitmemoitemFilterInput
+    orderBy: [revenueeventdebitmemoitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): revenueeventdebitmemoitemConnection
+  updaterbatches(
+    filter: updaterbatchFilterInput
+    orderBy: [updaterbatchSortInput]
+    pageSize: Int
+    cursor: String
+  ): updaterbatchConnection
+  paymentmethods(
+    filter: paymentmethodFilterInput
+    orderBy: [paymentmethodSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentmethodConnection
+  updaterdetails(
+    filter: updaterdetailFilterInput
+    orderBy: [updaterdetailSortInput]
+    pageSize: Int
+    cursor: String
+  ): updaterdetailConnection
+  subscriptions(
+    filter: subscriptionFilterInput
+    orderBy: [subscriptionSortInput]
+    pageSize: Int
+    cursor: String
+  ): subscriptionConnection
+  accountingperiods(
+    filter: accountingperiodFilterInput
+    orderBy: [accountingperiodSortInput]
+    pageSize: Int
+    cursor: String
+  ): accountingperiodConnection
+  invoiceitemadjustments(
+    filter: invoiceitemadjustmentFilterInput
+    orderBy: [invoiceitemadjustmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceitemadjustmentConnection
+  invoicepayments(
+    filter: invoicepaymentFilterInput
+    orderBy: [invoicepaymentSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoicepaymentConnection
+  taxationitems(
+    filter: taxationitemFilterInput
+    orderBy: [taxationitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): taxationitemConnection
+  refunds(
+    filter: refundFilterInput
+    orderBy: [refundSortInput]
+    pageSize: Int
+    cursor: String
+  ): refundConnection
+  discountapplydetails(
+    filter: discountapplydetailFilterInput
+    orderBy: [discountapplydetailSortInput]
+    pageSize: Int
+    cursor: String
+  ): discountapplydetailConnection
+  aquatasklogs(
+    filter: aquatasklogFilterInput
+    orderBy: [aquatasklogSortInput]
+    pageSize: Int
+    cursor: String
+  ): aquatasklogConnection
+  productrateplancharges(
+    filter: productrateplanchargeFilterInput
+    orderBy: [productrateplanchargeSortInput]
+    pageSize: Int
+    cursor: String
+  ): productrateplanchargeConnection
+  products(
+    filter: productFilterInput
+    orderBy: [productSortInput]
+    pageSize: Int
+    cursor: String
+  ): productConnection
+  journalentryitems(
+    filter: journalentryitemFilterInput
+    orderBy: [journalentryitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): journalentryitemConnection
+  rateplancharges(
+    filter: rateplanchargeFilterInput
+    orderBy: [rateplanchargeSortInput]
+    pageSize: Int
+    cursor: String
+  ): rateplanchargeConnection
+  productrateplans(
+    filter: productrateplanFilterInput
+    orderBy: [productrateplanSortInput]
+    pageSize: Int
+    cursor: String
+  ): productrateplanConnection
+  memohistories(
+    filter: memohistoryFilterInput
+    orderBy: [memohistorySortInput]
+    pageSize: Int
+    cursor: String
+  ): memohistoryConnection
+  productdiscountapplydetails(
+    filter: productdiscountapplydetailFilterInput
+    orderBy: [productdiscountapplydetailSortInput]
+    pageSize: Int
+    cursor: String
+  ): productdiscountapplydetailConnection
+  contacts(
+    filter: contactFilterInput
+    orderBy: [contactSortInput]
+    pageSize: Int
+    cursor: String
+  ): contactConnection
+  rateplanchargetiers(
+    filter: rateplanchargetierFilterInput
+    orderBy: [rateplanchargetierSortInput]
+    pageSize: Int
+    cursor: String
+  ): rateplanchargetierConnection
+  usages(
+    filter: usageFilterInput
+    orderBy: [usageSortInput]
+    pageSize: Int
+    cursor: String
+  ): usageConnection
+  amendments(
+    filter: amendmentFilterInput
+    orderBy: [amendmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): amendmentConnection
+  processedusages(
+    filter: processedusageFilterInput
+    orderBy: [processedusageSortInput]
+    pageSize: Int
+    cursor: String
+  ): processedusageConnection
+  journalruns(
+    filter: journalrunFilterInput
+    orderBy: [journalrunSortInput]
+    pageSize: Int
+    cursor: String
+  ): journalrunConnection
+  journalentries(
+    filter: journalentryFilterInput
+    orderBy: [journalentrySortInput]
+    pageSize: Int
+    cursor: String
+  ): journalentryConnection
+  accounts(
+    filter: accountFilterInput
+    orderBy: [accountSortInput]
+    pageSize: Int
+    cursor: String
+  ): accountConnection
+  billingruns(
+    filter: billingrunFilterInput
+    orderBy: [billingrunSortInput]
+    pageSize: Int
+    cursor: String
+  ): billingrunConnection
+  paymentruns(
+    filter: paymentrunFilterInput
+    orderBy: [paymentrunSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentrunConnection
+  accountingcodes(
+    filter: accountingcodeFilterInput
+    orderBy: [accountingcodeSortInput]
+    pageSize: Int
+    cursor: String
+  ): accountingcodeConnection
+  invoiceadjustments(
+    filter: invoiceadjustmentFilterInput
+    orderBy: [invoiceadjustmentSortInput]
+    pageSize: Int
+    cursor: String
+  ): invoiceadjustmentConnection
+  rateplans(
+    filter: rateplanFilterInput
+    orderBy: [rateplanSortInput]
+    pageSize: Int
+    cursor: String
+  ): rateplanConnection
+  orderlineitems(
+    filter: orderlineitemFilterInput
+    orderBy: [orderlineitemSortInput]
+    pageSize: Int
+    cursor: String
+  ): orderlineitemConnection
+  payments(
+    filter: paymentFilterInput
+    orderBy: [paymentSortInput]
+    pageSize: Int
+    cursor: String
+  ): paymentConnection
+  invoicehistories(
+    filter: invoicehistoryFilterInput
+    orderBy: [invoicehistorySortInput]
+    pageSize: Int
+    cursor: String
+  ): invoicehistoryConnection
+  refundinvoicepayments(
+    filter: refundinvoicepaymentFilterInput
+    orderBy: [refundinvoicepaymentSortInput]
+    pageSize: Int
+    cursor: String
+  ): refundinvoicepaymentConnection
+  productrateplanchargetiers(
+    filter: productrateplanchargetierFilterInput
+    orderBy: [productrateplanchargetierSortInput]
+    pageSize: Int
+    cursor: String
+  ): productrateplanchargetierConnection
+}
+
+type userConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [userEdge]
+}
+
+type userEdge {
+  node: user
+}
+
+input userFilterInput {
+  field: userFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [userFilterInput]
+}
+
+enum userFilterKey {
+  Id
+}
+
+input userSortInput {
+  field: userSortKey
+  order: Order
+}
+
+enum userSortKey {
+  Id
+}
+
+type workflow implements singleObject {
+  Id: Int
+  Name: String
+  Description: String
+  Parameters: String
+  Data: String
+  OriginalWorkflowId: Int
+  Type: String
+  CreatedDate: String
+  UpdatedDate: String
+  OndemandTrigger: Boolean
+  CalloutTrigger: Boolean
+  ScheduledTrigger: Boolean
+  Interval: String
+  Timezone: String
+  Status: String
+  FinishedAt: String
+  RunTime: Float
+  Notifications: String
+  LastRun: String
+  InstanceExecutionCount: Int
+  Files: String
+  StartedAt: String
+  CallType: String
+  TasksCount: Int
+  Priority: String
+  DeleteTtl: Int
+  TaskSummary: String
+  UpdatedById: String
+  CreatedById: String
+  IsDeleted: Boolean
+  ExternalTrackId: String
+  TemplateId: Int
+  Version: Int
+}
+
+type workflow_api_call implements singleObject {
+  Id: Int
+  TaskId: Int
+  Object: String
+  Call: String
+  CallType: String
+  Method: String
+  JsonRequest: String
+  JsonResponse: String
+  XmlRequest: String
+  XmlResponse: String
+  CreatedDate: String
+  UpdatedDate: String
+  WorkflowId: Int
+  OriginalWorkflowId: Int
+  Duration: Float
+  RequestId: String
+  ErrorType: String
+  Headers: String
+  HttpCode: Int
+  UrlPath: String
+  IsDeleted: Boolean
+}
+
+type workflow_api_callConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [workflow_api_callEdge]
+}
+
+type workflow_api_callEdge {
+  node: workflow_api_call
+}
+
+input workflow_api_callFilterInput {
+  field: workflow_api_callFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [workflow_api_callFilterInput]
+}
+
+enum workflow_api_callFilterKey {
+  Id
+  TaskId
+  CreatedDate
+  WorkflowId
+  OriginalWorkflowId
+  HttpCode
+  UrlPath
+  IsDeleted
+}
+
+input workflow_api_callSortInput {
+  field: workflow_api_callSortKey
+  order: Order
+}
+
+enum workflow_api_callSortKey {
+  Id
+  TaskId
+  CreatedDate
+  WorkflowId
+  OriginalWorkflowId
+  HttpCode
+  UrlPath
+  IsDeleted
+}
+
+type workflow_linkage implements singleObject {
+  Id: Int
+  SourceWorkflowId: Int
+  SourceTaskId: Int
+  TargetTaskId: Int
+  WorkflowId: Int
+  LinkageType: String
+  CreatedDate: String
+  UpdatedDate: String
+  OriginalWorkflowId: Int
+  UpdatedById: String
+  CreatedById: String
+  IsDeleted: Boolean
+}
+
+type workflow_linkageConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [workflow_linkageEdge]
+}
+
+type workflow_linkageEdge {
+  node: workflow_linkage
+}
+
+input workflow_linkageFilterInput {
+  field: workflow_linkageFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [workflow_linkageFilterInput]
+}
+
+enum workflow_linkageFilterKey {
+  Id
+  SourceWorkflowId
+  SourceTaskId
+  TargetTaskId
+  WorkflowId
+  LinkageType
+  OriginalWorkflowId
+  UpdatedById
+  CreatedById
+  IsDeleted
+}
+
+input workflow_linkageSortInput {
+  field: workflow_linkageSortKey
+  order: Order
+}
+
+enum workflow_linkageSortKey {
+  Id
+  SourceWorkflowId
+  SourceTaskId
+  TargetTaskId
+  WorkflowId
+  LinkageType
+  OriginalWorkflowId
+  UpdatedById
+  CreatedById
+  IsDeleted
+}
+
+type workflow_task implements singleObject {
+  Id: Int
+  Name: String
+  Parameters: String
+  Data: String
+  ActionType: String
+  Object: String
+  ObjectId: String
+  CallType: String
+  TaskId: Int
+  OriginalTaskId: Int
+  WorkflowId: Int
+  OriginalWorkflowId: Int
+  Status: String
+  Error: String
+  StartTime: String
+  EndTime: String
+  RunTime: Float
+  CreatedDate: String
+  UpdatedDate: String
+  EntityId: String
+  ProcessId: Int
+  Css: String
+  ConcurrentLimit: Int
+  Files: String
+  IterateRowReference: Int
+  ErrorClass: String
+  ObjectBatchedReference: String
+  Tags: String
+  PreviousTasks: String
+  Priority: String
+  Assignment: String
+  Notes: String
+  DataSize: Int
+  RestartAt: String
+  UpdatedById: String
+  CreatedById: String
+  IsDeleted: Boolean
+  RateLimitCount: Int
+}
+
+type workflow_task_usage implements singleObject {
+  Id: Int
+  ExportCount: Int
+  QueryCount: Int
+  GetUsageCount: Int
+  IfCount: Int
+  CaseCount: Int
+  CreateCount: Int
+  UpdateCount: Int
+  DeleteCount: Int
+  NewProductCount: Int
+  RemoveProductCount: Int
+  SuspendCount: Int
+  ResumeCount: Int
+  CancelCount: Int
+  InvoiceGenerateCount: Int
+  EmailCount: Int
+  CalloutCount: Int
+  NotificationsSmsCount: Int
+  NotificationsPhoneCallCount: Int
+  IterateCount: Int
+  WriteOffCount: Int
+  ApprovalCount: Int
+  DelayCount: Int
+  CreatedDate: String
+  UpdatedDate: String
+  NotificationsGoogleCloudPrintCount: Int
+  ReportingRunReportCount: Int
+  UploadFtpCount: Int
+  BillingCurrencyConversionCount: Int
+  DataBillingPreviewRunCount: Int
+  LogicLambdaCount: Int
+  DataGetObjectPartCount: Int
+  BillingBillRunCount: Int
+  UploadSftpCount: Int
+  LogicCaseCount: Int
+  DataLinkCount: Int
+  LogicCsvTranslatorCount: Int
+  LogicJsonTransformCount: Int
+  LogicCustomCodeCount: Int
+  LogicXmlTransformCount: Int
+  DownloadSftpCount: Int
+  PaymentPaymentRunCount: Int
+  LogicResponseFormatterCount: Int
+  UiPageCount: Int
+  UiPageStop: Int
+  AttachmentCount: Int
+  BillingCustomBillingDocumentCount: Int
+  PaymentGatewayReconciliationCount: Int
+  CustomObjectCreateCount: Int
+  CustomObjectDeleteCount: Int
+  CustomObjectQueryCount: Int
+  CustomObjectUpdateCount: Int
+  FileCustomPdfCustomDocumentCount: Int
+  UiStopCount: Int
+  UsageImportUsageCount: Int
+  FileDownloadFileCount: Int
+  FileZuoraImportCount: Int
+  LogicLiquidCount: Int
+  DataAquaCount: Int
+  WorkflowCount: Int
+  FileFileOperationsCount: Int
+  ExecuteWorkflowTaskCount: Int
+  ApiEndpoints: String
+  ApiErrors: String
+  EmailBounces: Int
+  EmailComplaints: Int
+  IsDeleted: Boolean
+  BillingReverseInvoiceCount: Int
+}
+
+type workflow_task_usageConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [workflow_task_usageEdge]
+}
+
+type workflow_task_usageEdge {
+  node: workflow_task_usage
+}
+
+input workflow_task_usageFilterInput {
+  field: workflow_task_usageFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [workflow_task_usageFilterInput]
+}
+
+enum workflow_task_usageFilterKey {
+  Id
+  IsDeleted
+}
+
+input workflow_task_usageSortInput {
+  field: workflow_task_usageSortKey
+  order: Order
+}
+
+enum workflow_task_usageSortKey {
+  Id
+  IsDeleted
+}
+
+type workflow_taskConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [workflow_taskEdge]
+}
+
+type workflow_taskEdge {
+  node: workflow_task
+}
+
+input workflow_taskFilterInput {
+  field: workflow_taskFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [workflow_taskFilterInput]
+}
+
+enum workflow_taskFilterKey {
+  Id
+  ActionType
+  TaskId
+  OriginalTaskId
+  WorkflowId
+  OriginalWorkflowId
+  Status
+  Error
+  StartTime
+  EndTime
+  CreatedDate
+  UpdatedDate
+  IterateRowReference
+  ErrorClass
+  Tags
+  PreviousTasks
+  Assignment
+  DataSize
+  RestartAt
+  UpdatedById
+  CreatedById
+  IsDeleted
+  RateLimitCount
+}
+
+input workflow_taskSortInput {
+  field: workflow_taskSortKey
+  order: Order
+}
+
+enum workflow_taskSortKey {
+  Id
+  ActionType
+  TaskId
+  OriginalTaskId
+  WorkflowId
+  OriginalWorkflowId
+  Status
+  Error
+  StartTime
+  EndTime
+  CreatedDate
+  UpdatedDate
+  IterateRowReference
+  ErrorClass
+  Tags
+  PreviousTasks
+  Assignment
+  DataSize
+  RestartAt
+  UpdatedById
+  CreatedById
+  IsDeleted
+  RateLimitCount
+}
+
+type workflowConnection implements multipleObjects {
+  pageInfo: PageInfo
+  edges: [workflowEdge]
+}
+
+type workflowEdge {
+  node: workflow
+}
+
+input workflowFilterInput {
+  field: workflowFilterKey
+  operator: Operator
+  value: String
+  relation: Relation
+  conditions: [workflowFilterInput]
+}
+
+enum workflowFilterKey {
+  Id
+  Name
+  OriginalWorkflowId
+  Type
+  CreatedDate
+  Status
+  FinishedAt
+  LastRun
+  InstanceExecutionCount
+  CallType
+  TasksCount
+  UpdatedById
+  CreatedById
+  IsDeleted
+  ExternalTrackId
+}
+
+input workflowSortInput {
+  field: workflowSortKey
+  order: Order
+}
+
+enum workflowSortKey {
+  Id
+  Name
+  OriginalWorkflowId
+  Type
+  CreatedDate
+  Status
+  FinishedAt
+  LastRun
+  InstanceExecutionCount
+  CallType
+  TasksCount
+  UpdatedById
+  CreatedById
+  IsDeleted
+  ExternalTrackId
+}

@@ -1,0 +1,4 @@
+mock-server/
+
+src/table/**
+src/details/**

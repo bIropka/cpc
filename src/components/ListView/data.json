@@ -1,0 +1,72 @@
+{
+  "data": {
+    "accounts": {
+      "edges": [
+        {
+          "node": {
+            "Id": "2c92c8fe6c741aef016c78e9eb6d12f4",
+            "Name": "3M",
+            "Balance": 0.0,
+            "Currency": "USD",
+            "Mrr": 1200.0,
+            "LastInvoiceDate": null,
+            "Status": "Active",
+            "Parent": {
+              "Name": null,
+              "Id": null
+            },
+            "BillTo": {
+              "FirstName": "Carolus",
+              "LastName": "Mowday"
+            },
+            "PaymentTerm": "Net 30"
+          }
+        },
+        {
+          "node": {
+            "Id": "2c92c8fe6c741aef016c78e98ca60d3a",
+            "Name": "Bendigo & Adelaide Bank",
+            "Balance": 0.0,
+            "Currency": "USD",
+            "Mrr": 1000.0,
+            "LastInvoiceDate": null,
+            "Status": "Active",
+            "Parent": {
+              "Name": null,
+              "Id": null
+            },
+            "BillTo": {
+              "FirstName": "Grady",
+              "LastName": "Wornum"
+            },
+            "PaymentTerm": "Net 30"
+          }
+        },
+        {
+          "node": {
+            "Id": "2c92c8fe6c741aef016c78e98c950d39",
+            "Name": "Goodman Group",
+            "Balance": 0.0,
+            "Currency": "USD",
+            "Mrr": 1000.0,
+            "LastInvoiceDate": null,
+            "Status": "Active",
+            "Parent": {
+              "Name": null,
+              "Id": null
+            },
+            "BillTo": {
+              "FirstName": "Bordy",
+              "LastName": "Veryan"
+            },
+            "PaymentTerm": "Net 30"
+          }
+        }
+      ],
+      "pageInfo": {
+        "endCursor": "W3sib3JkZXJCeSI6eyJmaWVsZCI6IlVwZGF0ZWREYXRlIiwib3JkZXIiOiJERVNDIn0sInZhbHVlIjoiMjAxOS0wOC0wOVQxNzo0NTo1Ny0wNzowMCJ9LHsib3JkZXJCeSI6eyJmaWVsZCI6IklkIiwib3JkZXIiOiJERVNDIn0sInZhbHVlIjoiMmM5MmM4ZmU2Yzc0MWFlZjAxNmM3OGVhMjc2YTE2ZDIifV0=",
+        "hasNextPage": true
+      }
+    }
+  }
+}

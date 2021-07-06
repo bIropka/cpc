@@ -1,0 +1,74 @@
+{
+  "id": "customerAccountsListView",
+  "titleKey": "customerAccountsListView",
+  "sourceName": "accounts",
+  "filter": {},
+  "orderBy": {
+    "field": "_accountSortKey",
+    "order": "ASC/DESC"
+  },
+  "pageSize": 100,
+  "cursor": 0,
+  "tableActions": [
+    {
+      "actionName": "generateInvoice",
+      "labelKey": "generateInvoice",
+      "mutation": "generateInvoice",
+      "mutationVariables": {}
+    }
+  ],
+  "rowActions": [
+    {
+      "actionType": "deleteRow",
+      "mutation": "deleteRow",
+      "mutationVariables": {}
+    }
+  ],
+  "columnProperties": [
+    {
+      "id": "billTo",
+      "labelKey": "billTo",
+      "type": "TEXT", 
+      "sourceNames": ["billTo.firstName", "billTo.lastName"]
+    },
+    {
+      "id": "accountBalance",
+      "type": "MONEY",
+      "sourceNames": ["balance"]
+    },
+    {
+      "id": "accountStatus",
+      "type": "CHIP",
+      "modelDataSource": ["status"],
+      "specialProps": {
+        "enumColorMap": {
+          "active": "success",
+          "default": "primary"
+        }
+      }
+    },
+    {
+      "id": "customerName",
+      "type": "LINK",
+      "modelDataSource": ["customerName", "recordId"],
+      "specialProps": {
+        "linkPath": "`/apps/CustomerAccount.do?method=view&id=${recordId}`"
+      }
+    },
+    {
+      "id": "subscriptionCurrent",
+      "type": "TERM",
+      "modelDataSource": ["currentTermPeriodType", "currentTerm", "termType"],
+      "specialProps": {}
+    },
+    {
+      "id": "sumBalanceWithTax",
+      "type": "CALC",
+      "modelDataSource": ["balance", "tax"],
+      "specialProps": {
+        "subType": "MONEY",
+        "operationMane": "SUM"
+      }
+    }
+  ]
+}
