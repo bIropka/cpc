@@ -1,25 +1,31 @@
 import { useQuery } from '@apollo/client';
-import { Chip } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
+import Chip from '@material-ui/core/Chip';
 import IconButton from '@material-ui/core/IconButton';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-import { DataGrid, GridCellParams } from '@material-ui/data-grid';
+import {
+  DataGrid,
+  GridCellParams,
+  GridPageChangeParams,
+  GridValueGetterParams
+} from '@material-ui/data-grid';
 import AddIcon from '@material-ui/icons/Add';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import DeleteIcon from '@material-ui/icons/Delete';
+import qs from 'query-string';
 import React from 'react';
-import { useTranslation, withTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { Link, useHistory } from 'react-router-dom';
 
 import { Accounts, AccountsVariables } from '../../generated/Accounts';
 import { GET_ACCOUNTS } from '../../queries';
 
-import './ListView.css';
 import config from './config.json';
 import { useListViewStyles, headerStyles } from './ListView.styles';
 import { mapSourcesToObject, getRowValue } from './ListView.utils';
+import './ListView.css';
 
 const formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -45,16 +51,26 @@ const getCellValue = (col: any, row: any, t: any): any => {
   };
 };
 
-const pageSize = 14;
+type Props = {
+  page?: number;
+  pageSize?: number;
+  cursor?: string;
+};
 
-const ListView: React.FC = () => {
-  const { t, i18n } = useTranslation();
+const ListView: React.FC<Props> = ({
+  page,
+  pageSize = config.pageSize,
+  cursor
+}) => {
   const cx = useListViewStyles();
+
+  const history = useHistory();
+  const { t, i18n } = useTranslation();
 
   const { loading, data, fetchMore } = useQuery<Accounts, AccountsVariables>(
     GET_ACCOUNTS,
     {
-      variables: { pageSize }
+      variables: { pageSize, cursor }
     }
   );
 
@@ -71,7 +87,7 @@ const ListView: React.FC = () => {
         headerName: t((col.labelKey || col.id) as string),
         flex: 1,
         sortable: true,
-        valueGetter: (params: any) =>
+        valueGetter: (params: GridValueGetterParams) =>
           getCellValue(col, params.row, t)[col.type],
         renderCell: (params: GridCellParams) =>
           renderCell(col, params.row, t)[col.type]
@@ -80,7 +96,6 @@ const ListView: React.FC = () => {
         field: 'actions',
         headerName: ' ',
         sortable: false,
-        // eslint-disable-next-line react/display-name
         renderCell: () => (
           <IconButton aria-label="delete">
             <DeleteIcon />
@@ -103,9 +118,29 @@ const ListView: React.FC = () => {
   }, [nodes, i18n.language]);
 
   /**
-   * Cange language
+   * Change language
    */
   const handleChange = (e: any) => i18n.changeLanguage(e.target.value);
+
+  const handlePageChange = React.useCallback(
+    (param: GridPageChangeParams) => {
+      fetchMore({
+        variables: {
+          pageSize: param.pageSize,
+          cursor: pageInfo?.endCursor
+        }
+      });
+
+      history.push({
+        search: qs.stringify({
+          pageSize,
+          cursor: pageInfo?.endCursor,
+          ...(!!param.page && { page: param.page })
+        })
+      });
+    },
+    [pageSize, pageInfo?.endCursor]
+  );
 
   return (
     <div className="list-view-wrapper">
@@ -124,10 +159,12 @@ const ListView: React.FC = () => {
               <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
             </svg>
           </Avatar>
+
           <span className="header-info-block__header-title">
             {t('customerAccounts')}
           </span>
         </div>
+
         <div className="list-view-header__functional-block header-functional-block">
           <Button
             variant="outlined"
@@ -137,6 +174,7 @@ const ListView: React.FC = () => {
           >
             {t('importAccounts')}
           </Button>
+
           <Button
             variant="contained"
             color="primary"
@@ -146,6 +184,7 @@ const ListView: React.FC = () => {
           >
             {t('createNewAccount')}
           </Button>
+
           <Select
             className="header-functional-block__dropdown"
             value={localStorage.getItem('i18nextLng')}
@@ -156,29 +195,25 @@ const ListView: React.FC = () => {
           </Select>
         </div>
       </div>
+
       <div className="list-view-wrapper__list-view list-view">
         <DataGrid
           classes={{ root: cx.root }}
           columns={columns}
           rows={rows || []}
           loading={loading}
+          rowCount={1000}
+          page={page || 0}
+          pageSize={pageSize}
+          rowsPerPageOptions={[]}
           autoHeight
           disableColumnMenu={true}
           paginationMode="server"
-          rowCount={1000}
-          pageSize={pageSize}
-          onPageChange={() =>
-            fetchMore({
-              variables: {
-                cursor: pageInfo?.endCursor
-              }
-            })
-          }
+          onPageChange={handlePageChange}
         />
       </div>
     </div>
   );
 };
 
-// export default withTranslation()(ListView);
 export default ListView;
