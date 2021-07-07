@@ -1,10 +1,16 @@
 import { makeStyles } from '@material-ui/core';
 
-const useListViewStyles = makeStyles({
-  root: {
-    maxWidth: 1280,
-    margin: '50px auto'
-  }
-});
+const listViewStyles = {
+  maxWidth: 1280,
+  margin: '10px auto'
+};
 
-export default useListViewStyles;
+export const headerStyles = {
+  ...listViewStyles,
+  marginTop: 0,
+  marginBottom: 0
+};
+
+export const useListViewStyles = makeStyles({
+  root: listViewStyles
+});

@@ -1,0 +1,15 @@
+{
+  "billTo": "Плательщик",
+  "accountBalance": "Баланс аккаунта (USD)",
+  "accountStatus": "Статус",
+  "customerName": "Имя клиента",
+  "subscriptionCurrent": "Родительская компания",
+  "sumBalanceWithTax": "Баланс аккаунта (с учетом налогов)",
+  "active": "Активно",
+  "disabled": "Отключено",
+  "importAccounts": "Импортировать аккаунты",
+  "createNewAccount": "Создать новый аккаунт",
+  "english": "English",
+  "russian": "Русский",
+  "customerAccounts": "Записи пользователей"
+}

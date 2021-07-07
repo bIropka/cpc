@@ -1,0 +1,15 @@
+{
+  "billTo": "Bill to",
+  "accountBalance": "Account balance (USD)",
+  "accountStatus": "Status",
+  "customerName": "Customer name",
+  "subscriptionCurrent": "Parent company",
+  "sumBalanceWithTax": "Account balance (with tax)",
+  "active": "Active",
+  "disabled": "Disabled",
+  "importAccounts": "Import accounts",
+  "createNewAccount": "Create new account",
+  "english": "English",
+  "russian": "Русский",
+  "customerAccounts": "Customer accounts"
+}
