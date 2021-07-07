@@ -4,7 +4,11 @@ import {ContactListItem} from "./details-data";
 import {SvgIcon} from "@material-ui/core";
 import DetailsCellLabel from './DetailsCellLabel';
 
-const DetailsCell = (props: { title: string, value: string | string[], list?: Array<ContactListItem> }) => {
+const DetailsCell = (props: {}) => {
+
+};
+
+/*const DetailsCell = (props: { title: string, value: string | string[], list?: Array<ContactListItem> }) => {
 
     const renderValue = (val: string | string[]) => {
         if (typeof val === "string") {
@@ -34,13 +38,12 @@ const DetailsCell = (props: { title: string, value: string | string[], list?: Ar
     return (
         <div className={'details-cell'}>
           <DetailsCellLabel text={props.title} />
-
             <>
                 {renderValue(props.value)}
             </>
             {props.list && renderList(props.list)}
         </div>
     )
-}
+}*/
 
 export default DetailsCell;
