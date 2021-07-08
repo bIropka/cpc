@@ -2,6 +2,12 @@ import {Email, Phone} from '@material-ui/icons';
 import {OverridableComponent} from "@material-ui/core/OverridableComponent";
 import {SvgIconTypeMap} from "@material-ui/core";
 
+export enum Content {
+    label,
+    text,
+    link
+}
+
 export interface Detail {
     id: number,
     accountNumber: string,
@@ -15,10 +21,12 @@ export interface Detail {
     unappliedPaymentAmount: number,
     contractedMrr: number,
     totalDebitMemoBalance: number,
-    unappliedCreditMemoBalance: number,
+    unappliedCreditMemoAmount: number,
     todaysMrr: number,
     creditBalance: number,
     lastInvoiced: string,
+    contact_1_name: string,
+    contact_2_name: string,
     contact_1: Contact,
     contact_2: Contact
     address_1: Address,
@@ -27,31 +35,56 @@ export interface Detail {
     sector: string,
     salesChannel: string,
     salesFranchise: string,
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
+    vertical?: string,
+    businessDivisions?: string,
+    territory?: string,
+    seUseCase?: string,
     accountProfile: string,
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
+    accountStructure?: string,
+    inCollections?: string,
+    segment?: string,
+    corporateRegion?: string,
     customerName: string,
     parentCompany: string,
     billTo: string,
     accountBalance: number,
-    lastInvoice: string,
     status: string,
+    sales: string,
+    salesUrl: string,
+    customerService: string,
+    customerServiceUrl: string,
+    collections: string,
+    collectionsUrl: string,
+    notes: string
+}
+
+export interface DetailSection {
+    id: number,
+    top: boolean,
+    columns: number,
+    cell: Cell[]
+}
+
+export interface Cell {
+    id: number,
+    content: CellContent[]
+}
+
+export interface CellContent {
+    type: Content,
+    text?: string,
+    url?: string,
+    icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">>
 }
 
 interface Contact {
-    name: string;
     list: Array<ContactListItem>
 }
 
 export interface ContactListItem {
-    icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>,
-    text: string,
+    type: Content,
+    icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">>,
+    text?: string,
     url?: string
 }
 
@@ -70,19 +103,21 @@ export const details: Detail[] = [{
     unappliedPaymentAmount: 0,
     contractedMrr: 6830,
     totalDebitMemoBalance: 0,
-    unappliedCreditMemoBalance: 0,
+    unappliedCreditMemoAmount: 0,
     todaysMrr: 6340,
     creditBalance: 0,
     lastInvoiced: '04/21/2020',
+    contact_1_name: 'Inigo Montoya',
     contact_1: {
-        name: 'Inigo Montoya',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
@@ -94,15 +129,17 @@ export const details: Detail[] = [{
         'USA',
     ],
     soldTo: 'Same as Bill to',
+    contact_2_name: 'Count Rugen',
     contact_2: {
-        name: 'Count Rugen',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
@@ -116,21 +153,19 @@ export const details: Detail[] = [{
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'ACME Industries, Inc.',
     parentCompany: '-',
     billTo: 'Richard Castle',
     accountBalance: 102455002,
-    lastInvoice: '04/21/2020',
     status: 'CONFIRMED',
+    sales: 'Jovier Esposito',
+    salesUrl: 'https://google.com',
+    customerService: 'Victoria Gates',
+    customerServiceUrl: 'https://google.com',
+    collections: 'Katherine Bekket',
+    collectionsUrl: 'https://google.com',
+    notes: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'
 }, {
     id: 2,
     accountNumber: 'A00013278',
@@ -144,67 +179,69 @@ export const details: Detail[] = [{
     unappliedPaymentAmount: 0,
     contractedMrr: 6830,
     totalDebitMemoBalance: 0,
-    unappliedCreditMemoBalance: 0,
+    unappliedCreditMemoAmount: 0,
     todaysMrr: 6340,
     creditBalance: 0,
     lastInvoiced: '04/21/2020',
+    contact_1_name: 'Inigo Montoya',
     contact_1: {
-        name: 'Inigo Montoya',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
         ],
     },
     address_1: [
-        '404333xZc Wild Coyote Dr.',
+        '404304 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
     soldTo: 'Same as Bill to',
+    contact_2_name: 'Count Rugen',
     contact_2: {
-        name: 'Count Rugen',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
         ],
     },
     address_2: [
-        '404 Wild Coyote Dr.',
+        '404233 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'Windy City Coffee and Tea - North Side',
     parentCompany: 'Windy City Coffee and Tea - Central Chicago',
     billTo: 'Kathryn Janeway',
     accountBalance: 102455002,
-    lastInvoice: '04/21/2020',
     status: 'CONFIRMED',
+    sales: 'Jovier Esposito',
+    salesUrl: 'https://google.com',
+    customerService: 'Victoria Gates',
+    customerServiceUrl: 'https://google.com',
+    collections: 'Katherine Bekket',
+    collectionsUrl: 'https://google.com',
+    notes: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'
 }, {
     id: 3,
     accountNumber: 'A00013277',
@@ -218,67 +255,69 @@ export const details: Detail[] = [{
     unappliedPaymentAmount: 0,
     contractedMrr: 6830,
     totalDebitMemoBalance: 0,
-    unappliedCreditMemoBalance: 0,
+    unappliedCreditMemoAmount: 0,
     todaysMrr: 6340,
     creditBalance: 0,
     lastInvoiced: '04/21/2020',
+    contact_1_name: 'Inigo Montoya',
     contact_1: {
-        name: 'Inigo Montoya',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
         ],
     },
     address_1: [
-        '404 Wild Coyote Dr.',
+        '404304 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
     soldTo: 'Same as Bill to',
+    contact_2_name: 'Count Rugen',
     contact_2: {
-        name: 'Count Rugen',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
         ],
     },
     address_2: [
-        '404 Wild Coyote Dr.',
+        '404233 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'Windy City Coffee and Tea - North Side',
     parentCompany: 'Windy City Coffee and Tea - Central Chicago',
     billTo: 'Kathryn Janeway',
     accountBalance: 102455002,
-    lastInvoice: '04/21/2020',
     status: 'CONFIRMED',
+    sales: 'Jovier Esposito',
+    salesUrl: 'https://google.com',
+    customerService: 'Victoria Gates',
+    customerServiceUrl: 'https://google.com',
+    collections: 'Katherine Bekket',
+    collectionsUrl: 'https://google.com',
+    notes: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'
 }, {
     id: 4,
     accountNumber: 'A00013276',
@@ -292,67 +331,69 @@ export const details: Detail[] = [{
     unappliedPaymentAmount: 0,
     contractedMrr: 6830,
     totalDebitMemoBalance: 0,
-    unappliedCreditMemoBalance: 0,
+    unappliedCreditMemoAmount: 0,
     todaysMrr: 6340,
     creditBalance: 0,
     lastInvoiced: '04/21/2020',
+    contact_1_name: 'Inigo Montoya',
     contact_1: {
-        name: 'Inigo Montoya',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
         ],
     },
     address_1: [
-        '404 Wild Coyote Dr.',
+        '404304 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
     soldTo: 'Same as Bill to',
+    contact_2_name: 'Count Rugen',
     contact_2: {
-        name: 'Count Rugen',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
         ],
     },
     address_2: [
-        '404 Wild Coyote Dr.',
+        '404233 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'Windy City Coffee and Tea - North Side',
     parentCompany: 'Windy City Coffee and Tea - Central Chicago',
     billTo: 'Kathryn Janeway',
     accountBalance: 102455002,
-    lastInvoice: '04/21/2020',
     status: 'CONFIRMED',
+    sales: 'Jovier Esposito',
+    salesUrl: 'https://google.com',
+    customerService: 'Victoria Gates',
+    customerServiceUrl: 'https://google.com',
+    collections: 'Katherine Bekket',
+    collectionsUrl: 'https://google.com',
+    notes: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'
 }, {
     id: 5,
     accountNumber: 'A00013275',
@@ -366,67 +407,69 @@ export const details: Detail[] = [{
     unappliedPaymentAmount: 0,
     contractedMrr: 6830,
     totalDebitMemoBalance: 0,
-    unappliedCreditMemoBalance: 0,
+    unappliedCreditMemoAmount: 0,
     todaysMrr: 6340,
     creditBalance: 0,
     lastInvoiced: '04/21/2020',
+    contact_1_name: 'Inigo Montoya',
     contact_1: {
-        name: 'Inigo Montoya',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
         ],
     },
     address_1: [
-        '404 Wild Coyote Dr.',
+        '404304 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
     soldTo: 'Same as Bill to',
+    contact_2_name: 'Count Rugen',
     contact_2: {
-        name: 'Count Rugen',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
         ],
     },
     address_2: [
-        '404 Wild Coyote Dr.',
+        '404233 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'Windy City Coffee and Tea - North Side',
     parentCompany: 'Windy City Coffee and Tea - Central Chicago',
     billTo: 'Kathryn Janeway',
     accountBalance: 102455002,
-    lastInvoice: '04/21/2020',
     status: 'CONFIRMED',
+    sales: 'Jovier Esposito',
+    salesUrl: 'https://google.com',
+    customerService: 'Victoria Gates',
+    customerServiceUrl: 'https://google.com',
+    collections: 'Katherine Bekket',
+    collectionsUrl: 'https://google.com',
+    notes: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'
 }, {
     id: 6,
     accountNumber: 'A00013274',
@@ -440,67 +483,69 @@ export const details: Detail[] = [{
     unappliedPaymentAmount: 0,
     contractedMrr: 6830,
     totalDebitMemoBalance: 0,
-    unappliedCreditMemoBalance: 0,
+    unappliedCreditMemoAmount: 0,
     todaysMrr: 6340,
     creditBalance: 0,
     lastInvoiced: '04/21/2020',
+    contact_1_name: 'Inigo Montoya',
     contact_1: {
-        name: 'Inigo Montoya',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
         ],
     },
     address_1: [
-        '404 Wild Coyote Dr.',
+        '404304 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
     soldTo: 'Same as Bill to',
+    contact_2_name: 'Count Rugen',
     contact_2: {
-        name: 'Count Rugen',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
         ],
     },
     address_2: [
-        '404 Wild Coyote Dr.',
+        '404233 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'Windy City Coffee and Tea - North Side',
     parentCompany: 'Windy City Coffee and Tea - Central Chicago',
     billTo: 'Kathryn Janeway',
     accountBalance: 102455002,
-    lastInvoice: '04/21/2020',
     status: 'CONFIRMED',
+    sales: 'Jovier Esposito',
+    salesUrl: 'https://google.com',
+    customerService: 'Victoria Gates',
+    customerServiceUrl: 'https://google.com',
+    collections: 'Katherine Bekket',
+    collectionsUrl: 'https://google.com',
+    notes: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'
 }, {
     id: 7,
     accountNumber: 'A00013273',
@@ -514,67 +559,69 @@ export const details: Detail[] = [{
     unappliedPaymentAmount: 0,
     contractedMrr: 6830,
     totalDebitMemoBalance: 0,
-    unappliedCreditMemoBalance: 0,
+    unappliedCreditMemoAmount: 0,
     todaysMrr: 6340,
     creditBalance: 0,
     lastInvoiced: '04/21/2020',
+    contact_1_name: 'Inigo Montoya',
     contact_1: {
-        name: 'Inigo Montoya',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
         ],
     },
     address_1: [
-        '404 Wild Coyote Dr.',
+        '404304 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
     soldTo: 'Same as Bill to',
+    contact_2_name: 'Count Rugen',
     contact_2: {
-        name: 'Count Rugen',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
         ],
     },
     address_2: [
-        '404 Wild Coyote Dr.',
+        '404233 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'Windy City Coffee and Tea - North Side',
     parentCompany: 'Windy City Coffee and Tea - Central Chicago',
     billTo: 'Kathryn Janeway',
     accountBalance: 102455002,
-    lastInvoice: '04/21/2020',
     status: 'CONFIRMED',
+    sales: 'Jovier Esposito',
+    salesUrl: 'https://google.com',
+    customerService: 'Victoria Gates',
+    customerServiceUrl: 'https://google.com',
+    collections: 'Katherine Bekket',
+    collectionsUrl: 'https://google.com',
+    notes: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'
 }, {
     id: 8,
     accountNumber: 'A00013272',
@@ -588,67 +635,69 @@ export const details: Detail[] = [{
     unappliedPaymentAmount: 0,
     contractedMrr: 6830,
     totalDebitMemoBalance: 0,
-    unappliedCreditMemoBalance: 0,
+    unappliedCreditMemoAmount: 0,
     todaysMrr: 6340,
     creditBalance: 0,
     lastInvoiced: '04/21/2020',
+    contact_1_name: 'Inigo Montoya',
     contact_1: {
-        name: 'Inigo Montoya',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
         ],
     },
     address_1: [
-        '404 Wild Coyote Dr.',
+        '404304 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
     soldTo: 'Same as Bill to',
+    contact_2_name: 'Count Rugen',
     contact_2: {
-        name: 'Count Rugen',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
         ],
     },
     address_2: [
-        '404 Wild Coyote Dr.',
+        '404233 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'Windy City Coffee and Tea - North Side',
     parentCompany: 'Windy City Coffee and Tea - Central Chicago',
     billTo: 'Kathryn Janeway',
     accountBalance: 102455002,
-    lastInvoice: '04/21/2020',
     status: 'CONFIRMED',
+    sales: 'Jovier Esposito',
+    salesUrl: 'https://google.com',
+    customerService: 'Victoria Gates',
+    customerServiceUrl: 'https://google.com',
+    collections: 'Katherine Bekket',
+    collectionsUrl: 'https://google.com',
+    notes: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'
 }, {
     id: 9,
     accountNumber: 'A00013271',
@@ -662,67 +711,69 @@ export const details: Detail[] = [{
     unappliedPaymentAmount: 0,
     contractedMrr: 6830,
     totalDebitMemoBalance: 0,
-    unappliedCreditMemoBalance: 0,
+    unappliedCreditMemoAmount: 0,
     todaysMrr: 6340,
     creditBalance: 0,
     lastInvoiced: '04/21/2020',
+    contact_1_name: 'Inigo Montoya',
     contact_1: {
-        name: 'Inigo Montoya',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
         ],
     },
     address_1: [
-        '404 Wild Coyote Dr.',
+        '404304 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
     soldTo: 'Same as Bill to',
+    contact_2_name: 'Count Rugen',
     contact_2: {
-        name: 'Count Rugen',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
         ],
     },
     address_2: [
-        '404 Wild Coyote Dr.',
+        '404233 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'Windy City Coffee and Tea - North Side',
     parentCompany: 'Windy City Coffee and Tea - Central Chicago',
     billTo: 'Kathryn Janeway',
     accountBalance: 102455002,
-    lastInvoice: '04/21/2020',
     status: 'CONFIRMED',
+    sales: 'Jovier Esposito',
+    salesUrl: 'https://google.com',
+    customerService: 'Victoria Gates',
+    customerServiceUrl: 'https://google.com',
+    collections: 'Katherine Bekket',
+    collectionsUrl: 'https://google.com',
+    notes: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'
 }, {
     id: 10,
     accountNumber: 'A00013270',
@@ -736,65 +787,67 @@ export const details: Detail[] = [{
     unappliedPaymentAmount: 0,
     contractedMrr: 6830,
     totalDebitMemoBalance: 0,
-    unappliedCreditMemoBalance: 0,
+    unappliedCreditMemoAmount: 0,
     todaysMrr: 6340,
     creditBalance: 0,
     lastInvoiced: '04/21/2020',
+    contact_1_name: 'Inigo Montoya',
     contact_1: {
-        name: 'Inigo Montoya',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
         ],
     },
     address_1: [
-        '404 Wild Coyote Dr.',
+        '404304 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
     soldTo: 'Same as Bill to',
+    contact_2_name: 'Count Rugen',
     contact_2: {
-        name: 'Count Rugen',
         list: [
             {
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
         ],
     },
     address_2: [
-        '404 Wild Coyote Dr.',
+        '404233 Wild Coyote Dr.',
         'Polo Alto, CA 94304',
         'USA',
     ],
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'Windy City Coffee and Tea - North Side',
     parentCompany: 'Windy City Coffee and Tea - Central Chicago',
     billTo: 'Kathryn Janeway',
     accountBalance: 102455002,
-    lastInvoice: '04/21/2020',
     status: 'CONFIRMED',
+    sales: 'Jovier Esposito',
+    salesUrl: 'https://google.com',
+    customerService: 'Victoria Gates',
+    customerServiceUrl: 'https://google.com',
+    collections: 'Katherine Bekket',
+    collectionsUrl: 'https://google.com',
+    notes: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'
 }];

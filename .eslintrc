@@ -12,7 +12,12 @@
     "jest": true
   },
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "quotes": ["error", "single"],
     "indent": ["error", 2, { "SwitchCase": 1 }],
 
@@ -39,5 +44,5 @@
       "version": "detect"
     }
   },
-  "parser": "@typescript-eslint/parser",
+  "parser": "@typescript-eslint/parser"
 }

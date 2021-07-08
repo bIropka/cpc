@@ -1,16 +1,12 @@
 .details-wrapper {
-    height: fit-content;
-    margin: 50px;
     width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    border: solid gray 1px;
-    background-color: snow;
+    height: fit-content;
+    padding: 20px 20px 20px 15%;
 }
 .details {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    width: 100%;
+    width: 85%;
+    background-color: snow;
+    border: solid gray 1px;
 }
 .details-cell {
     padding: 20px;
@@ -21,8 +17,8 @@
 }
 
 .details-contacts {
-    margin-top: 5px;
     display: flex;
+    margin-top: 5px;
 }
 
 .details-contacts-text {
