@@ -1,12 +1,20 @@
 import React from 'react';
 import './Details.css';
 import { Cell, CellContent, Content } from './details-data';
-import { Grid } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 import DetailsCellLabel from './DetailsCellLabel';
 import DetailsCellText from './DetailsCellText';
 import DetailsCellLink from './DetailsCellLink';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    margin: '10px 0'
+  }
+}));
+
 const DetailsCell = (props: { cell: Cell }) => {
+
+  const classes = useStyles();
 
   const renderLabel = (data: CellContent, index: number) => {
      return <DetailsCellLabel key={index} text={data.text} />
@@ -34,7 +42,8 @@ const DetailsCell = (props: { cell: Cell }) => {
   const content = props.cell.content.map((item, index) => renderContentItem(item, index));
 
   return (
-    <Grid container direction="column">
+    <Grid container direction="column"
+          className={classes.root}>
       { content }
     </Grid>
   );

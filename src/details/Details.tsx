@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   headerColumn: {
     width: 'auto',
-    padding: '10px 20px'
+    padding: '10px 20px 10px 10px'
   },
   headerButtonBack: {
     margin: '0px 20px 0px 0px',
@@ -41,17 +41,18 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 500
   },
   accordion: {
+    margin: '16px 0 0',
     backgroundColor: '#fff',
     width: '100%'
   },
   accordionHeader: {
-    padding: '5px 0 0'
+    margin: '-5px 0'
   },
   accordionBody: {
     padding: '0 16px 16px'
   },
   pencilIcon: {
-    margin: 12
+    margin: '18px 12px 12px'
   }
 }));
 
@@ -258,7 +259,7 @@ const Details = (props: { id: number }) => {
             },
             {
               type: Content.link,
-              text: 'add new contact',
+              text: 'Add New Contact',
               url: 'https://google.com'
             }
           ]
@@ -350,7 +351,7 @@ const Details = (props: { id: number }) => {
             },
             {
               type: Content.link,
-              text: 'add new contact',
+              text: 'View Hierarchy',
               url: 'https://google.com'
             }
           ]
@@ -574,7 +575,7 @@ const Details = (props: { id: number }) => {
     {
       id: 5,
       top: false,
-      columns: 2,
+      columns: 1,
       cell: [
         {
           id: 1,
@@ -632,8 +633,9 @@ const Details = (props: { id: number }) => {
         <Accordion className={classes.accordion}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
+            className={classes.accordionHeader}
             id='general-header'>
-            <Grid container className={classes.accordionHeader}>
+            <Grid container>
               <Grid item xs={12} sm={3}>
                 <DetailsCell cell={accauntData[0]} />
               </Grid>
