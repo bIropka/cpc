@@ -1,4 +1,4 @@
-### Start sever  ###
+### Start server  ###
 `docker-compose up -d`
 
 ### Stop server ###

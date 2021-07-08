@@ -5,7 +5,7 @@ import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: '0 0 5px'
+    margin: '2px 0 2px'
   },
   link: {
     fontSize: 12,
