@@ -23,8 +23,8 @@ import { Accounts, AccountsVariables } from '../../generated/Accounts';
 import { GET_ACCOUNTS } from '../../queries';
 
 import config from './config.json';
-import { useListViewStyles, headerStyles } from './ListView.styles';
 import { mapSourcesToObject, getRowValue } from './ListView.utils';
+import ListViewToolbar from './ListViewToolbar';
 import './ListView.css';
 
 const formatter = new Intl.NumberFormat('en-US', {
@@ -62,8 +62,6 @@ const ListView: React.FC<Props> = ({
   pageSize = config.pageSize,
   cursor
 }) => {
-  const cx = useListViewStyles();
-
   const history = useHistory();
   const { t, i18n } = useTranslation();
 
@@ -144,10 +142,7 @@ const ListView: React.FC<Props> = ({
 
   return (
     <div className="list-view-wrapper">
-      <div
-        className="list-view-wrapper__list-view-header list-view-header"
-        style={headerStyles}
-      >
+      <div className="list-view-wrapper__list-view-header list-view-header">
         <div className="list-view-header__info-block header-info-block">
           <Avatar>
             <svg
@@ -197,8 +192,9 @@ const ListView: React.FC<Props> = ({
       </div>
 
       <div className="list-view-wrapper__list-view list-view">
+        <ListViewToolbar />
+
         <DataGrid
-          classes={{ root: cx.root }}
           columns={columns}
           rows={rows || []}
           loading={loading}
