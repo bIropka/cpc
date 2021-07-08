@@ -1,49 +1,43 @@
-import React from "react";
+import React from 'react';
 import './Details.css';
-import {ContactListItem} from "./details-data";
-import {SvgIcon} from "@material-ui/core";
+import { Cell, CellContent, Content } from './details-data';
+import { Grid } from '@material-ui/core';
 import DetailsCellLabel from './DetailsCellLabel';
+import DetailsCellText from './DetailsCellText';
+import DetailsCellLink from './DetailsCellLink';
 
-const DetailsCell = (props: {}) => {
+const DetailsCell = (props: { cell: Cell }) => {
 
+  const renderLabel = (data: CellContent, index: number) => {
+     return <DetailsCellLabel key={index} text={data.text} />
+  }
+
+  const renderText = (data: CellContent, index: number) => {
+    return <DetailsCellText key={index} text={data.text} icon={data.icon} />
+  }
+
+  const renderLink = (data: CellContent, index: number) => {
+    return <DetailsCellLink key={index} text={data.text} url={data.url} icon={data.icon} />
+  }
+
+  const renderContentItem = (data: CellContent, index: number) => {
+    switch(data.type) {
+      case Content.label:
+        return renderLabel(data, index);
+      case Content.text:
+        return renderText(data, index);
+      case Content.link:
+        return renderLink(data, index);
+    }
+  }
+
+  const content = props.cell.content.map((item, index) => renderContentItem(item, index));
+
+  return (
+    <Grid container direction="column">
+      { content }
+    </Grid>
+  );
 };
-
-/*const DetailsCell = (props: { title: string, value: string | string[], list?: Array<ContactListItem> }) => {
-
-    const renderValue = (val: string | string[]) => {
-        if (typeof val === "string") {
-            return <div>{val}</div>
-        } else {
-            return val.map(item => <div>{item}</div>)
-        }
-    }
-
-    const renderList = (list: Array<ContactListItem>) => {
-        return (
-            <div>
-                {list.map((listItem: ContactListItem) => {
-                    return (
-                        <div className={'details-contacts'}>
-                            <SvgIcon component={listItem.icon}/>
-                            {listItem.url
-                                ? <a className={'details-contacts-link'} href={listItem.url}>{listItem.text}</a>
-                                : <div className={'details-contacts-text'}>{listItem.text}</div>
-                            }
-                        </div>)
-                })}
-            </div>
-        )
-    }
-
-    return (
-        <div className={'details-cell'}>
-          <DetailsCellLabel text={props.title} />
-            <>
-                {renderValue(props.value)}
-            </>
-            {props.list && renderList(props.list)}
-        </div>
-    )
-}*/
 
 export default DetailsCell;

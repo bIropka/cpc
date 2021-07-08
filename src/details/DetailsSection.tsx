@@ -1,33 +1,26 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import DetailsCell from './DetailsCell';
-import { Detail } from './details-data';
+import { DetailSection } from './details-data';
 
-const DetailsSection = (props: { data: Detail}) => {
+const DetailsSection = (props: { data: DetailSection}) => {
+
+  const cells = props.data.cell.slice(1).map(cellData => {
+    return (
+      <Grid key={cellData.id} item xs={12} md={6} lg={4}>
+        <DetailsCell cell={cellData} />
+      </Grid>
+    );
+  });
+
   return (
     <Grid container>
       <Grid item xs={12} sm={6} md={4} lg={3}>
-        <DetailsCell title={'Contact Information'} value={'Add new contact'} />
+        <DetailsCell cell={props.data.cell[0]} />
       </Grid>
       <Grid item xs={12} sm={6} md={8} lg={9}>
         <Grid container>
-          <Grid item xs={12} md={6} lg={4}>
-            <DetailsCell title={'CONTACT # 1 / BILL TO'}
-                         value={props.data.contact_1.name}
-                         list={props.data.contact_1.list} />
-          </Grid>
-          <Grid item xs={12} md={6} lg={4}>
-            <DetailsCell title={'ADDRESS'} value={props.data.address_1} />
-          </Grid>
-          <Grid item xs={12} md={6} lg={4}>
-            <DetailsCell title={'SOLD TO'} value={props.data.soldTo} />
-          </Grid>
-          <Grid item xs={12} md={6} lg={4}>
-            <DetailsCell title={'CONTACT # 2'} value={props.data.contact_2.name} list={props.data.contact_2.list} />
-          </Grid>
-          <Grid item xs={12} md={6} lg={4}>
-            <DetailsCell title={'ADDRESS'} value={props.data.address_2} />
-          </Grid>
+          {cells}
         </Grid>
       </Grid>
     </Grid>

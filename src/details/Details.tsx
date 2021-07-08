@@ -1,22 +1,14 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
-import {
-  Button,
-  Badge,
-  Grid,
-  makeStyles,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails
-} from '@material-ui/core';
+import { Accordion, AccordionDetails, AccordionSummary, Badge, Button, Grid, makeStyles } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import DetailsCellLabel from './DetailsCellLabel';
 
-import { Detail, details, DetailSection } from './details-data';
+import { Content, Detail, details, DetailSection } from './details-data';
 import './Details.css';
 import DetailsSection from './DetailsSection';
 
@@ -62,109 +54,118 @@ const Details = (props: { id: number }) => {
       columns: 4,
       cell: [
         {
+          id: 1,
           content: [
             {
-              type: 'LABEL',
-              text: `account number`
+              type: Content.label,
+              text: `account balance`
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: `$${data.accountBalance} USD`
             }
           ]
         },
         {
+          id: 2,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'total invoice balance'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: `$${data.totalInvoiceBalance}`
             }
           ]
         },
         {
+          id: 3,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'unapplied payment amount'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: `$${data.unappliedPaymentAmount}`
             }
           ]
         },
         {
+          id: 4,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'contracted mrr'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: `$${data.contractedMrr}`
             }
           ]
         },
         {
+          id: 5,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'total debit memo balance'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: `$${data.totalDebitMemoBalance}`
             }
           ]
         },
         {
+          id: 6,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'unapplied credit memo amount'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: `$${data.unappliedCreditMemoAmount}`
             }
           ]
         },
         {
+          id: 7,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'today`s mrr'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: `$${data.todaysMrr}`
             }
           ]
         },
         {
+          id: 8,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'credit balance'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: `$${data.creditBalance}`
             }
           ]
         },
         {
+          id: 9,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'last invoiced'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: `$${data.lastInvoiced}`
             }
           ]
@@ -177,79 +178,85 @@ const Details = (props: { id: number }) => {
       columns: 4,
       cell: [
         {
+          id: 1,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: `contact information`
             },
             {
-              type: 'LINK',
+              type: Content.link,
               text: 'add new contact',
               url: 'https://google.com'
             }
           ]
         },
         {
+          id: 2,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'contact #1 / bill to'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: data.contact_1_name
             },
             ...data.contact_1.list
           ]
         },
         {
+          id: 3,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'address'
             },
             ...data.address_1.map(item => {
               return {
-                type: 'TEXT',
+                type: Content.text,
                 text: item
               }
             })
           ]
         },
         {
+          id: 4,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'sold to'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: data.soldTo
             }
           ]
         },
         {
+          id: 5,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'contact #2'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: data.contact_2_name
             },
             ...data.contact_2.list
           ]
         },
         {
+          id: 6,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'address'
             },
             ...data.address_1.map(item => {
               return {
-                type: 'TEXT',
+                type: Content.text,
                 text: item
               }
             })
@@ -263,158 +270,171 @@ const Details = (props: { id: number }) => {
       columns: 4,
       cell: [
         {
+          id: 1,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'company details'
             },
             {
-              type: 'LINK',
+              type: Content.link,
               text: 'add new contact',
               url: 'https://google.com'
             }
           ]
         },
         {
+          id: 2,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'sector'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: data.sector
             }
           ]
         },
         {
+          id: 3,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'sales channel'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: data.salesChannel
             }
           ]
         },
         {
+          id: 4,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'sales franchise'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: data.salesFranchise
             }
           ]
         },
         {
+          id: 5,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'vertical'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: data.vertical
             }
           ]
         },
         {
+          id: 6,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'business divisions'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: data.businessDivisions
             }
           ]
         },
         {
+          id: 7,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'territory'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: data.territory
             }
           ]
         },
         {
+          id: 8,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'se use case'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: data.seUseCase
             }
           ]
         },
         {
+          id: 9,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'account profile'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: data.accountProfile
             }
           ]
         },
         {
+          id: 10,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'account structure'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: data.accountStructure
             }
           ]
         },
         {
+          id: 11,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'in collections'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: data.inCollections
             }
           ]
         },
         {
+          id: 12,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'segment'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: data.segment
             }
           ]
         },
         {
+          id: 13,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'corporate region'
             },
             {
-              type: 'TEXT',
+              type: Content.text,
               text: data.corporateRegion
             }
           ]
@@ -427,47 +447,51 @@ const Details = (props: { id: number }) => {
       columns: 4,
       cell: [
         {
+          id: 1,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'zuora represetatives'
             }
           ]
         },
         {
+          id: 2,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'sales'
             },
             {
-              type: 'LINK',
+              type: Content.link,
               text: data.sales,
               url: data.salesUrl
             }
           ]
         },
         {
+          id: 3,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'customer service'
             },
             {
-              type: 'LINK',
+              type: Content.link,
               text: data.customerService,
               url: data.customerService
             }
           ]
         },
         {
+          id: 4,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'collections'
             },
             {
-              type: 'LINK',
+              type: Content.link,
               text: data.collections,
               url: data.collectionsUrl
             }
@@ -481,17 +505,19 @@ const Details = (props: { id: number }) => {
       columns: 2,
       cell: [
         {
+          id: 1,
           content: [
             {
-              type: 'LABEL',
+              type: Content.label,
               text: 'notes'
             }
           ]
         },
         {
+          id: 2,
           content: [
             {
-              type: 'text',
+              type: Content.text,
               text: data.notes
             }
           ]
@@ -499,6 +525,9 @@ const Details = (props: { id: number }) => {
       ]
     }
   ];
+  const sections = sectionsData.map(data => {
+    return <DetailsSection key={data.id} data={data} />;
+  });
   return (
     <Grid container className={classes.root}>
       <Grid container className={classes.details}>
@@ -523,7 +552,9 @@ const Details = (props: { id: number }) => {
             expandIcon={<ExpandMoreIcon />}
             id='general-header'>Hello</AccordionSummary>
           <AccordionDetails>
-            <DetailsSection data={sectionsData} />
+            <Grid container direction="column">
+              {sections}
+            </Grid>
           </AccordionDetails>
         </Accordion>
       </Grid>

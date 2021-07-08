@@ -11,10 +11,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const DetailsCellLabel = (props: { text: string }) => {
+const DetailsCellLabel = (props: { text: string | undefined }) => {
   const classes = useStyles();
+  const { text } = { ...props };
   return (
-    <span className={classes.title}>{props.text}</span>
+    <span className={classes.title}>{typeof text === 'undefined' ? '' : text}</span>
   );
 };
 export default DetailsCellLabel;

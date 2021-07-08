@@ -2,6 +2,12 @@ import {Email, Phone} from '@material-ui/icons';
 import {OverridableComponent} from "@material-ui/core/OverridableComponent";
 import {SvgIconTypeMap} from "@material-ui/core";
 
+export enum Content {
+    label,
+    text,
+    link
+}
+
 export interface Detail {
     id: number,
     accountNumber: string,
@@ -29,15 +35,15 @@ export interface Detail {
     sector: string,
     salesChannel: string,
     salesFranchise: string,
-    vertical: string | null,
-    businessDivisions: string | null,
-    territory: string | null,
-    seUseCase: string | null,
+    vertical?: string,
+    businessDivisions?: string,
+    territory?: string,
+    seUseCase?: string,
     accountProfile: string,
-    accountStructure: string | null,
-    inCollections: string | null,
-    segment: string | null,
-    corporateRegion: string | null,
+    accountStructure?: string,
+    inCollections?: string,
+    segment?: string,
+    corporateRegion?: string,
     customerName: string,
     parentCompany: string,
     billTo: string,
@@ -56,14 +62,19 @@ export interface DetailSection {
     id: number,
     top: boolean,
     columns: number,
-    cell: {
-        content: {
-            type: string,
-            text?: string | null,
-            url?: string | null,
-            icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">> | null
-        }[]
-    }[]
+    cell: Cell[]
+}
+
+export interface Cell {
+    id: number,
+    content: CellContent[]
+}
+
+export interface CellContent {
+    type: Content,
+    text?: string,
+    url?: string,
+    icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">>
 }
 
 interface Contact {
@@ -71,7 +82,7 @@ interface Contact {
 }
 
 export interface ContactListItem {
-    type: string,
+    type: Content,
     icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">>,
     text?: string,
     url?: string
@@ -100,13 +111,13 @@ export const details: Detail[] = [{
     contact_1: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
@@ -122,13 +133,13 @@ export const details: Detail[] = [{
     contact_2: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
@@ -142,15 +153,7 @@ export const details: Detail[] = [{
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'ACME Industries, Inc.',
     parentCompany: '-',
     billTo: 'Richard Castle',
@@ -184,13 +187,13 @@ export const details: Detail[] = [{
     contact_1: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
@@ -206,13 +209,13 @@ export const details: Detail[] = [{
     contact_2: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
@@ -226,15 +229,7 @@ export const details: Detail[] = [{
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'Windy City Coffee and Tea - North Side',
     parentCompany: 'Windy City Coffee and Tea - Central Chicago',
     billTo: 'Kathryn Janeway',
@@ -268,13 +263,13 @@ export const details: Detail[] = [{
     contact_1: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
@@ -290,13 +285,13 @@ export const details: Detail[] = [{
     contact_2: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
@@ -310,15 +305,7 @@ export const details: Detail[] = [{
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'Windy City Coffee and Tea - North Side',
     parentCompany: 'Windy City Coffee and Tea - Central Chicago',
     billTo: 'Kathryn Janeway',
@@ -352,13 +339,13 @@ export const details: Detail[] = [{
     contact_1: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
@@ -374,13 +361,13 @@ export const details: Detail[] = [{
     contact_2: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
@@ -394,15 +381,7 @@ export const details: Detail[] = [{
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'Windy City Coffee and Tea - North Side',
     parentCompany: 'Windy City Coffee and Tea - Central Chicago',
     billTo: 'Kathryn Janeway',
@@ -436,13 +415,13 @@ export const details: Detail[] = [{
     contact_1: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
@@ -458,13 +437,13 @@ export const details: Detail[] = [{
     contact_2: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
@@ -478,15 +457,7 @@ export const details: Detail[] = [{
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'Windy City Coffee and Tea - North Side',
     parentCompany: 'Windy City Coffee and Tea - Central Chicago',
     billTo: 'Kathryn Janeway',
@@ -520,13 +491,13 @@ export const details: Detail[] = [{
     contact_1: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
@@ -542,13 +513,13 @@ export const details: Detail[] = [{
     contact_2: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
@@ -562,15 +533,7 @@ export const details: Detail[] = [{
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'Windy City Coffee and Tea - North Side',
     parentCompany: 'Windy City Coffee and Tea - Central Chicago',
     billTo: 'Kathryn Janeway',
@@ -604,13 +567,13 @@ export const details: Detail[] = [{
     contact_1: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
@@ -626,13 +589,13 @@ export const details: Detail[] = [{
     contact_2: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
@@ -646,15 +609,7 @@ export const details: Detail[] = [{
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'Windy City Coffee and Tea - North Side',
     parentCompany: 'Windy City Coffee and Tea - Central Chicago',
     billTo: 'Kathryn Janeway',
@@ -688,13 +643,13 @@ export const details: Detail[] = [{
     contact_1: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
@@ -710,13 +665,13 @@ export const details: Detail[] = [{
     contact_2: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
@@ -730,15 +685,7 @@ export const details: Detail[] = [{
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'Windy City Coffee and Tea - North Side',
     parentCompany: 'Windy City Coffee and Tea - Central Chicago',
     billTo: 'Kathryn Janeway',
@@ -772,13 +719,13 @@ export const details: Detail[] = [{
     contact_1: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
@@ -794,13 +741,13 @@ export const details: Detail[] = [{
     contact_2: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
@@ -814,15 +761,7 @@ export const details: Detail[] = [{
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'Windy City Coffee and Tea - North Side',
     parentCompany: 'Windy City Coffee and Tea - Central Chicago',
     billTo: 'Kathryn Janeway',
@@ -856,13 +795,13 @@ export const details: Detail[] = [{
     contact_1: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'imontoyo@acmeinc.com',
                 url: 'mailto:imontoyo@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5319',
             }
@@ -878,13 +817,13 @@ export const details: Detail[] = [{
     contact_2: {
         list: [
             {
-                type: 'LINK',
+                type: Content.link,
                 icon: Email,
                 text: 'crugen@acmeinc.com',
                 url: 'mailto:crugen@acmeinc.com',
             },
             {
-                type: 'LINK',
+                type: Content.text,
                 icon: Phone,
                 text: '1(408)867-5309',
             }
@@ -898,15 +837,7 @@ export const details: Detail[] = [{
     sector: 'Manufacturing',
     salesChannel: 'Direct',
     salesFranchise: 'Enterprise-Americas',
-    vertical: null,
-    businessDivisions: null,
-    territory: null,
-    seUseCase: null,
     accountProfile: 'Large',
-    accountStructure: null,
-    inCollections: null,
-    segment: null,
-    corporateRegion: null,
     customerName: 'Windy City Coffee and Tea - North Side',
     parentCompany: 'Windy City Coffee and Tea - Central Chicago',
     billTo: 'Kathryn Janeway',
