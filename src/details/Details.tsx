@@ -5,12 +5,14 @@ import { Accordion, AccordionDetails, AccordionSummary, Badge, Button, Grid, mak
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import CreateIcon from '@material-ui/icons/Create';
 
 import DetailsCellLabel from './DetailsCellLabel';
 
-import { Content, Detail, details, DetailSection } from './details-data';
+import { Cell, Content, Detail, details, DetailSection } from './details-data';
 import './Details.css';
 import DetailsSection from './DetailsSection';
+import DetailsCell from './DetailsCell';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,17 +43,87 @@ const useStyles = makeStyles((theme) => ({
   accordion: {
     backgroundColor: '#fff',
     width: '100%'
+  },
+  accordionHeader: {
+    padding: '5px 0 0'
+  },
+  accordionBody: {
+    padding: '0 16px 16px'
+  },
+  pencilIcon: {
+    margin: 12
   }
 }));
 
 const Details = (props: { id: number }) => {
+
   const classes = useStyles();
+
   const data: Detail = useMemo(() => details[props.id - 1], [props.id]);
+
+  const accauntData: Cell[] = [
+    {
+      id: 1,
+      content: [
+        {
+          type: Content.label,
+          text: 'account number'
+        },
+        {
+          type: Content.text,
+          text: data.accountNumber
+        }
+      ]
+    },
+    {
+      id: 2,
+      content: [
+        {
+          type: Content.label,
+          text: 'crm account id'
+        },
+        {
+          type: Content.link,
+          text: data.crmAccountId,
+          url: data.crmAccountURL
+        }
+      ]
+    },
+    {
+      id: 3,
+      content: [
+        {
+          type: Content.label,
+          text: 'created by'
+        },
+        {
+          type: Content.link,
+          text: data.createdBy,
+          url: data.createdByURL
+        }
+      ]
+    },
+    {
+      id: 4,
+      content: [
+        {
+          type: Content.label,
+          text: 'key contact'
+        },
+        {
+          type: Content.link,
+          text: data.keyContact,
+          url: data.keyContactURL
+        }
+      ]
+    }
+  ];
+
   const sectionsData: DetailSection[] = [
     {
       id: 1,
       top: true,
-      columns: 4,
+      columns: 3,
       cell: [
         {
           id: 1,
@@ -175,7 +247,7 @@ const Details = (props: { id: number }) => {
     {
       id: 2,
       top: false,
-      columns: 4,
+      columns: 3,
       cell: [
         {
           id: 1,
@@ -267,7 +339,7 @@ const Details = (props: { id: number }) => {
     {
       id: 3,
       top: false,
-      columns: 4,
+      columns: 3,
       cell: [
         {
           id: 1,
@@ -444,7 +516,7 @@ const Details = (props: { id: number }) => {
     {
       id: 4,
       top: false,
-      columns: 4,
+      columns: 3,
       cell: [
         {
           id: 1,
@@ -525,9 +597,19 @@ const Details = (props: { id: number }) => {
       ]
     }
   ];
+
+  const accordionHeader = accauntData.slice(1).map((data, index) => {
+    return (
+      <Grid key={data.id} item xs={4}>
+        <DetailsCell cell={data} />
+      </Grid>
+    );
+  });
+
   const sections = sectionsData.map(data => {
     return <DetailsSection key={data.id} data={data} />;
   });
+
   return (
     <Grid container className={classes.root}>
       <Grid container className={classes.details}>
@@ -550,8 +632,20 @@ const Details = (props: { id: number }) => {
         <Accordion className={classes.accordion}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
-            id='general-header'>Hello</AccordionSummary>
-          <AccordionDetails>
+            id='general-header'>
+            <Grid container className={classes.accordionHeader}>
+              <Grid item xs={12} sm={3}>
+                <DetailsCell cell={accauntData[0]} />
+              </Grid>
+              <Grid item xs={12} sm={9}>
+                <Grid container>
+                  { accordionHeader }
+                </Grid>
+              </Grid>
+            </Grid>
+            <CreateIcon className={classes.pencilIcon} />
+          </AccordionSummary>
+          <AccordionDetails className={classes.accordionBody}>
             <Grid container direction="column">
               {sections}
             </Grid>
