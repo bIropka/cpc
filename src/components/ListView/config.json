@@ -14,7 +14,8 @@
       "actionName": "generateInvoice",
       "labelKey": "generateInvoice",
       "mutation": "generateInvoice",
-      "mutationVariables": {}
+      "mutationVariables": {},
+      "component": "button"
     }
   ],
   "rowActions": [

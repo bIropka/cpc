@@ -9,3 +9,15 @@ export function mapSourcesToObject(
     ?.map((source) => objectGet(object, source.split('.').map(capitalize)))
     .join(' ');
 }
+
+export function getRowValue(
+  object: { [key: string]: any },
+  sources: string[]
+): string {
+  if (!sources) {
+    return '';
+  }
+
+  const result = objectGet(object, sources.map(capitalize));
+  return result && result.toLowerCase();
+}

@@ -1,0 +1,45 @@
+.list-view-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  max-width: 1280px;
+  margin: 10px auto;
+}
+
+.list-view-header {
+  width: 100%;
+  display: flex;
+  padding-top: 10px;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.header-functional-block,
+.header-info-block {
+  display: flex;
+}
+
+.header-info-block__header-title {
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
+.header-functional-block__button-spacing {
+  margin: 0 10px !important;
+  box-sizing: border-box;
+}
+
+.header-functional-block__dropdown {
+  width: 100px;
+}
+
+.list-view {
+  width: 100%;
+  height: 100%;
+}
