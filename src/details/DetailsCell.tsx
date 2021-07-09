@@ -1,5 +1,4 @@
 import React from 'react';
-import './Details.css';
 import { Cell, CellContent, Content } from './details-data';
 import { Grid, makeStyles } from '@material-ui/core';
 import DetailsCellLabel from './DetailsCellLabel';

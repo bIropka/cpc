@@ -10,7 +10,6 @@ import CreateIcon from '@material-ui/icons/Create';
 import DetailsCellLabel from './DetailsCellLabel';
 
 import { Cell, Content, Detail, details, DetailSection } from './details-data';
-import './Details.css';
 import DetailsSection from './DetailsSection';
 import DetailsCell from './DetailsCell';
 
